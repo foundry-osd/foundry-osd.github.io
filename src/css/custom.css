@@ -1,0 +1,74 @@
+:root {
+  --ifm-color-primary: #0064d2;
+  --ifm-color-primary-dark: #0059bc;
+  --ifm-color-primary-darker: #0054b1;
+  --ifm-color-primary-darkest: #004592;
+  --ifm-color-primary-light: #0f74ec;
+  --ifm-color-primary-lighter: #257ff0;
+  --ifm-color-primary-lightest: #4f99f3;
+  --ifm-background-color: #f6f9fc;
+  --ifm-code-font-size: 92%;
+  --ifm-font-family-base: 'Segoe UI Variable Text', 'Segoe UI', 'Noto Sans',
+    sans-serif;
+  --ifm-heading-font-family: 'Segoe UI Variable Display', 'Segoe UI',
+    sans-serif;
+  --ifm-navbar-background-color: rgba(246, 249, 252, 0.92);
+  --ifm-navbar-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
+  --ifm-footer-background-color: #0f172a;
+  --foundry-ink: #0f172a;
+  --foundry-muted-ink: #334155;
+  --foundry-accent: #0f74ec;
+  --foundry-accent-strong: #0059bc;
+  --foundry-surface: #ffffff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='light'] .navbar {
+  backdrop-filter: blur(14px);
+}
+
+[data-theme='light'] .navbar__link--active {
+  font-weight: 700;
+}
+
+[data-theme='light'] .footer {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+[data-theme='light'] .theme-doc-markdown header + p,
+[data-theme='light'] .theme-doc-markdown p,
+[data-theme='light'] .markdown p {
+  color: var(--foundry-muted-ink);
+}
+
+[data-theme='light'] .markdown table {
+  background: var(--foundry-surface);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #6eb7ff;
+  --ifm-color-primary-dark: #4ca6ff;
+  --ifm-color-primary-darker: #3a9eff;
+  --ifm-color-primary-darkest: #0f84f7;
+  --ifm-color-primary-light: #90c8ff;
+  --ifm-color-primary-lighter: #a2d0ff;
+  --ifm-color-primary-lightest: #c5e3ff;
+  --ifm-background-color: #09111f;
+  --ifm-navbar-background-color: rgba(9, 17, 31, 0.9);
+  --foundry-ink: #e2e8f0;
+  --foundry-muted-ink: #cbd5e1;
+  --foundry-surface: #0f172a;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.button.button--primary,
+.button.button--secondary {
+  border-radius: 999px;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  letter-spacing: -0.03em;
+}

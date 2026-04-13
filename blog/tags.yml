@@ -1,0 +1,11 @@
+docs:
+  label: Docs
+  permalink: /docs-tag
+
+architecture:
+  label: Architecture
+  permalink: /architecture-tag
+
+deployment:
+  label: Deployment
+  permalink: /deployment-tag

@@ -1,0 +1,5 @@
+foundry-team:
+  name: Foundry Team
+  title: Foundry maintainers
+  image_url: https://github.com/foundry-osd.png
+  page: true
