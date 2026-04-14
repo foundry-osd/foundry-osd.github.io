@@ -17,7 +17,14 @@ If you want to create deployment media and deploy devices, use the latest releas
 
 For normal usage, start with the latest release from the main repository:
 
-- Releases: `https://github.com/foundry-osd/foundry/releases`
+| Architecture | Installer | Download |
+| --- | --- | --- |
+| x64 | `Foundry-x64.exe` | [Download latest x64](https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-x64.exe) |
+| ARM64 | `Foundry-arm64.exe` | [Download latest ARM64](https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-arm64.exe) |
+
+:::tip[Need release notes or checksums?]
+Use [Latest release](https://github.com/foundry-osd/foundry/releases/latest) for the current notes and asset hashes, or browse [all releases](https://github.com/foundry-osd/foundry/releases).
+:::
 
 If your goal is to create boot media and deploy devices, use the release build first. Source builds belong in the developer section.
 
