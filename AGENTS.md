@@ -12,6 +12,12 @@ Repository scope:
 - Treat it as a documentation site first, not as an application repository
 - Prefer content, navigation, and documentation structure changes over custom React code unless custom UI is clearly needed
 
+Cleanup rules:
+- After an implementation, check whether replaced content, unused components, obsolete assets, dead configuration, or outdated documentation became unnecessary
+- Remove obsolete files only when they are clearly made redundant by the current change and are within the task scope
+- Do not remove legacy documentation or redirects unless the task explicitly replaces them or the content is confirmed obsolete
+- Keep related docs, navigation, assets, and links consistent when removing obsolete content
+
 Docusaurus / documentation rules:
 - Keep documentation practical, operator-focused, and aligned with current Foundry behavior
 - Maintain `sidebars.ts` when adding, moving, renaming, or removing docs
