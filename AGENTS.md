@@ -39,6 +39,7 @@ Validation rules:
 
 Git rules:
 - Follow Conventional Commits for all commit messages
+- Prefer Conventional Commit scopes when the change has a clear area, for example `docs(foundry): ...`, `fix(nav): ...`, or `chore(deps): ...`
 - Write commit messages in English
 - Keep commits atomic and focused
 - Do not mix unrelated content, styling, dependency, and configuration changes
