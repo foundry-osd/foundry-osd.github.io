@@ -4,7 +4,7 @@ title: Localization
 
 # Localization
 
-Localization settings are authored in `Foundry` and can flow into `Foundry.Deploy`.
+Localization settings are authored in `Foundry OSD` and can flow into `Foundry.Deploy`.
 
 ## Visible languages
 

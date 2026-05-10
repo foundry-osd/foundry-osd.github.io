@@ -2,9 +2,9 @@
 title: Media Creation
 ---
 
-# Media creation in Foundry
+# Media creation in Foundry OSD
 
-`Foundry` is the workstation-side app that creates the deployment media.
+`Foundry OSD` is the workstation-side app that creates the deployment media.
 
 ## Standard settings
 
@@ -52,7 +52,7 @@ Add a capture of the advanced media options pane with the CA2023, partition, for
 
 ## What both modes have in common
 
-Before Foundry creates either output type, it prepares the same WinPE workspace:
+Before Foundry OSD creates either output type, it prepares the same WinPE workspace:
 
 - resolves ADK tooling
 - builds the WinPE workspace
@@ -68,16 +68,16 @@ That shared preparation step is why ISO and USB can carry the same deployment lo
 
 ISO mode is the simpler packaging path:
 
-1. Foundry prepares the WinPE workspace.
-2. Foundry runs `MakeWinPEMedia /ISO` against that prepared workspace.
-3. Foundry writes the final `.iso` artifact to the requested destination.
+1. Foundry OSD prepares the WinPE workspace.
+2. Foundry OSD runs `MakeWinPEMedia /ISO` against that prepared workspace.
+3. Foundry OSD writes the final `.iso` artifact to the requested destination.
 
 For the operator, that means ISO is best when you want a reusable file artifact instead of immediate removable media provisioning.
 
 <details>
 <summary>Deep dive: ISO path handling</summary>
 
-If the workspace path or requested ISO path contains non-ASCII characters, Foundry mirrors the prepared workspace into an ASCII-safe location under `%ProgramData%\Foundry\IsoWorkspace` and uses `%ProgramData%\Foundry\IsoOutputTemp` for the intermediate ISO output before copying the final file back to the requested path.
+If the workspace path or requested ISO path contains non-ASCII characters, Foundry OSD mirrors the prepared workspace into an ASCII-safe location under `%ProgramData%\Foundry\IsoWorkspace` and uses `%ProgramData%\Foundry\IsoOutputTemp` for the intermediate ISO output before copying the final file back to the requested path.
 
 </details>
 
@@ -85,13 +85,13 @@ If the workspace path or requested ISO path contains non-ASCII characters, Found
 
 USB mode is a provisioning workflow, not just a file export:
 
-1. Foundry validates the selected disk identity and confirms it is really a USB target.
-2. Foundry warns the operator that the disk will be erased.
-3. Foundry repartitions the disk.
-4. Foundry formats a `BOOT` partition and a `Foundry Cache` partition.
-5. Foundry copies the prepared WinPE media to the boot partition.
-6. Foundry initializes cache directories for runtime, operating systems, and driver packs.
-7. Foundry preprovisions the `Foundry.Connect` runtime into the cache partition.
+1. Foundry OSD validates the selected disk identity and confirms it is really a USB target.
+2. Foundry OSD warns the operator that the disk will be erased.
+3. Foundry OSD repartitions the disk.
+4. Foundry OSD formats a `BOOT` partition and a `Foundry Cache` partition.
+5. Foundry OSD copies the prepared WinPE media to the boot partition.
+6. Foundry OSD initializes cache directories for runtime, operating systems, and driver packs.
+7. Foundry OSD preprovisions the `Foundry.Connect` runtime into the cache partition.
 
 :::info[Suggested screenshot]
 Add a capture of the final build action area where the operator chooses `Create ISO` or `Create USB`.
@@ -100,12 +100,12 @@ Add a capture of the final build action area where the operator chooses `Create 
 <details>
 <summary>Deep dive: USB partition layout</summary>
 
-Foundry creates:
+Foundry OSD creates:
 
 - a `BOOT` FAT32 partition sized for WinPE boot media
 - a `Foundry Cache` NTFS partition for persistent deployment data
 
-The cache partition is where Foundry initializes:
+The cache partition is where Foundry OSD initializes:
 
 - `Runtime`
 - `OperatingSystem`
@@ -120,7 +120,7 @@ At boot time, `FoundryBootstrap.ps1` looks for the `Foundry Cache` volume first.
 USB mode exposes options that do not apply to ISO mode:
 
 - **Partition style** controls how the USB disk is provisioned.
-- **Format mode** controls whether Foundry uses quick formatting or a full format pass.
+- **Format mode** controls whether Foundry OSD uses quick formatting or a full format pass.
 
 ARM64 USB media is more constrained than x64 media. In practice, ARM64 requires GPT in the validation layer.
 
@@ -137,7 +137,7 @@ Choose ISO when you want:
 
 Choose USB when you want:
 
-- a bootable device prepared directly by Foundry
+- a bootable device prepared directly by Foundry OSD
 - persistent cache-backed deployment media
 - local storage for runtime, operating system, and driver-pack content
 - an operator-ready stick for repeated field use
