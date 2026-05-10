@@ -5,5 +5,23 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "10:00"
     commit-message:
       prefix: "GH Actions"
+
+  # Keep Docusaurus packages aligned
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "10:00"
+    allow:
+      - dependency-name: "@docusaurus/*"
+    groups:
+      docusaurus:
+        patterns:
+          - "@docusaurus/*"
+    commit-message:
+      prefix: "chore(deps)"
