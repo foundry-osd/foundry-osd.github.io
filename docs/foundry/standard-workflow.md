@@ -18,8 +18,8 @@ If your environment does not require advanced preconfiguration, stay in the stan
 
 ## The normal flow
 
-1. Open `Foundry` on the admin workstation.
-2. If Foundry shows the ADK banner, use the built-in `Install ADK` or `Upgrade ADK` action and wait for verification to finish.
+1. Open `Foundry OSD` on the admin workstation.
+2. If Foundry OSD shows the ADK banner, use the built-in `Install ADK` or `Upgrade ADK` action and wait for verification to finish.
 3. Choose the output:
    - ISO
    - USB
@@ -31,7 +31,7 @@ If your environment does not require advanced preconfiguration, stay in the stan
 9. Continue into `Foundry.Deploy` and run the deployment.
 
 :::info[Suggested screenshot]
-Add a capture of the standard `Foundry` workflow before media creation, with output, architecture, language, and driver choices visible.
+Add a capture of the standard `Foundry OSD` workflow before media creation, with output, architecture, language, and driver choices visible.
 :::
 
 ## Stay in standard mode by default
@@ -49,7 +49,7 @@ You only need expert mode when you want to define things such as:
 <details>
 <summary>What standard mode still stages for you</summary>
 
-Even in the standard path, `Foundry` still handles ADK-aware media preparation, builds the WinPE image, and stages the handoff into `Foundry.Connect` and `Foundry.Deploy`.
+Even in the standard path, `Foundry OSD` still handles ADK-aware media preparation, builds the WinPE image, and stages the handoff into `Foundry.Connect` and `Foundry.Deploy`.
 
 </details>
 

@@ -16,15 +16,15 @@ Use expert mode only when you must predefine network, localization, Autopilot, o
 
 ## 1. Prepare the admin workstation
 
-- Install the Windows ADK and WinPE add-on, or let Foundry install or upgrade them from the main window if the ADK banner is shown.
-- Download the latest `Foundry` release.
+- Install the Windows ADK and WinPE add-on, or let Foundry OSD install or upgrade them from the main window if the ADK banner is shown.
+- Download the latest `Foundry OSD` release.
 - Make sure the workstation has internet access.
 
-## 2. Launch Foundry
+## 2. Launch Foundry OSD
 
-Open `Foundry` on the workstation that will build the media.
+Open `Foundry OSD` on the workstation that will build the media.
 
-If Foundry shows an ADK warning banner:
+If Foundry OSD shows an ADK warning banner:
 
 - use `Install ADK` when no compatible ADK is present
 - use `Upgrade ADK` when the installed version is incompatible
@@ -39,7 +39,7 @@ In the main window you can choose:
 - Included WinPE driver vendors
 
 :::info[Suggested screenshot]
-Add a capture of the main `Foundry` window right after launch, with the standard output controls visible.
+Add a capture of the main `Foundry OSD` window right after launch, with the standard output controls visible.
 :::
 
 ## 3. Decide between standard and expert mode
@@ -65,9 +65,9 @@ Choose one of the two output paths:
 | Output | Use it when |
 | --- | --- |
 | **Create ISO** | You want a reusable artifact for VMs, remote media, or later USB writing |
-| **Create USB** | You want Foundry to prepare the bootable device directly, including its cache partition |
+| **Create USB** | You want Foundry OSD to prepare the bootable device directly, including its cache partition |
 
-During this stage, Foundry prepares the WinPE image and stages the runtime assets for `Foundry.Connect` and `Foundry.Deploy`.
+During this stage, Foundry OSD prepares the WinPE image and stages the runtime assets for `Foundry.Connect` and `Foundry.Deploy`.
 
 :::info[Suggested screenshot]
 Add a capture of the output section with both the ISO and USB actions visible.
@@ -118,5 +118,5 @@ Add a capture of the first `Foundry.Deploy` wizard page after catalogs and runti
 - [Download and Requirements](./requirements)
 - [Standard Workflow](../foundry/standard-workflow)
 - [Architecture overview](../architecture/overview)
-- [Media creation in Foundry](../foundry/media-creation)
+- [Media creation in Foundry OSD](../foundry/media-creation)
 - [Network configuration](../configuration/network)

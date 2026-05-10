@@ -4,7 +4,7 @@ title: Network Configuration
 
 # Network configuration
 
-Network settings are authored in `Foundry` and consumed later by `Foundry.Connect`.
+Network settings are authored in `Foundry OSD` and consumed later by `Foundry.Connect`.
 
 :::note[Author once, use later]
 These settings are chosen on the admin workstation, but they only become visible when the target device boots into WinPE.
@@ -89,6 +89,6 @@ Add a capture of the enterprise Wi-Fi settings with the profile template and opt
 
 ## Why this matters to media creation
 
-When connectivity is part of the planned workflow, `Foundry` can prepare a boot image path that supports the network behavior required by `Foundry.Connect`.
+When connectivity is part of the planned workflow, `Foundry OSD` can prepare a boot image path that supports the network behavior required by `Foundry.Connect`.
 
 That is why network settings are authored before the target device ever boots.

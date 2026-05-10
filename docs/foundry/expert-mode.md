@@ -4,7 +4,7 @@ title: Expert Mode
 
 # Expert mode
 
-Expert mode is where `Foundry` becomes a configuration authoring tool instead of just a media builder.
+Expert mode is where `Foundry OSD` becomes a configuration authoring tool instead of just a media builder.
 
 :::note[Do not start here by default]
 Open expert mode when you already know that your deployment flow needs predefined network, localization, Autopilot, or customization behavior.

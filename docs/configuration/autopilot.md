@@ -4,7 +4,7 @@ title: Autopilot
 
 # Autopilot
 
-Autopilot settings are managed in the `Foundry` desktop app and then staged into the media for deployment-time use.
+Autopilot settings are managed in the `Foundry OSD` desktop app and then staged into the media for deployment-time use.
 
 :::tip[Keep only the profiles you actually need]
 The cleaner the profile set is on the workstation side, the easier it is for operators to get the right result during deployment.

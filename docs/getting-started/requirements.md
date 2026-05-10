@@ -19,8 +19,8 @@ For normal usage, start with the latest release from the main repository:
 
 | Architecture | Installer | Download |
 | --- | --- | --- |
-| x64 | `Foundry-win-x64.msi` | [Download latest x64](https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-win-x64.msi) |
-| ARM64 | `Foundry-win-arm64.msi` | [Download latest ARM64](https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-win-arm64.msi) |
+| x64 | `FoundrySetup-x64.msi` | [Download latest x64](https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-x64.msi) |
+| ARM64 | `FoundrySetup-arm64.msi` | [Download latest ARM64](https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-arm64.msi) |
 
 :::tip[Need release notes or checksums?]
 Use [Latest release](https://github.com/foundry-osd/foundry/releases/latest) for the current notes and asset hashes, or browse [all releases](https://github.com/foundry-osd/foundry/releases).
@@ -28,11 +28,19 @@ Use [Latest release](https://github.com/foundry-osd/foundry/releases/latest) for
 
 If your goal is to create boot media and deploy devices, use the release build first. Source builds belong in the developer section.
 
-## Foundry manages the ADK state
+## Installer dependencies
 
-Foundry does not only depend on a preinstalled ADK. The desktop app actively checks whether the required ADK components are installed and compatible before it allows ISO or USB creation.
+The MSI installer bootstraps the desktop runtime dependencies needed by Foundry OSD:
 
-When Foundry detects that the ADK is missing or incompatible:
+- .NET Desktop Runtime
+- Microsoft Edge WebView2 Runtime
+- Microsoft Visual C++ runtime
+
+## Foundry OSD manages the ADK state
+
+Foundry OSD does not only depend on a preinstalled ADK. The desktop app actively checks whether the required ADK components are installed and compatible before it allows ISO or USB creation.
+
+When Foundry OSD detects that the ADK is missing or incompatible:
 
 - it shows a banner in the main window
 - it offers the correct action directly in the UI
@@ -40,9 +48,9 @@ When Foundry detects that the ADK is missing or incompatible:
 
 In practice, that means the normal operator flow is:
 
-1. Open Foundry.
+1. Open Foundry OSD.
 2. Check whether the ADK banner is shown.
-3. Use `Install ADK` or `Upgrade ADK` from inside Foundry if required.
+3. Use `Install ADK` or `Upgrade ADK` from inside Foundry OSD if required.
 4. Wait for the verification step to complete.
 5. Continue with ISO or USB creation.
 
@@ -51,15 +59,15 @@ Foundry targets the Windows 11 24H2 ADK baseline and expects the WinPE add-on fr
 :::
 
 :::info[Suggested screenshot]
-Add a capture of the ADK banner in Foundry, showing the install or upgrade action in the main window.
+Add a capture of the ADK banner in Foundry OSD, showing the install or upgrade action in the main window.
 :::
 
 <details>
-<summary>What Foundry checks behind the scenes</summary>
+<summary>What Foundry OSD checks behind the scenes</summary>
 
-Foundry validates the `KitsRoot10` installation path, checks that both `Deployment Tools` and `Windows Preinstallation Environment` are present, resolves the installed version, and verifies compatibility against the supported 24H2 ADK baseline.
+Foundry OSD validates the `KitsRoot10` installation path, checks that both `Deployment Tools` and `Windows Preinstallation Environment` are present, resolves the installed version, and verifies compatibility against the supported 24H2 ADK baseline.
 
-Foundry also caches the ADK installers under `%ProgramData%\Foundry\Installers`, so download, install, uninstall, and upgrade operations can be managed from the app.
+Foundry OSD also caches the ADK installers under `%ProgramData%\Foundry\Installers`, so download, install, uninstall, and upgrade operations can be managed from the app.
 
 </details>
 
@@ -93,7 +101,7 @@ Catalog-driven driver workflows currently cover:
 
 | Requirement | Why it matters |
 | --- | --- |
-| Windows ADK + WinPE add-on | Required by Foundry to build and customize WinPE-based media |
+| Windows ADK + WinPE add-on | Required by Foundry OSD to build and customize WinPE-based media |
 | Local administrator rights | Needed for ADK management, media creation, and USB provisioning workflows |
 | Internet access | Needed for catalog-backed downloads and runtime validation |
 

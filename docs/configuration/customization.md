@@ -8,7 +8,7 @@ The current customization model is intentionally small and focused.
 
 ## Machine naming
 
-`Foundry` lets you define machine naming behavior before deployment starts.
+`Foundry OSD` lets you define machine naming behavior before deployment starts.
 
 Available controls include:
 
@@ -29,7 +29,7 @@ Add a capture of the machine naming controls with prefix, auto-generation, and m
 
 Machine naming affects the operator experience during deployment, but the preferred behavior is usually decided earlier on the admin workstation.
 
-That makes it a good fit for the expert configuration handoff from `Foundry` to `Foundry.Deploy`.
+That makes it a good fit for the expert configuration handoff from `Foundry OSD` to `Foundry.Deploy`.
 
 ## Recommended approach
 
