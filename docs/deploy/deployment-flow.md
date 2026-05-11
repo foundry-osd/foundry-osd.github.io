@@ -17,75 +17,99 @@ Deployment choices affect the target disk and operating system installation. Rev
 
 Follow the wizard in order:
 
-1. Review runtime context.
-2. Load catalog data.
-3. Select the target disk.
-4. Select the operating system.
-5. Review driver behavior.
-6. Review Autopilot and customization behavior when staged.
-7. Confirm the final deployment summary.
-8. Start deployment.
+1. Target
+2. Operating System Catalog
+3. Driver Pack
+4. Summary
 
-## Runtime context
+If the welcome screen is shown first, select `Start` to open the wizard.
 
-Foundry Deploy starts by resolving the runtime context:
+## Target
 
-- Boot mode
-- Runtime path
-- Available cache locations
-- Staged configuration
-- Staged Autopilot profiles
+Use the `Target` page to confirm the target machine and deployment options.
 
-This context determines which options can be shown later in the wizard.
+Review or set:
 
-## Catalog data
+- `Computer Name`
+- `Target Disk`
+- `Firmware: Microsoft Update Catalog update enabled.`
+- `Autopilot: Enable offline profile staging.`, when Autopilot profiles are available
+- `Autopilot Profile`, when Autopilot is enabled
 
-Foundry Deploy loads catalog-backed data for:
+The computer name must use 1 to 15 characters. Use letters, numbers, and hyphen only.
 
-- Operating systems
-- Driver packs
-
-The catalog data defines the selectable operating system and driver choices shown to the user.
-
-## Target disk selection
-
-Select the disk that should receive the Windows deployment.
+Select only the disk that should be erased and receive Windows.
 
 ![Foundry Deploy target selection](/img/docs/foundry-deploy/target-selection.png)
 
-## Operating system selection
+## Operating System Catalog
 
-Select the operating system from the catalog-backed list.
+Use the `Operating System Catalog` page to choose the Windows image from the catalog-backed filters.
+
+Review or set:
+
+- `Operating System`, currently fixed to Windows 11
+- `Version`
+- `Language`
+- `License Channel`
+- `Edition (Target)`
+
+The language selector can be locked when Foundry OSD staged a single-language deployment scope.
 
 ![Foundry Deploy operating system catalog](/img/docs/foundry-deploy/operating-system-catalog.png)
 
-## Deployment options
+## Driver Pack
 
-Review the remaining options before execution:
+Use the `Driver Pack` page to choose how drivers are selected for the target device.
 
-- Driver pack strategy
-- Firmware update intent
-- Autopilot profile behavior
-- Language and time zone behavior
-- Machine naming behavior
+Review or set:
 
-Some values can come from expert configuration staged by Foundry OSD. The user should still review the final choices before starting deployment.
+- `Driver Source`
+- `Model`
+- `Version`
+
+The `Model` and `Version` controls are enabled only when the selected driver source exposes those choices.
 
 ![Foundry Deploy driver pack selection](/img/docs/foundry-deploy/driver-pack-selection.png)
 
-## Start deployment
+## Summary
 
-Start deployment only after the final summary matches the intended target state.
+Use the `Summary` page as the final review before execution.
 
-Foundry Deploy then runs the deployment sequence and reports progress, success, or failure.
+Verify:
+
+- Target computer name
+- Target disk
+- Operating system
+- Selected driver pack
+- Firmware setting
+- Autopilot state and profile, when enabled
+
+The `Deploy` command becomes actionable from this page when the required selections are valid.
 
 ![Foundry Deploy deployment summary](/img/docs/foundry-deploy/deployment-summary.png)
 
-The destructive confirmation protects the selected target disk before execution starts.
+## Confirm disk erase
+
+After selecting `Deploy`, Foundry Deploy shows `Confirm Disk Erase`.
+
+Review the disk number, model, bus, size, and selected operating system. Continue only when the disk is the intended target.
 
 ![Foundry Deploy disk erase confirmation](/img/docs/foundry-deploy/confirm-disk-erase.png)
 
-During execution, Foundry Deploy reports the active step and subprogress for operating system and driver pack work.
+If the confirmation is cancelled, deployment does not start.
+
+## Deployment progress
+
+During execution, Foundry Deploy shows:
+
+- Computer name
+- Network details
+- Start time and elapsed time
+- Global progress percentage
+- Current step name
+- Current step progress
+- Step counter
 
 ![Foundry Deploy target validation progress](/img/docs/foundry-deploy/progress-validate-target.png)
 
@@ -98,6 +122,10 @@ During execution, Foundry Deploy reports the active step and subprogress for ope
 ![Foundry Deploy driver pack extraction progress](/img/docs/foundry-deploy/progress-extract-driver-pack.png)
 
 ![Foundry Deploy driver pack application progress](/img/docs/foundry-deploy/progress-apply-driver-pack.png)
+
+## Completion
+
+When deployment completes successfully, Foundry Deploy shows the completion state and offers `Reboot`.
 
 ![Foundry Deploy completion state](/img/docs/foundry-deploy/deployment-complete.png)
 
