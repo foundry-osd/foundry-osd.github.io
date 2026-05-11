@@ -24,9 +24,7 @@ Foundry Connect follows this runtime sequence:
 5. Show the readiness state to the operator.
 6. Continue to Foundry Deploy when the required conditions are met.
 
-:::info[Screenshot placeholder]
-Capture the ready state in Foundry Connect, including the connectivity status and continue countdown if visible.
-:::
+![Foundry Connect network ready state](/img/docs/foundry-connect/network-ready.png)
 
 ## User choices
 
@@ -60,9 +58,7 @@ Use the screen state to determine whether the issue is:
 - Wi-Fi not connected
 - Internet validation failure
 
-:::info[Screenshot placeholder]
-Capture the not-ready state that operators see when connectivity validation fails.
-:::
+![Foundry Connect waiting for network state](/img/docs/foundry-connect/network-waiting.png)
 
 ## Next step
 

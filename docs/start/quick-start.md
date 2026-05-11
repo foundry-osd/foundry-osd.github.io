@@ -83,9 +83,7 @@ In Foundry Deploy, follow the wizard in order:
 5. Review deployment options.
 6. Start deployment.
 
-:::info[Screenshot placeholder]
-Capture the first Foundry Deploy wizard page after runtime context and catalog data are loaded.
-:::
+![Foundry Deploy target selection](/img/docs/foundry-deploy/target-selection.png)
 
 ## Next steps
 

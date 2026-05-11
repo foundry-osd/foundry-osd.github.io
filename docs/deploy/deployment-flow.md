@@ -51,17 +51,13 @@ The catalog data defines the selectable operating system and driver choices show
 
 Select the disk that should receive the Windows deployment.
 
-:::info[Screenshot placeholder]
-Capture the target disk selection page with available disks and the selected target visible.
-:::
+![Foundry Deploy target selection](/img/docs/foundry-deploy/target-selection.png)
 
 ## Operating system selection
 
 Select the operating system from the catalog-backed list.
 
-:::info[Screenshot placeholder]
-Capture the operating system selection page with catalog-backed choices visible.
-:::
+![Foundry Deploy operating system catalog](/img/docs/foundry-deploy/operating-system-catalog.png)
 
 ## Deployment options
 
@@ -75,15 +71,35 @@ Review the remaining options before execution:
 
 Some values can come from expert configuration staged by Foundry OSD. The user should still review the final choices before starting deployment.
 
+![Foundry Deploy driver pack selection](/img/docs/foundry-deploy/driver-pack-selection.png)
+
 ## Start deployment
 
 Start deployment only after the final summary matches the intended target state.
 
 Foundry Deploy then runs the deployment sequence and reports progress, success, or failure.
 
-:::info[Screenshot placeholder]
-Capture the final review or start page before deployment execution begins.
-:::
+![Foundry Deploy deployment summary](/img/docs/foundry-deploy/deployment-summary.png)
+
+The destructive confirmation protects the selected target disk before execution starts.
+
+![Foundry Deploy disk erase confirmation](/img/docs/foundry-deploy/confirm-disk-erase.png)
+
+During execution, Foundry Deploy reports the active step and subprogress for operating system and driver pack work.
+
+![Foundry Deploy target validation progress](/img/docs/foundry-deploy/progress-validate-target.png)
+
+![Foundry Deploy operating system download progress](/img/docs/foundry-deploy/progress-download-operating-system.png)
+
+![Foundry Deploy operating system apply progress](/img/docs/foundry-deploy/progress-apply-operating-system.png)
+
+![Foundry Deploy driver pack download progress](/img/docs/foundry-deploy/progress-download-driver-pack.png)
+
+![Foundry Deploy driver pack extraction progress](/img/docs/foundry-deploy/progress-extract-driver-pack.png)
+
+![Foundry Deploy driver pack application progress](/img/docs/foundry-deploy/progress-apply-driver-pack.png)
+
+![Foundry Deploy completion state](/img/docs/foundry-deploy/deployment-complete.png)
 
 ## Next steps
 
