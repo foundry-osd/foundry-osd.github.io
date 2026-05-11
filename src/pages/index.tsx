@@ -7,9 +7,9 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 const downloadLinks = {
-  x64: 'https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-x64.msi',
+  x64: 'https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-win-x64.msi',
   arm64:
-    'https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-arm64.msi',
+    'https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-win-arm64.msi',
   releases: 'https://github.com/foundry-osd/foundry/releases',
 };
 

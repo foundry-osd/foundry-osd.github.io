@@ -13,8 +13,8 @@ Install the latest release that matches the workstation architecture.
 
 | Architecture | Installer | Download |
 | --- | --- | --- |
-| x64 | `FoundrySetup-x64.msi` | [Download x64](https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-x64.msi) |
-| ARM64 | `FoundrySetup-arm64.msi` | [Download ARM64](https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-arm64.msi) |
+| x64 | `Foundry-win-x64.msi` | [Download x64](https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-win-x64.msi) |
+| ARM64 | `Foundry-win-arm64.msi` | [Download ARM64](https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-win-arm64.msi) |
 
 Use [all releases](https://github.com/foundry-osd/foundry/releases) when you need release notes, checksums, or older builds.
 
