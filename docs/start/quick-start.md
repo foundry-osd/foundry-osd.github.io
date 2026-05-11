@@ -59,7 +59,7 @@ USB creation erases and repartitions the selected target disk. Confirm the selec
 
 Boot the target device from the media.
 
-The runtime sequence is:
+The bootstrap starts the runtime sequence automatically:
 
 1. Foundry Connect
 2. Foundry Deploy
@@ -68,13 +68,13 @@ The runtime sequence is:
 
 Foundry Connect checks whether the WinPE runtime network state is ready.
 
-If networking is ready, continue into Foundry Deploy. If networking is not ready, resolve the network state before deployment starts.
+If networking is ready, allow Foundry Connect to continue. The bootstrap then opens Foundry Deploy. If networking is not ready, resolve the network state before deployment starts.
 
 Read [Network Readiness](../connect/network-readiness) for the runtime behavior.
 
 ## 7. Run deployment
 
-In Foundry Deploy, follow the wizard in order:
+When Foundry Deploy opens, follow the wizard in order:
 
 1. Target
 2. Operating System Catalog

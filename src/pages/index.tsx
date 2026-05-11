@@ -72,7 +72,7 @@ const documentationSections = [
   {
     icon: icons.runtime,
     title: 'WinPE Runtime',
-    text: 'Use Foundry Connect and Foundry Deploy after booting the target device.',
+    text: 'The bootstrap opens Foundry Connect and Foundry Deploy after booting the target device.',
     links: [
       ['Foundry Connect', '/docs/connect/network-readiness'],
       ['Foundry Deploy', '/docs/deploy/deployment-flow'],

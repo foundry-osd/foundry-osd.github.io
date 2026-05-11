@@ -5,7 +5,7 @@ description: Follow the Foundry Deploy wizard sequence and understand the user c
 
 # Deployment flow
 
-Foundry Deploy runs in WinPE after Foundry Connect has validated the runtime network state.
+Foundry Deploy is opened by the WinPE bootstrap after Foundry Connect has validated the runtime network state.
 
 This is the execution phase. The user is no longer authoring media; the user is choosing how the target device will be deployed.
 

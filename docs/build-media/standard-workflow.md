@@ -25,8 +25,8 @@ Use the standard workflow when the deployment does not require predefined networ
 6. Select the WinPE driver vendors to include.
 7. Create the media.
 8. Boot the target device from the media.
-9. Let Foundry Connect validate networking.
-10. Continue into Foundry Deploy and run the deployment.
+9. Let the bootstrap open Foundry Connect and validate networking.
+10. Let the bootstrap open Foundry Deploy, then run the deployment workflow.
 
 ![Foundry OSD standard workflow ready state](/img/docs/foundry-osd/build-summary.png)
 

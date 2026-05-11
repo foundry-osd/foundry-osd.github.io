@@ -23,7 +23,7 @@ This page is reference material. Start with [Quick Start](../start/quick-start) 
 3. Bootstrap launches Foundry Connect.
 4. Foundry Connect validates network readiness.
 5. Bootstrap resolves Foundry Deploy from release assets or an available USB cache.
-6. Foundry Deploy loads catalogs and runs the deployment workflow.
+6. Bootstrap opens Foundry Deploy, which loads catalogs and runs the deployment workflow.
 
 ## Why the split exists
 

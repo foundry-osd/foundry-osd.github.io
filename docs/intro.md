@@ -13,8 +13,8 @@ Most users only need this path:
 1. Install **Foundry OSD** on an admin workstation.
 2. Create ISO or USB deployment media.
 3. Boot the target device.
-4. Validate networking in **Foundry Connect**.
-5. Run deployment in **Foundry Deploy**.
+4. Let the bootstrap open **Foundry Connect** to validate networking.
+5. Let the bootstrap open **Foundry Deploy** and run the deployment workflow.
 
 :::tip[Start here]
 Open [Requirements](./start/requirements) first, then follow [Quick Start](./start/quick-start).

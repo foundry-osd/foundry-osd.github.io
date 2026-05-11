@@ -22,7 +22,7 @@ Foundry Connect follows this runtime sequence:
 3. Refresh the first network snapshot.
 4. Inspect Ethernet and Wi-Fi runtime state.
 5. Validate internet access.
-6. Continue to Foundry Deploy after internet access is validated.
+6. Return success to the bootstrap after internet access is validated.
 
 Use **Tools** > **Refresh Status** when the network state changed and the screen has not refreshed yet.
 
@@ -36,7 +36,7 @@ Foundry Connect shows **Waiting for network** until internet access has been val
 
 If Foundry Connect cannot refresh the network snapshot, the same card shows **Network refresh failed** with the refresh error. Use **Tools** > **Refresh Status** after correcting the underlying network or runtime issue.
 
-Select **Continue** to move to Foundry Deploy immediately. If the countdown completes while the network remains ready, Foundry Connect exits successfully and the bootstrap continues.
+Select **Continue** to return success to the bootstrap immediately. If the countdown completes while the network remains ready, Foundry Connect exits successfully and the bootstrap opens Foundry Deploy.
 
 ![Foundry Connect network ready state](/img/docs/foundry-connect/network-ready.png)
 
@@ -100,4 +100,4 @@ Use the screen state to determine whether the issue is:
 
 ## Next step
 
-After Foundry Connect reports **Network ready**, select **Continue** or let auto-continue move to [Deployment Flow](../deploy/deployment-flow). Closing Foundry Connect before that controlled exit stops the bootstrap flow.
+After Foundry Connect reports **Network ready**, select **Continue** or let auto-continue return success to the bootstrap. The bootstrap then opens [Deployment Flow](../deploy/deployment-flow). Closing Foundry Connect before that controlled exit stops the bootstrap flow.
