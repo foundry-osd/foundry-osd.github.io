@@ -27,9 +27,7 @@ If Foundry OSD shows an ADK banner:
 2. Wait for the verification step to finish.
 3. Continue after the media creation actions become available.
 
-:::info[Screenshot placeholder]
-Capture the Foundry OSD main window after launch, with the ADK state and standard media controls visible.
-:::
+![Foundry OSD home screen](/img/docs/foundry-osd/home-screen.png)
 
 ## 3. Choose media settings
 
@@ -55,9 +53,7 @@ Select the build action that matches the output you need.
 USB creation erases and repartitions the selected target disk. Confirm the selected disk before starting.
 :::
 
-:::info[Screenshot placeholder]
-Capture the output area where `Create ISO` and `Create USB` are visible.
-:::
+![Foundry OSD ready to create media](/img/docs/foundry-osd/build-summary.png)
 
 ## 5. Boot the target device
 

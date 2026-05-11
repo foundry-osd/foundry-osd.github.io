@@ -57,9 +57,7 @@ When the banner appears:
 Use the Windows 11 `24H2` ADK and the Windows PE add-on from the same release.
 :::
 
-:::info[Screenshot placeholder]
-Capture the Foundry OSD main window with the ADK banner visible and the install or upgrade action available.
-:::
+![Foundry OSD requirements ready state](/img/docs/foundry-osd/requirements-ready.png)
 
 ## Deployment scope
 

@@ -17,9 +17,9 @@ Set the standard media options before starting the build:
 - WinPE language
 - WinPE driver vendors
 
-:::info[Screenshot placeholder]
-Capture the standard media creation section with ISO path, USB target, architecture, language, and driver vendor selection visible.
-:::
+![Foundry OSD media output selection](/img/docs/foundry-osd/media-type-selection.png)
+
+![Foundry OSD driver vendor selection](/img/docs/foundry-osd/driver-catalog-selection.png)
 
 ## ISO and USB comparison
 
@@ -56,9 +56,7 @@ ISO creation packages the prepared WinPE workspace into a reusable file.
 4. Start ISO creation.
 5. Wait for the final `.iso` file to be written.
 
-:::info[Screenshot placeholder]
-Capture the ISO output path and ISO creation action in Foundry OSD.
-:::
+![Foundry OSD ISO output path selection](/img/docs/foundry-osd/iso-output-selection.png)
 
 ## Create USB
 
@@ -75,9 +73,17 @@ USB creation provisions the selected disk directly.
 USB creation erases and repartitions the selected disk. Do not continue until the target disk is confirmed.
 :::
 
-:::info[Screenshot placeholder]
-Capture the USB target selection and final USB creation confirmation in Foundry OSD.
-:::
+![Foundry OSD USB target selection](/img/docs/foundry-osd/usb-target-selection.png)
+
+## Build progress
+
+During media creation, Foundry OSD reports progress for runtime downloads and media build steps.
+
+![Foundry OSD runtime payload download progress](/img/docs/foundry-osd/runtime-download-progress.png)
+
+![Foundry OSD media creation progress](/img/docs/foundry-osd/build-progress.png)
+
+![Foundry OSD media creation complete](/img/docs/foundry-osd/build-complete.png)
 
 ## Advanced media options
 

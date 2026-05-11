@@ -28,9 +28,7 @@ Use the standard workflow when the deployment does not require predefined networ
 9. Let Foundry Connect validate networking.
 10. Continue into Foundry Deploy and run the deployment.
 
-:::info[Screenshot placeholder]
-Capture the standard Foundry OSD workflow before media creation, with output, architecture, language, and driver vendor choices visible.
-:::
+![Foundry OSD standard workflow ready state](/img/docs/foundry-osd/build-summary.png)
 
 ## Stay in standard mode by default
 
