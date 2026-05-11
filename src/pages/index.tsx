@@ -40,11 +40,6 @@ function HomepageHeader() {
               <Link className="button button--secondary button--lg" to="/docs/start/quick-start">
                 Quick Start
               </Link>
-              <Link
-                className="button button--secondary button--lg"
-                to="/docs/start/requirements">
-                Requirements
-              </Link>
             </div>
             <Link className={styles.releaseLink} to={downloadLinks.releases}>
               View all releases
