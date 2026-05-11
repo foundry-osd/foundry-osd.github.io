@@ -19,9 +19,9 @@ Foundry Connect follows this runtime sequence:
 
 1. Load the staged network configuration.
 2. Apply provisioned network settings when present.
-3. Inspect Ethernet and Wi-Fi runtime state.
-4. Validate internet access.
-5. Refresh the readiness state on the displayed refresh interval.
+3. Refresh the first network snapshot.
+4. Inspect Ethernet and Wi-Fi runtime state.
+5. Validate internet access.
 6. Continue to Foundry Deploy after internet access is validated.
 
 Use **Tools** > **Refresh Status** when the network state changed and the screen has not refreshed yet.
@@ -32,11 +32,11 @@ The bottom status bar shows the active configuration source, the refresh interva
 
 The top status card is the primary decision point.
 
-Foundry Connect shows **Waiting for network** until internet access has been validated. When validation succeeds, it shows **Network ready**, displays the **Continue** button, and may start an **Auto-continue** countdown.
+Foundry Connect shows **Waiting for network** until internet access has been validated. When validation succeeds, it shows **Network ready**, displays the **Continue** button, and starts an **Auto-continue** countdown in normal runtime.
 
 If Foundry Connect cannot refresh the network snapshot, the same card shows **Network refresh failed** with the refresh error. Use **Tools** > **Refresh Status** after correcting the underlying network or runtime issue.
 
-Select **Continue** to move to Foundry Deploy. In normal runtime, the countdown can continue automatically when the network remains ready.
+Select **Continue** to move to Foundry Deploy immediately. If the countdown completes while the network remains ready, Foundry Connect exits successfully and the bootstrap continues.
 
 ![Foundry Connect network ready state](/img/docs/foundry-connect/network-ready.png)
 
@@ -63,7 +63,7 @@ If Ethernet is expected, verify the cable, adapter presence, IP address, and gat
 
 ## Wi-Fi state
 
-When Wi-Fi support is present in the boot image, Foundry Connect switches to an Ethernet and Wi-Fi layout.
+When Wi-Fi support is provisioned in the boot image and the WinPE Wi-Fi runtime is available, Foundry Connect switches to an Ethernet and Wi-Fi layout.
 
 The **Provisioned Wi-Fi** card is used for Wi-Fi settings staged by Foundry OSD. It shows the profile name, authentication type, connection status, and **Connect** or **Disconnect** actions when a provisioned profile is available.
 
@@ -100,4 +100,4 @@ Use the screen state to determine whether the issue is:
 
 ## Next step
 
-After Foundry Connect reports **Network ready**, select **Continue** or let auto-continue move to [Deployment Flow](../deploy/deployment-flow).
+After Foundry Connect reports **Network ready**, select **Continue** or let auto-continue move to [Deployment Flow](../deploy/deployment-flow). Closing Foundry Connect before that controlled exit stops the bootstrap flow.

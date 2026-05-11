@@ -24,6 +24,8 @@ Follow the wizard in order:
 
 If the welcome screen is shown first, select `Start` to open the wizard.
 
+The wizard enables `Next` and `Deploy` only when the required selections for the current step are valid.
+
 ## Target
 
 Use the `Target` page to confirm the target machine and deployment options.
@@ -36,9 +38,9 @@ Review or set:
 - `Autopilot: Enable offline profile staging.`, when Autopilot profiles are available
 - `Autopilot Profile`, when Autopilot is enabled
 
-The computer name must use 1 to 15 characters. Use letters, numbers, and hyphen only.
+The computer name must use 1 to 15 characters. Use letters, numbers, and hyphen only. If machine naming was staged by Foundry OSD, the field can be pre-filled, auto-generated, or read-only depending on the staged rule.
 
-Select only the disk that should be erased and receive Windows.
+Select only the disk that should be erased and receive Windows. Foundry Deploy blocks disks that are not valid deployment targets.
 
 ![Foundry Deploy target selection](/img/docs/foundry-deploy/target-selection.png)
 
@@ -48,13 +50,13 @@ Use the `Operating System Catalog` page to choose the Windows image from the cat
 
 Review or set:
 
-- `Operating System`, currently fixed to Windows 11
+- `Operating System`
 - `Version`
 - `Language`
 - `License Channel`
 - `Edition (Target)`
 
-The language selector can be locked when Foundry OSD staged a single-language deployment scope.
+The available filter values come from the loaded catalog. The language selector can be limited by staged deployment localization settings.
 
 ![Foundry Deploy operating system catalog](/img/docs/foundry-deploy/operating-system-catalog.png)
 
@@ -69,6 +71,8 @@ Review or set:
 - `Version`
 
 The `Model` and `Version` controls are enabled only when the selected driver source exposes those choices.
+
+OEM driver pack deployment requires a valid model and version selection. Microsoft Update Catalog mode does not require those OEM selections.
 
 ![Foundry Deploy driver pack selection](/img/docs/foundry-deploy/driver-pack-selection.png)
 
@@ -111,6 +115,8 @@ During execution, Foundry Deploy shows:
 - Current step progress
 - Step counter
 
+The deployment pipeline runs ordered steps for validation, cache resolution, disk layout, operating system download and apply, computer naming, recovery configuration, drivers, firmware, Autopilot staging, and final logs. Download steps can be skipped when the required content is already available in cache.
+
 ![Foundry Deploy target validation progress](/img/docs/foundry-deploy/progress-validate-target.png)
 
 ![Foundry Deploy operating system download progress](/img/docs/foundry-deploy/progress-download-operating-system.png)
@@ -125,9 +131,13 @@ During execution, Foundry Deploy shows:
 
 ## Completion
 
-When deployment completes successfully, Foundry Deploy shows the completion state and offers `Reboot`.
+When deployment completes successfully, Foundry Deploy shows the completion state, starts the reboot countdown, and offers `Reboot`.
 
 ![Foundry Deploy completion state](/img/docs/foundry-deploy/deployment-complete.png)
+
+## Failure state
+
+If deployment fails, Foundry Deploy shows the failed step and error message. Use `Open Log` from the runtime menu to inspect the deployment log before retrying.
 
 ## Next steps
 

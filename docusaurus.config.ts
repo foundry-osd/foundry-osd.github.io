@@ -90,11 +90,11 @@ const config: Config = {
           items: [
             {
               label: 'Download x64',
-              href: 'https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-x64.msi',
+              href: 'https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-win-x64.msi',
             },
             {
               label: 'Download ARM64',
-              href: 'https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-arm64.msi',
+              href: 'https://github.com/foundry-osd/foundry/releases/latest/download/Foundry-win-arm64.msi',
             },
             {
               label: 'All releases',

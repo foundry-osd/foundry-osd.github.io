@@ -30,12 +30,8 @@ Choose one of two modes:
 
 Foundry OSD stores the time zone identifier used by the deployment runtime.
 
-## Single-language behavior
-
-Enable single-language behavior when the deployment flow should not expose language choice to the operator.
-
 :::info[Screenshot placeholder]
-Capture the localization section with visible languages, default language, time zone, and single-language controls visible.
+Capture the localization section with visible languages, default language, and time zone controls visible.
 :::
 
 ## Next step

@@ -49,7 +49,7 @@ Even without expert configuration, Foundry OSD still:
 - Checks ADK readiness.
 - Builds the WinPE workspace.
 - Injects selected WinPE drivers.
-- Stages Foundry Connect.
+- Provisions Foundry Connect with the boot image.
 - Prepares the bootstrap path that resolves Foundry Deploy later in WinPE.
 
 ## Next steps

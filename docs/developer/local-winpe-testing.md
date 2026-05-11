@@ -1,5 +1,6 @@
 ---
 title: Debug WinPE Testing
+description: Use debug WinPE provisioning helpers to validate Foundry Connect and Foundry Deploy from local builds.
 ---
 
 # Debug WinPE testing

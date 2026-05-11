@@ -1,5 +1,6 @@
 ---
 title: Build from Source
+description: Build Foundry Project locally for contributor and validation workflows.
 ---
 
 # Build from source

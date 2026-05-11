@@ -29,7 +29,7 @@ Prepare an admin workstation with:
 - Windows 10 or Windows 11
 - Local administrator rights
 - Internet access
-- Windows ADK 11 `24H2`
+- Windows ADK `10.1.26100.2454` or later with the latest servicing patch
 - Windows PE add-on for the same ADK release
 
 Foundry OSD can help install or upgrade the ADK components when they are missing or incompatible.
@@ -54,7 +54,7 @@ When the banner appears:
 4. Continue only after media creation actions are enabled.
 
 :::warning[Match ADK and WinPE versions]
-Use the Windows 11 `24H2` ADK and the Windows PE add-on from the same release.
+Use the Windows ADK and Windows PE add-on from the same release. Foundry OSD expects Windows ADK `10.1.26100.2454` or later.
 :::
 
 ![Foundry OSD requirements ready state](/img/docs/foundry-osd/requirements-ready.png)
@@ -68,12 +68,12 @@ The current deployment scope is centered on Windows 11:
 - Windows 11 `25H2`
 - x64 and ARM64 deployment media
 
-Catalog-backed driver workflows currently cover:
+WinPE driver injection in Foundry OSD currently exposes these media driver vendor options:
 
 - Dell
 - HP
-- Lenovo
-- Microsoft Surface
+
+Deployment-time driver pack choices are loaded later in Foundry Deploy from the current catalog.
 
 ## What each requirement supports
 

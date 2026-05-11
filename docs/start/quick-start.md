@@ -76,12 +76,12 @@ Read [Network Readiness](../connect/network-readiness) for the runtime behavior.
 
 In Foundry Deploy, follow the wizard in order:
 
-1. Review runtime context.
-2. Select the target disk.
-3. Select the operating system.
-4. Review driver behavior.
-5. Review deployment options.
-6. Start deployment.
+1. Target
+2. Operating System Catalog
+3. Driver Pack
+4. Summary
+
+The wizard enables forward movement only when the required selections for the current page are valid.
 
 ![Foundry Deploy target selection](/img/docs/foundry-deploy/target-selection.png)
 

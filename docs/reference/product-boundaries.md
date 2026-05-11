@@ -26,7 +26,7 @@ Use this page when you need to understand which part of Foundry Project owns a b
 
 Foundry OSD can stage runtime inputs for the other apps:
 
-- Foundry Connect runtime and network settings.
+- Foundry Connect provisioning and network settings.
 - Localization, Autopilot, and customization preferences for Foundry Deploy.
 
 ## Next step

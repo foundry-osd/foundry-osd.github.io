@@ -19,7 +19,7 @@ Create media with the standard workflow first unless the deployment environment 
 | --- | --- |
 | General | Media output, architecture, language, WinPE drivers, and advanced media options |
 | Network | Wired 802.1X and Wi-Fi settings for Foundry Connect |
-| Localization | Visible languages, default language, time zone, and single-language behavior |
+| Localization | Visible languages, default language, and time zone |
 | Autopilot | Imported or downloaded Autopilot profiles and the default profile |
 | Customization | Machine naming rules used later in Foundry Deploy |
 

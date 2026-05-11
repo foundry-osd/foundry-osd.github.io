@@ -29,7 +29,7 @@ Set the standard media options before starting the build:
 | Destructive behavior | Non-destructive | Erases and repartitions the selected USB disk |
 | Best fit | VM testing, remote mounting, archival, controlled distribution | Field media, repeated deployments, persistent cache-backed workflows |
 | Runtime storage | ISO-backed runtime path | Persistent `Foundry Cache` partition |
-| Cache directories | No dedicated USB cache partition | Initializes `Runtime`, `OperatingSystem`, and `DriverPack` directories |
+| Cache directories | No dedicated USB cache partition | Initializes `Runtime`, `Cache\OperatingSystems`, `Cache\DriverPacks`, `Cache\Firmware`, `State`, and `Temp` |
 | Operational tradeoff | Easy to store and distribute, but not a prepared physical device | Ready to boot directly, but tied to the selected USB disk |
 
 Choose ISO when you need a reusable artifact. Choose USB when you need a physical deployment device prepared directly by Foundry OSD.
@@ -77,7 +77,7 @@ USB creation erases and repartitions the selected disk. Do not continue until th
 
 ## Build progress
 
-During media creation, Foundry OSD reports progress for runtime downloads and media build steps.
+During media creation, Foundry OSD reports progress for runtime downloads and media build steps. Foundry Connect is provisioned with the boot image. Foundry Deploy is resolved later by the WinPE bootstrap, with USB cache paths used when available.
 
 ![Foundry OSD media creation progress](/img/docs/foundry-osd/build-progress.png)
 

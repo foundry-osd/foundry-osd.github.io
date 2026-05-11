@@ -49,6 +49,8 @@ Use personal Wi-Fi for:
 
 Provide the SSID. Provide a passphrase when the selected security type requires one.
 
+Personal Wi-Fi passphrases are used for media provisioning and are not persisted in the reusable expert configuration file.
+
 :::info[Screenshot placeholder]
 Capture the personal Wi-Fi settings with SSID, security type, and passphrase controls visible.
 :::
