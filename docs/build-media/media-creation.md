@@ -43,8 +43,8 @@ Before either output is created, Foundry OSD prepares the same WinPE workspace:
 3. Inject selected drivers.
 4. Apply WinPE language components.
 5. Stage Foundry Connect.
-6. Stage Foundry Deploy.
-7. Stage configuration, network assets, and Autopilot profiles when configured.
+6. Stage configuration, network assets, and Autopilot profiles when configured.
+7. Prepare the bootstrap path that resolves Foundry Deploy later in WinPE.
 
 ## Create ISO
 

@@ -11,7 +11,7 @@ Use this page when you need to understand which part of Foundry Project owns a b
 
 | Surface | Owns | Does not own |
 | --- | --- | --- |
-| Foundry OSD | ADK readiness, media creation, WinPE customization, expert settings, runtime asset staging | Live deployment execution on the target device |
+| Foundry OSD | ADK readiness, media creation, WinPE customization, expert settings, Foundry Connect staging | Live deployment execution on the target device |
 | Foundry Connect | Runtime network readiness, provisioned wired and Wi-Fi setup, bootstrap continuation | OS deployment logic or media authoring |
 | Foundry Deploy | Catalog loading, target disk selection, OS selection, deployment execution | Building the original ISO or USB media |
 | catalog | XML feed generation for operating system, driver, and WinPE metadata | UI, media creation, or deployment execution |
@@ -26,7 +26,7 @@ Use this page when you need to understand which part of Foundry Project owns a b
 
 Foundry OSD can stage runtime inputs for the other apps:
 
-- Network settings for Foundry Connect.
+- Foundry Connect runtime and network settings.
 - Localization, Autopilot, and customization preferences for Foundry Deploy.
 
 ## Next step

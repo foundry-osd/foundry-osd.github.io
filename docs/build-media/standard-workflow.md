@@ -52,8 +52,7 @@ Even without expert configuration, Foundry OSD still:
 - Builds the WinPE workspace.
 - Injects selected WinPE drivers.
 - Stages Foundry Connect.
-- Stages Foundry Deploy.
-- Prepares the runtime bootstrap path.
+- Prepares the bootstrap path that resolves Foundry Deploy later in WinPE.
 
 ## Next steps
 

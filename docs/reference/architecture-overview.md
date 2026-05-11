@@ -11,18 +11,18 @@ This page is reference material. Start with [Quick Start](../start/quick-start) 
 
 | Component | Runs where | Role |
 | --- | --- | --- |
-| Foundry OSD | Admin workstation | Checks prerequisites, builds media, and stages runtime assets |
+| Foundry OSD | Admin workstation | Checks prerequisites, builds media, and stages the Foundry Connect runtime |
 | Foundry Connect | WinPE target device | Validates network readiness before deployment continues |
 | Foundry Deploy | WinPE target device | Loads catalogs, collects deployment choices, and executes deployment |
 | catalog | Separate automation repository | Generates XML feeds for operating system, driver pack, and WinPE metadata |
 
 ## Runtime sequence
 
-1. Foundry OSD prepares ISO or USB media.
+1. Foundry OSD prepares ISO or USB media and provisions Foundry Connect for the selected architecture.
 2. The target device boots WinPE.
 3. Bootstrap launches Foundry Connect.
 4. Foundry Connect validates network readiness.
-5. Bootstrap launches Foundry Deploy.
+5. Bootstrap resolves Foundry Deploy from release assets.
 6. Foundry Deploy loads catalogs and runs the deployment workflow.
 
 ## Why the split exists
