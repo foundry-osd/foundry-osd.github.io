@@ -4,7 +4,7 @@ description: Why this site exists and how the documentation is organized.
 slug: welcome-to-foundry-docs
 authors: [foundry-team]
 tags: [docs]
-image: /img/foundry-social-preview.png
+image: /img/social-preview.png
 ---
 
 The Foundry project now has a dedicated Docusaurus site for both documentation and blog content.

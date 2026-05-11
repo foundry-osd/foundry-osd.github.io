@@ -4,7 +4,7 @@ description: A short explanation of how Foundry, Foundry.Connect, and Foundry.De
 slug: understanding-the-runtime-handoff
 authors: [foundry-team]
 tags: [architecture, deployment]
-image: /img/foundry-social-preview.png
+image: /img/social-preview.png
 ---
 
 One of the easiest ways to misunderstand Foundry is to treat the whole platform as one application.

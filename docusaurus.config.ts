@@ -48,7 +48,7 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    image: 'img/foundry-social-preview.png',
+    image: 'img/social-preview.png',
     colorMode: {
       defaultMode: 'light',
       respectPrefersColorScheme: false,
