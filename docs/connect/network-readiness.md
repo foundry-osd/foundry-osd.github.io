@@ -18,22 +18,58 @@ Closing Foundry Connect is treated as an abort path. Continue only through the c
 Foundry Connect follows this runtime sequence:
 
 1. Load the staged network configuration.
-2. Apply provisioned wired or Wi-Fi settings when present.
-3. Inspect the current network state.
-4. Validate internet access when required.
-5. Show the readiness state to the operator.
-6. Continue to Foundry Deploy when the required conditions are met.
+2. Apply provisioned network settings when present.
+3. Inspect Ethernet and Wi-Fi runtime state.
+4. Validate internet access.
+5. Refresh the readiness state on the displayed refresh interval.
+6. Continue to Foundry Deploy after internet access is validated.
+
+Use **Tools** > **Refresh Status** when the network state changed and the screen has not refreshed yet.
+
+The bottom status bar shows the active configuration source, the refresh interval, and the last refresh time.
+
+## Main readiness state
+
+The top status card is the primary decision point.
+
+Foundry Connect shows **Waiting for network** until internet access has been validated. When validation succeeds, it shows **Network ready**, displays the **Continue** button, and may start an **Auto-continue** countdown.
+
+If Foundry Connect cannot refresh the network snapshot, the same card shows **Network refresh failed** with the refresh error. Use **Tools** > **Refresh Status** after correcting the underlying network or runtime issue.
+
+Select **Continue** to move to Foundry Deploy. In normal runtime, the countdown can continue automatically when the network remains ready.
 
 ![Foundry Connect network ready state](/img/docs/foundry-connect/network-ready.png)
 
-## User choices
+## Ethernet state
 
-Depending on the staged configuration and current network state, the user may need to:
+The **Ethernet** card shows the wired network state used for readiness troubleshooting.
 
-- Confirm that the correct adapter is active.
-- Wait for wired 802.1X to complete.
-- Select or confirm Wi-Fi connectivity.
-- Stop and fix network prerequisites before deployment continues.
+Review these fields:
+
+- **Adapter**: the detected Ethernet adapter name, or **Unavailable** when no adapter is detected.
+- **IPv4**: the current IPv4 address, or **Unavailable** when no address is available.
+- **Gateway**: the current default gateway, or **Unavailable** when no gateway is available.
+
+Typical Ethernet states include:
+
+- **No ethernet adapter detected.**
+- **No active link**
+- **Waiting for network configuration**
+- **Waiting for DHCP or static network configuration**
+- **DHCP lease detected**
+- **Static network configuration detected**
+
+If Ethernet is expected, verify the cable, adapter presence, IP address, and gateway before continuing.
+
+## Wi-Fi state
+
+When Wi-Fi support is present in the boot image, Foundry Connect switches to an Ethernet and Wi-Fi layout.
+
+The **Provisioned Wi-Fi** card is used for Wi-Fi settings staged by Foundry OSD. It shows the profile name, authentication type, connection status, and **Connect** or **Disconnect** actions when a provisioned profile is available.
+
+The **Wi-Fi** card shows discovered wireless networks with SSID, authentication, connection state, and signal strength. Use the refresh button to rescan networks, select a network, enter the passphrase when requested, and select **Connect**. The reveal button can show or hide the passphrase while entering it. If the selected network is already connected, use **Disconnect** when the connection must be changed.
+
+Enterprise Wi-Fi from the discovery list requires a provisioned profile template in the boot image. If direct connection is not supported for the selected network, Foundry Connect shows **Provisioned profile required in this build.**
 
 ## Inputs staged by Foundry OSD
 
@@ -54,12 +90,14 @@ If the runtime network state is not ready, Foundry Connect keeps the deployment 
 Use the screen state to determine whether the issue is:
 
 - Missing adapter connectivity
-- Authentication still in progress
+- Missing IPv4 or gateway configuration
+- Provisioned Wi-Fi profile unavailable
 - Wi-Fi not connected
+- Network refresh failure
 - Internet validation failure
 
 ![Foundry Connect waiting for network state](/img/docs/foundry-connect/network-waiting.png)
 
 ## Next step
 
-After Foundry Connect reports readiness, continue to [Deployment Flow](../deploy/deployment-flow).
+After Foundry Connect reports **Network ready**, select **Continue** or let auto-continue move to [Deployment Flow](../deploy/deployment-flow).
