@@ -6,48 +6,102 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Start Here',
+      description:
+        'Install Foundry OSD, check requirements, and complete the first deployment.',
+      link: {
+        type: 'generated-index',
+        title: 'Start Here',
+        slug: '/start',
+        description:
+          'Install Foundry OSD, check requirements, and complete the first deployment.',
+      },
+      items: ['start/requirements', 'start/quick-start'],
+    },
+    {
+      type: 'category',
+      label: 'Build Media',
+      description: 'Create ISO or USB deployment media with Foundry OSD.',
+      link: {
+        type: 'generated-index',
+        title: 'Build Media',
+        slug: '/build-media',
+        description: 'Create ISO or USB deployment media with Foundry OSD.',
+      },
+      items: ['build-media/standard-workflow', 'build-media/media-creation'],
+    },
+    {
+      type: 'category',
+      label: 'Connect',
+      description: 'Validate WinPE networking before deployment continues.',
+      link: {
+        type: 'generated-index',
+        title: 'Connect',
+        slug: '/connect',
+        description: 'Validate WinPE networking before deployment continues.',
+      },
+      items: ['connect/network-readiness'],
+    },
+    {
+      type: 'category',
+      label: 'Deploy',
+      description: 'Select deployment options and run the Windows deployment.',
+      link: {
+        type: 'generated-index',
+        title: 'Deploy',
+        slug: '/deploy',
+        description: 'Select deployment options and run the Windows deployment.',
+      },
+      items: ['deploy/deployment-flow'],
+    },
+    {
+      type: 'category',
+      label: 'Configure Deployment',
+      description:
+        'Use expert settings only when the standard path is not enough.',
+      link: {
+        type: 'generated-index',
+        title: 'Configure Deployment',
+        slug: '/configure',
+        description:
+          'Use expert settings only when the standard path is not enough.',
+      },
       items: [
-        'getting-started/requirements',
-        'getting-started/quick-start',
+        'configure/expert-mode',
+        'configure/network',
+        'configure/localization',
+        'configure/autopilot',
+        'configure/customization',
       ],
     },
     {
       type: 'category',
-      label: 'Use Foundry',
+      label: 'Reference',
+      description:
+        'Architecture, product boundaries, runtime sequence, and catalog behavior.',
+      link: {
+        type: 'generated-index',
+        title: 'Reference',
+        slug: '/reference',
+        description:
+          'Architecture, product boundaries, runtime sequence, and catalog behavior.',
+      },
       items: [
-        'foundry/standard-workflow',
-        'foundry/media-creation',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Personalize It',
-      items: [
-        'foundry/expert-mode',
-        'configuration/network',
-        'configuration/localization',
-        'configuration/autopilot',
-        'configuration/customization',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Deep Dives',
-      items: [
-        'architecture/overview',
-        'architecture/product-boundaries',
-        'foundry-connect/network-readiness',
-        'foundry-deploy/deployment-flow',
-        'catalog/overview',
+        'reference/architecture-overview',
+        'reference/product-boundaries',
+        'reference/catalog-overview',
       ],
     },
     {
       type: 'category',
       label: 'Developer',
-      items: [
-        'developer/build-from-source',
-        'developer/local-winpe-testing',
-      ],
+      description: 'Build, test, and validate Foundry Project from source.',
+      link: {
+        type: 'generated-index',
+        title: 'Developer',
+        slug: '/developer',
+        description: 'Build, test, and validate Foundry Project from source.',
+      },
+      items: ['developer/build-from-source', 'developer/local-winpe-testing'],
     },
   ],
 };

@@ -4,7 +4,9 @@ title: Build from Source
 
 # Build from source
 
-This project currently spans multiple repositories in the workspace:
+This page is for contributors and validation work. Normal users should install Foundry OSD from the latest release instead of building from source.
+
+Foundry Project currently spans multiple repositories in the workspace:
 
 - `foundry`
 - `catalog`
@@ -23,7 +25,7 @@ Run the unit tests:
 dotnet test .\src\Foundry.slnx
 ```
 
-Run the desktop app:
+Run Foundry OSD:
 
 ```powershell
 dotnet run --project .\src\Foundry\Foundry.csproj

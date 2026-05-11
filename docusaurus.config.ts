@@ -3,9 +3,9 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Foundry',
+  title: 'Foundry Project',
   tagline:
-    'Documentation for building deployment media, validating WinPE connectivity, and running repeatable Windows deployment workflows.',
+    'Create bootable Windows deployment media, validate WinPE networking, and deploy with a guided workflow.',
   favicon: 'img/favicon.ico',
   future: {
     v4: true,
@@ -54,7 +54,7 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'Foundry',
+      title: 'Foundry Project',
       logo: {
         alt: 'Foundry logo',
         src: 'img/foundry-logo.png',
@@ -80,26 +80,25 @@ const config: Config = {
         {
           title: 'Docs',
           items: [
-            {
-              label: 'Quick Start',
-              to: '/docs/getting-started/quick-start',
-            },
-            {
-              label: 'Create Boot Media',
-              to: '/docs/foundry/media-creation',
-            },
+            {label: 'Quick Start', to: '/docs/start/quick-start'},
+            {label: 'Requirements', to: '/docs/start/requirements'},
+            {label: 'Build Media', to: '/docs/build-media/media-creation'},
           ],
         },
         {
-          title: 'Project',
+          title: 'Downloads',
           items: [
             {
-              label: 'Foundry Repository',
-              href: 'https://github.com/foundry-osd/foundry',
+              label: 'Download x64',
+              href: 'https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-x64.msi',
             },
             {
-              label: 'Catalog Repository',
-              href: 'https://github.com/foundry-osd/catalog',
+              label: 'Download ARM64',
+              href: 'https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-arm64.msi',
+            },
+            {
+              label: 'All releases',
+              href: 'https://github.com/foundry-osd/foundry/releases',
             },
           ],
         },
@@ -111,12 +110,12 @@ const config: Config = {
               to: '/blog',
             },
             {
-              label: 'Releases',
-              href: 'https://github.com/foundry-osd/foundry/releases',
+              label: 'Foundry Repository',
+              href: 'https://github.com/foundry-osd/foundry',
             },
             {
-              label: 'Issues',
-              href: 'https://github.com/foundry-osd/foundry/issues',
+              label: 'Catalog Repository',
+              href: 'https://github.com/foundry-osd/catalog',
             },
           ],
         },

@@ -107,6 +107,12 @@
   font-weight: 600;
 }
 
+.releaseLink {
+  color: var(--foundry-accent-strong);
+  font-weight: 600;
+  width: fit-content;
+}
+
 [data-theme='dark'] .heroBanner {
   background:
     radial-gradient(circle at top left, rgba(110, 183, 255, 0.2), transparent 34%),
@@ -125,7 +131,8 @@
   background: var(--ifm-color-primary);
 }
 
-[data-theme='dark'] .inlineLink {
+[data-theme='dark'] .inlineLink,
+[data-theme='dark'] .releaseLink {
   color: var(--ifm-color-primary-light);
 }
 

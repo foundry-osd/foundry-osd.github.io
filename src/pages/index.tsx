@@ -8,6 +8,13 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 
+const downloadLinks = {
+  x64: 'https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-x64.msi',
+  arm64:
+    'https://github.com/foundry-osd/foundry/releases/latest/download/FoundrySetup-arm64.msi',
+  releases: 'https://github.com/foundry-osd/foundry/releases',
+};
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
 
@@ -22,22 +29,26 @@ function HomepageHeader() {
             </Heading>
             <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
             <div className={styles.heroActions}>
+              <Link className="button button--primary button--lg" to={downloadLinks.x64}>
+                Download x64
+              </Link>
               <Link
                 className="button button--primary button--lg"
-                to="/docs/getting-started/quick-start">
-                Start with quick start
+                to={downloadLinks.arm64}>
+                Download ARM64
+              </Link>
+              <Link className="button button--secondary button--lg" to="/docs/start/quick-start">
+                Quick Start
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs/getting-started/requirements">
-                Download and requirements
+                to="/docs/start/requirements">
+                Requirements
               </Link>
             </div>
-            <div className={styles.heroMeta}>
-              <span>Download Foundry</span>
-              <span>Create boot media</span>
-              <span>Deploy with confidence</span>
-            </div>
+            <Link className={styles.releaseLink} to={downloadLinks.releases}>
+              View all releases
+            </Link>
           </div>
 
           <div className={styles.heroPanel}>
@@ -45,19 +56,12 @@ function HomepageHeader() {
               Start path
             </Heading>
             <ol className={styles.sequenceList}>
-              <li>
-                Download <strong>Foundry</strong>, then let the app validate ADK readiness on the admin workstation.
-              </li>
-              <li>
-                Build ISO for a reusable artifact or USB for direct media with a persistent cache partition.
-              </li>
-              <li>
-                Boot the target device and continue through{' '}
-                <strong>Foundry.Connect</strong> and <strong>Foundry.Deploy</strong>.
-              </li>
+              <li>Install Foundry OSD on the admin workstation.</li>
+              <li>Create ISO or USB deployment media.</li>
+              <li>Boot the target device and continue through Foundry Connect and Foundry Deploy.</li>
             </ol>
-            <Link className={styles.inlineLink} to="/docs/foundry/standard-workflow">
-              See the standard workflow
+            <Link className={styles.inlineLink} to="/docs/build-media/standard-workflow">
+              Open the standard workflow
             </Link>
           </div>
         </div>
@@ -69,8 +73,8 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   return (
     <Layout
-      title="Foundry documentation"
-      description="Documentation for the Foundry media builder, Foundry.Connect network gate, and Foundry.Deploy deployment workflow.">
+      title="Foundry Project documentation"
+      description="Create bootable Windows deployment media, validate WinPE networking, and deploy with a guided workflow.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

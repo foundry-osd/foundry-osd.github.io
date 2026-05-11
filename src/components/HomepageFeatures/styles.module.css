@@ -22,6 +22,8 @@
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 1.25rem;
   box-shadow: 0 18px 48px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 1.35rem;
 }
@@ -39,15 +41,24 @@
   margin-bottom: 0.75rem;
 }
 
-.featureCard p:last-child {
+.featureCard p {
   color: var(--foundry-muted-ink);
   line-height: 1.7;
-  margin-bottom: 0;
+}
+
+.cardLink {
+  color: var(--foundry-accent-strong);
+  font-weight: 700;
+  margin-top: auto;
 }
 
 [data-theme='dark'] .featureCard {
   border-color: rgba(148, 163, 184, 0.12);
   box-shadow: 0 18px 48px rgba(2, 6, 23, 0.28);
+}
+
+[data-theme='dark'] .cardLink {
+  color: var(--ifm-color-primary-light);
 }
 
 @media screen and (max-width: 996px) {

@@ -1,49 +1,42 @@
 ---
 title: Overview
+description: Start here to understand Foundry Project, install Foundry OSD, and follow the normal deployment workflow.
 sidebar_position: 1
 ---
 
-# Foundry overview
+# Foundry Project overview
 
-Foundry is a Windows deployment platform for building boot media and running guided Windows deployment workflows.
+Foundry Project helps you create bootable Windows deployment media, validate WinPE networking, and run a guided deployment workflow.
 
-:::info[Start here]
-If your goal is to deploy devices, go straight to [Download and Requirements](./getting-started/requirements) and then [Quick Start](./getting-started/quick-start).
+Most users only need this path:
 
-If you are contributing code or validating internal behavior, use the **Developer** and **Deep Dives** sections instead.
+1. Install **Foundry OSD** on an admin workstation.
+2. Create ISO or USB deployment media.
+3. Boot the target device.
+4. Validate networking in **Foundry Connect**.
+5. Run deployment in **Foundry Deploy**.
+
+:::tip[Start here]
+Open [Requirements](./start/requirements) first, then follow [Quick Start](./start/quick-start).
 :::
 
-For most users, the docs should answer four things quickly:
+## Application surfaces
 
-- where to download Foundry
-- what you need before you start
-- how to create a bootable image
-- how to personalize the workflow only when needed
+| Surface | Runs where | What the user does |
+| --- | --- | --- |
+| **Foundry OSD** | Admin workstation | Check prerequisites, configure deployment behavior, and create ISO or USB media |
+| **Foundry Connect** | WinPE on the target device | Validate or select network connectivity before deployment continues |
+| **Foundry Deploy** | WinPE on the target device | Select deployment options and start the Windows deployment |
 
-The deeper architecture is still documented, but it is no longer the first thing you need to read.
+## Documentation paths
 
-## What Foundry includes
+- [Start Here](./start/requirements): install Foundry OSD and complete the first deployment.
+- [Build Media](./build-media/standard-workflow): create ISO or USB deployment media.
+- [Connect](./connect/network-readiness): validate runtime networking before deployment.
+- [Deploy](./deploy/deployment-flow): select deployment options and run the Windows deployment.
+- [Configure Deployment](./configure/expert-mode): use expert settings only when the standard path is not enough.
+- [Reference](./reference/product-boundaries): review product boundaries and runtime behavior.
 
-Foundry is built around three applications and one supporting data repository:
+## What to read next
 
-- `Foundry`: the desktop app used on the admin workstation to build deployment media
-- `Foundry.Connect`: the WinPE network readiness app that runs first after boot
-- `Foundry.Deploy`: the WinPE deployment app that loads catalogs and executes deployment
-- `catalog`: the automation repository that generates OS, driver pack, and WinPE XML feeds
-
-## Start with the user path
-
-1. Read [Download and Requirements](./getting-started/requirements).
-2. Follow [Quick Start](./getting-started/quick-start).
-3. Use [Standard Workflow](./foundry/standard-workflow) for the normal day-to-day operator flow.
-4. Open [Create Boot Media](./foundry/media-creation) when you need more detail about ISO or USB output.
-5. Use the **Personalize It** section only if you need expert configuration.
-
-## When to use the deep dives
-
-Use the **Deep Dives** section when you need:
-
-- product boundaries
-- WinPE runtime details
-- catalog internals
-- developer and local testing workflows
+Open [Quick Start](./start/quick-start) for the shortest guided workflow.
