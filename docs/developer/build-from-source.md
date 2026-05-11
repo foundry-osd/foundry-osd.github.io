@@ -1,10 +1,13 @@
 ---
 title: Build from Source
+description: Build Foundry Project locally for contributor and validation workflows.
 ---
 
 # Build from source
 
-This project currently spans multiple repositories in the workspace:
+This page is for contributors and validation work. Normal users should install Foundry OSD from the latest release instead of building from source.
+
+Foundry Project currently spans multiple repositories in the workspace:
 
 - `foundry`
 - `catalog`
@@ -23,7 +26,7 @@ Run the unit tests:
 dotnet test .\src\Foundry.slnx
 ```
 
-Run the desktop app:
+Run Foundry OSD:
 
 ```powershell
 dotnet run --project .\src\Foundry\Foundry.csproj
@@ -33,7 +36,7 @@ Source runs are for development and validation only. They do not exercise the in
 
 ## Release packaging
 
-Release packaging is handled by GitHub Actions and Velopack. Normal users should install `FoundrySetup-x64.msi` or `FoundrySetup-arm64.msi` from the latest GitHub release instead of building from source.
+Release packaging is handled by GitHub Actions and Velopack. Normal users should install `Foundry-win-x64.msi` or `Foundry-win-arm64.msi` from the latest GitHub release instead of building from source.
 
 ## When you also need catalog context
 
