@@ -17,9 +17,9 @@ Set the standard media options before starting the build:
 - WinPE language
 - WinPE driver vendors
 
-![Foundry OSD media output selection](/img/docs/foundry-osd/media-type-selection.png)
-
 ![Foundry OSD driver vendor selection](/img/docs/foundry-osd/driver-catalog-selection.png)
+
+![Foundry OSD media output selection](/img/docs/foundry-osd/media-type-selection.png)
 
 ## ISO and USB comparison
 
@@ -79,9 +79,9 @@ USB creation erases and repartitions the selected disk. Do not continue until th
 
 During media creation, Foundry OSD reports progress for runtime downloads and media build steps.
 
-![Foundry OSD runtime payload download progress](/img/docs/foundry-osd/runtime-download-progress.png)
-
 ![Foundry OSD media creation progress](/img/docs/foundry-osd/build-progress.png)
+
+![Foundry OSD runtime payload download progress](/img/docs/foundry-osd/runtime-download-progress.png)
 
 ![Foundry OSD media creation complete](/img/docs/foundry-osd/build-complete.png)
 
