@@ -36,6 +36,7 @@ Open [Requirements](./start/requirements) first, then follow [Quick Start](./sta
 - [Deploy](./deploy/deployment-flow): select deployment options and run the Windows deployment.
 - [Configure Deployment](./configure/expert-mode): use expert settings only when the standard path is not enough.
 - [Reference](./reference/product-boundaries): review product boundaries and runtime behavior.
+- [Technical Deep Dives](./technical): read implementation-level details for advanced troubleshooting and maintainers.
 
 ## What to read next
 

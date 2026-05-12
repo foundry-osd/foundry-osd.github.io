@@ -103,6 +103,23 @@ const sidebars: SidebarsConfig = {
       },
       items: ['developer/build-from-source', 'developer/local-winpe-testing'],
     },
+    {
+      type: 'category',
+      label: 'Technical Deep Dives',
+      description:
+        'Implementation-level details for Foundry runtime behavior, orchestration, and handoff internals.',
+      link: {
+        type: 'generated-index',
+        title: 'Technical Deep Dives',
+        slug: '/technical',
+        description:
+          'Implementation-level details for Foundry runtime behavior, orchestration, and handoff internals.',
+      },
+      items: [
+        'technical/deployment-orchestrator',
+        'technical/post-winpe-handoff',
+      ],
+    },
   ],
 };
 
