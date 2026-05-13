@@ -89,6 +89,7 @@ const sidebars: SidebarsConfig = {
         'reference/architecture-overview',
         'reference/product-boundaries',
         'reference/catalog-overview',
+        'reference/telemetry',
       ],
     },
     {
