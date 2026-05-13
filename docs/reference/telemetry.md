@@ -3,54 +3,101 @@ title: Telemetry
 description: Understand Foundry anonymous usage telemetry, collected events, excluded data, and opt-out behavior.
 ---
 
-Foundry collects anonymous product telemetry to understand which versions and deployment paths are used in the field. Telemetry is enabled by default and can be disabled from **Settings > Telemetry** in Foundry OSD.
+Foundry collects anonymous product telemetry to understand which versions, media creation paths, connectivity modes, and deployment options are used in the field. Telemetry is enabled by default and can be disabled from **Settings > Telemetry** in Foundry OSD.
 
 The telemetry setting is propagated into generated Foundry Connect and Foundry Deploy runtimes. If telemetry is disabled before creating media, Connect and Deploy do not send telemetry from that media.
 
 ## Events
 
-Foundry sends a small set of low-cardinality events:
+Foundry sends a small set of low-cardinality events optimized for monthly event limits:
 
 | Event | Sent by | When |
 | --- | --- | --- |
-| `app_started` | Foundry OSD, Foundry Deploy | Once when the application starts. Foundry Connect uses `connect_network_ready` instead. |
-| `boot_media_created` | Foundry OSD | Once when ISO or USB boot media creation finishes, including failed attempts. |
-| `connect_network_ready` | Foundry Connect | Once when internet connectivity is confirmed. |
-| `deployment_completed` | Foundry Deploy | Once when deployment completes, fails, is cancelled, or is rejected because another deployment is already running. |
+| `app:daily_active` | Foundry OSD | At most once per local day when the desktop application starts. |
+| `osd:boot_media_finished` | Foundry OSD | Once when ISO or USB boot media creation finishes, including failed attempts. |
+| `connect:session_ready` | Foundry Connect | Once after the Continue action, including automatic continuation after the countdown, when internet connectivity is ready. |
+| `deploy:session_finished` | Foundry Deploy | Once when deployment completes, fails, is cancelled, or is rejected because another deployment is already running. |
 
 ## Collected Data
 
-Common properties include:
+Every event includes this common telemetry envelope:
 
-- Application name and version.
-- Build configuration, such as debug or release.
-- Runtime category, such as desktop or WinPE.
-- Runtime payload source for Connect and Deploy, such as debug or release.
-- Process architecture, locale, and an anonymous installation identifier.
+- `telemetry_schema_version`: telemetry payload schema version.
+- `app`: stable application identifier, such as `foundry_osd`, `foundry_connect`, or `foundry_deploy`.
+- `app_version`: running application version.
+- `build_configuration`: build configuration, such as `debug` or `release`.
+- `runtime`: runtime category, such as `desktop` or `winpe`.
+- `runtime_payload_source`: source of the Connect or Deploy runtime payload.
+- `boot_media_target`: `iso`, `usb`, `none`, or `unknown`.
+- `runtime_architecture`: process or runtime architecture.
+- `locale`: current UI or runtime culture.
+- `session_id`: random per-process identifier used to group events from one run.
+
+Foundry does not send IP addresses. PostHog geolocation is enabled so dashboards can aggregate coarse country usage from the ingestion request.
+
+### `app:daily_active`
+
+This event has no event-specific properties. It uses only the common telemetry envelope and is throttled by the local Foundry OSD settings file.
+
+### `osd:boot_media_finished`
 
 Media creation properties include:
 
-- Media target, ISO or USB.
-- Success status and duration.
-- WinPE architecture, language, boot image source, and signature mode.
-- USB partition style and format mode for USB media.
-- Whether Dell, HP, or custom drivers were enabled.
-- Whether network, Connect, Deploy, and Autopilot configuration were enabled.
+- `boot_media_target`: `iso` or `usb`.
+- `success`: whether media creation completed successfully.
+- `duration_seconds`: total media creation duration.
+- `boot_media_architecture`: selected WinPE architecture.
+- `winpe_language`: selected WinPE language.
+- `boot_image_source`: selected boot image source.
+- `signature_mode`: selected PowerShell signature mode.
+- `usb_partition_style`: selected USB partition style, or `none` for ISO media.
+- `usb_format_mode`: selected USB format mode, or `none` for ISO media.
+- `include_dell_drivers`: whether Dell WinPE drivers were enabled.
+- `include_hp_drivers`: whether HP WinPE drivers were enabled.
+- `custom_drivers_enabled`: whether custom WinPE drivers were enabled.
+- `network_configured`: whether network configuration was ready.
+- `connect_configured`: whether Foundry Connect configuration was ready.
+- `deploy_configured`: whether Foundry Deploy configuration was ready.
+- `connect_runtime_payload_source`: source of the generated Connect runtime payload.
+- `deploy_runtime_payload_source`: source of the generated Deploy runtime payload.
+- `autopilot_enabled`: whether Autopilot provisioning was enabled.
+
+### `connect:session_ready`
 
 Connect properties include:
 
-- Connection type, Ethernet or Wi-Fi.
-- Wi-Fi security category, such as open, OWE, personal, or enterprise.
-- Whether wired 802.1X or provisioned Wi-Fi settings were present.
+- `success`: always `true` when this event is sent.
+- `connection_type`: `ethernet`, `wifi`, or `unknown`.
+- `layout_mode`: `ethernet_only` or `ethernet_wifi`.
+- `wifi_security`: `none`, `open`, `owe`, `personal`, `enterprise`, or `unknown`.
+- `wifi_source`: `none`, `provisioned`, or `manual`.
+- `wired_dot1x_enabled`: whether wired 802.1X settings were provisioned.
+- `wifi_provisioned`: whether a Wi-Fi profile was provisioned into the runtime.
+
+### `deploy:session_finished`
 
 Deploy properties include:
 
-- Success, cancellation status, duration, completed step count, and failed step name.
-- Deployment mode and dry-run status.
-- Hardware manufacturer, hardware model, and virtual machine status.
-- Selected Windows release, version, build, architecture, and language.
-- Driver pack selection kind, vendor, and model.
-- Firmware update and Autopilot enablement.
+- `success`: whether deployment completed successfully.
+- `cancelled`: whether deployment was cancelled.
+- `duration_seconds`: total deployment orchestration duration.
+- `completed_step_count`: number of completed deployment steps.
+- `failed_step_name`: failed step name, `operation_busy`, `unknown`, or empty when no step failed.
+- `mode`: selected deployment mode.
+- `is_dry_run`: whether dry-run mode was enabled.
+- `hardware_vendor`: normalized hardware manufacturer.
+- `hardware_model`: normalized hardware model.
+- `is_virtual_machine`: whether the target hardware is virtualized.
+- `os_product`: normalized Windows product family.
+- `os_version`: selected Windows release version.
+- `os_build`: selected Windows build.
+- `os_architecture`: selected Windows architecture.
+- `os_language`: selected Windows language.
+- `driver_pack_selection_kind`: selected driver pack mode.
+- `driver_pack_vendor`: selected driver pack manufacturer, or `none`.
+- `driver_pack_model`: selected driver pack model, or `none`.
+- `firmware_updates_enabled`: whether firmware updates were enabled.
+- `autopilot_enabled`: whether Autopilot provisioning was enabled.
 
 ## Excluded Data
 
@@ -64,3 +111,5 @@ Telemetry does not collect:
 ## Transport
 
 Foundry uses PostHog product analytics for telemetry ingestion. Release builds receive the public PostHog project token during CI publishing. Debug builds do not include a project token unless the developer explicitly provides one through the build property or environment used by the build.
+
+The telemetry sender rejects unknown event names and removes properties that are not explicitly allowed for that event before sending the payload.
