@@ -62,6 +62,19 @@ Media creation properties include:
 - `connect_runtime_payload_source`: source of the generated Connect runtime payload.
 - `deploy_runtime_payload_source`: source of the generated Deploy runtime payload.
 - `autopilot_enabled`: whether Autopilot provisioning was enabled.
+- `customization_any_enabled`: whether any Customization page setting was enabled.
+- `customization_machine_naming_enabled`: whether machine naming customization was enabled.
+- `customization_machine_naming_mode`: `disabled`, `manual`, `auto_generated_locked`, or `auto_generated_editable`.
+- `customization_machine_naming_prefix_configured`: whether a machine naming prefix was configured.
+- `customization_oobe_enabled`: whether Windows OOBE customization was enabled.
+- `customization_oobe_skip_license_terms`: whether OOBE license terms are skipped.
+- `customization_oobe_diagnostic_data_level`: `required`, `optional`, or `off`.
+- `customization_oobe_hide_privacy_setup`: whether the Windows privacy choices page is hidden.
+- `customization_oobe_tailored_experiences_enabled`: whether tailored experiences are allowed.
+- `customization_oobe_advertising_id_enabled`: whether the Windows advertising ID is allowed.
+- `customization_oobe_online_speech_recognition_enabled`: whether online speech recognition is allowed.
+- `customization_oobe_inking_typing_diagnostics_enabled`: whether inking and typing diagnostics are allowed.
+- `customization_oobe_location_access`: `user_controlled` or `force_off`.
 
 ### `connect:session_ready`
 
@@ -105,6 +118,7 @@ Deploy properties include:
 Telemetry does not collect:
 
 - User names, domain names, email addresses, computer names, IP addresses, or Wi-Fi SSIDs.
+- Machine naming prefixes or generated computer names.
 - Disk numbers, disk names, serial numbers, file paths, URLs, passwords, secrets, tokens, or passphrases.
 - Autopilot profile names, profile folder names, or deployment logs.
 - Raw exceptions or stack traces.

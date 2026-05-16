@@ -5,7 +5,7 @@ description: Use the normal Foundry OSD workflow to create deployment media with
 
 # Standard workflow
 
-Use the standard workflow when the deployment does not require predefined network, localization, Autopilot, or machine naming behavior.
+Use the standard workflow when the deployment does not require predefined network, localization, Autopilot, machine naming, or Windows OOBE behavior.
 
 ## Use this workflow when
 
@@ -41,6 +41,7 @@ Switch to expert mode only when the media should carry predefined settings for:
 - Localization
 - Autopilot
 - Machine naming
+- Windows OOBE defaults
 
 ## What standard mode still prepares
 
