@@ -40,8 +40,8 @@ Each step reads and updates the deployment runtime state. Runtime state carries 
 
 Foundry Deploy writes several artifacts into the applied Windows image before reboot:
 
-- `Windows\Panther\unattend.xml` for specialize-pass settings such as computer name and time zone, plus OOBE settings such as license-term handling.
-- Offline registry hives for OOBE privacy policy defaults such as diagnostic data, privacy setup, advertising ID, speech, typing diagnostics, tailored experiences, and location access.
+- `Windows\Panther\unattend.xml` for specialize-pass settings such as computer name and time zone, plus OOBE settings such as license-term and privacy setup handling.
+- Offline registry hives for OOBE privacy policy defaults such as diagnostic data, advertising ID, speech, typing diagnostics, tailored experiences, and location access.
 - `Windows\Setup\Scripts\SetupComplete.cmd` for post-WinPE first-boot execution.
 - `Windows\Provisioning\Autopilot\AutopilotConfigurationFile.json` when offline Autopilot profile staging is enabled.
 - `Windows\Temp\Foundry` for deployment logs, summaries, staged packages, and pre-OOBE assets.
