@@ -8,7 +8,7 @@ description: Follow the shortest workflow from a prepared workstation to a first
 Use this guide for the shortest path from a prepared workstation to a first deployment.
 
 :::tip[Stay in the standard path]
-Use expert mode only when the deployment requires predefined network, localization, Autopilot, or machine naming behavior.
+Use expert mode only when the deployment requires predefined network, localization, Autopilot, machine naming, or Windows OOBE behavior.
 :::
 
 ## 1. Install Foundry OSD
