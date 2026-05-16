@@ -46,6 +46,7 @@ Media creation properties include:
 - `boot_media_target`: `iso` or `usb`.
 - `success`: whether media creation completed successfully.
 - `duration_seconds`: total media creation duration.
+- `failed_step_name`: failed media creation step name, `unknown`, or empty when media creation succeeded.
 - `boot_media_architecture`: selected WinPE architecture.
 - `winpe_language`: selected WinPE language.
 - `boot_image_source`: selected boot image source.
