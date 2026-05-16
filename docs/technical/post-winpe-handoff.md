@@ -19,7 +19,7 @@ Computer name and time zone are written to:
 
 `Windows\Panther\unattend.xml`
 
-Windows setup applies those values during the specialize pass before the user reaches OOBE.
+Windows setup applies those values during the specialize pass before the user reaches OOBE. When OOBE customization is enabled, Foundry also writes OOBE license-term handling into `unattend.xml` and writes privacy defaults into the offline registry policy hives.
 
 ## SetupComplete
 
