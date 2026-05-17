@@ -42,7 +42,7 @@ The runner executes enabled PowerShell scripts in deterministic order:
 
 Driver provisioning is priority `100` and runs before customization scripts. Customization scripts are registered only when the corresponding Foundry OSD or Foundry Deploy configuration enables them.
 
-Provisioned AppX removal is a customization script. It runs before OOBE and uses online provisioned package removal so new user profiles are created without the selected packages. Foundry stages only package family display names from the supported catalog; the script skips packages that are not provisioned in the applied image.
+Provisioned AppX removal is a customization script. It runs before OOBE and uses online provisioned package removal so new user profiles are created without the selected packages. Foundry stages only supported provisioned package identifiers, such as `Microsoft.BingWeather`; the script skips packages that are not provisioned in the applied image.
 
 ## Deferred driver provisioning
 
