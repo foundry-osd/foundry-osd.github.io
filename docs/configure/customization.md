@@ -60,10 +60,10 @@ Available controls include:
 - Enable or disable AppX removal.
 - Select all packages.
 - Remove all package selections.
-- Choose a profile from the AppX categories.
+- Select one or more profiles from the AppX categories.
 - Manually select packages grouped by category.
 
-Profiles are based on the package categories shown in the control. Selecting a profile replaces the current package selection with that category. If you manually add or remove packages after selecting a profile, the profile becomes `Custom`. Selecting `Remove all` clears every package and returns the profile to `None`.
+Profiles are based on the package categories shown in the control. Selecting multiple profiles applies the union of their package lists. The profile selector shows a category when one complete profile is selected, a profile count when multiple complete profiles are selected, `Custom` when the package selection is mixed or partial, and `None` when no packages are selected. Selecting `Remove all` clears every package and returns the profile state to `None`.
 
 :::caution[Review native utilities before removing them]
 Some AppX packages are Windows inbox tools such as Calculator, Notepad, Photos, Paint, Snipping Tool, Terminal, and Quick Assist. Remove native utilities only when the deployment standard intentionally excludes them.
@@ -88,7 +88,7 @@ Staging this behavior from Foundry OSD makes the live deployment path faster and
 - Allow manual suffix editing only when local exceptions are expected.
 - Enable OOBE customization when you want a consistent privacy and license-term baseline.
 - Keep optional privacy features disabled unless the deployment policy requires them.
-- Start AppX removal with a category profile, then use `Custom` only when the deployment standard needs a mixed package set.
+- Start AppX removal with one or more category profiles, then use `Custom` only when the deployment standard needs a mixed or partial package set.
 - Avoid selecting every native utility unless the image is intentionally locked down.
 
 ## Next step

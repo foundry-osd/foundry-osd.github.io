@@ -74,7 +74,7 @@ Media creation properties include:
 - `customization_oobe_location_access`: `user_controlled` or `force_off`.
 - `customization_appx_removal_enabled`: whether provisioned AppX removal is enabled with at least one selected package.
 - `customization_appx_removal_package_count`: number of selected provisioned AppX packages.
-- `customization_appx_removal_profile`: `none`, `custom`, or the selected category profile token.
+- `customization_appx_removal_profile`: `none`, `custom`, `multiple`, or the selected category profile token.
 - `localization_any_enabled`: whether any Localization page setting is configured.
 - `localization_visible_languages_count`: number of visible deployment languages selected.
 - `localization_default_language_configured`: whether a default deployment language is configured.
