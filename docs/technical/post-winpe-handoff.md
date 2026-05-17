@@ -42,6 +42,8 @@ The runner executes enabled PowerShell scripts in deterministic order:
 
 Driver provisioning is priority `100` and runs before customization scripts. Customization scripts are registered only when the corresponding Foundry OSD or Foundry Deploy configuration enables them.
 
+Provisioned AppX removal is a customization script. It runs before OOBE and uses online provisioned package removal so new user profiles are created without the selected packages. Foundry stages only package family display names from the supported catalog; the script skips packages that are not provisioned in the applied image.
+
 ## Deferred driver provisioning
 
 Most driver packs are applied offline with DISM. Some packages, such as selected executable or MSI packages, must run after Windows boots. In those cases, Foundry stages the package under:
@@ -49,6 +51,8 @@ Most driver packs are applied offline with DISM. Some packages, such as selected
 `Windows\Temp\Foundry\DriverPack\Packages`
 
 The pre-OOBE runner then invokes the driver PowerShell script during first boot.
+
+When deferred driver provisioning and AppX removal are both enabled, Foundry stages one shared pre-OOBE runner. Driver provisioning runs first, AppX removal runs in the customization bucket, and cleanup runs last.
 
 ## Operational artifacts
 
