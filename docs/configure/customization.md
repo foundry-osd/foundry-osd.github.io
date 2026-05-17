@@ -63,7 +63,7 @@ Available controls include:
 - Select one or more profiles from the AppX categories.
 - Manually select packages grouped by category.
 
-Profiles are based on the package categories shown in the control. Selecting multiple profiles adds the union of their package lists. Clearing a profile only clears the profile marker; it does not clear the package checkboxes that were already selected. The profile selector shows a category when one complete profile is selected, a profile count when multiple complete profiles are selected, `Custom` when the package selection is mixed or profile markers were cleared, and `None` when no packages are selected. Selecting `Remove all` clears every package and returns the profile state to `None`.
+Profiles are based on the package categories shown in the control. Selecting multiple profiles applies the union of their package lists. Clearing a profile clears that category's package checkboxes. The profile selector shows a category when one complete profile is selected, a profile count when multiple complete profiles are selected, `Custom` when the package selection is mixed or partial, and `None` when no packages are selected. Selecting `Remove all` clears every package and returns the profile state to `None`.
 
 :::caution[Review native utilities before removing them]
 Some AppX packages are Windows inbox tools such as Calculator, Notepad, Photos, Paint, Snipping Tool, Terminal, and Quick Assist. Remove native utilities only when the deployment standard intentionally excludes them.
