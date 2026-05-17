@@ -44,6 +44,20 @@ Driver provisioning is priority `100` and runs before customization scripts. Cus
 
 Provisioned AppX removal is a customization script. It runs before OOBE and uses online provisioned package removal so new user profiles are created without the selected packages. Foundry stages only supported provisioned package identifiers, such as `Microsoft.BingWeather`; the script skips packages that are not provisioned in the applied image.
 
+Foundry writes a launcher log at:
+
+`Windows\Temp\Foundry\Logs\PreOobe\SetupComplete.log`
+
+If the launcher starts successfully, each PowerShell script also writes its own transcript under the same folder, for example:
+
+`Windows\Temp\Foundry\Logs\PreOobe\Remove-AppX.transcript.log`
+
+If no Foundry pre-OOBE logs exist after first boot, check Windows setup logging under:
+
+`Windows\Panther\UnattendGC\Setupact.log`
+
+[Microsoft documents](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-a-custom-script-to-windows-setup?view=windows-11) that `SetupComplete.cmd` is disabled when an OEM product key is used, except on Enterprise editions and Windows Server operating systems. In that case, Windows setup logs that it skipped `SetupComplete.cmd`.
+
 ## Deferred driver provisioning
 
 Most driver packs are applied offline with DISM. Some packages, such as selected executable or MSI packages, must run after Windows boots. In those cases, Foundry stages the package under:
