@@ -21,7 +21,7 @@ Create media with the standard workflow first unless the deployment environment 
 | Network | Wired 802.1X and Wi-Fi settings for Foundry Connect |
 | Localization | Visible languages, default language, and time zone |
 | Autopilot | Imported or downloaded Autopilot profiles and the default profile |
-| Customization | Machine naming rules and Windows OOBE defaults used later in Foundry Deploy |
+| Customization | Machine naming rules, Windows OOBE defaults, and provisioned AppX removal used later in Foundry Deploy |
 
 :::info[Screenshot placeholder]
 Capture the expert-mode shell with all section tabs visible.
@@ -45,6 +45,7 @@ Export deploy configuration when the WinPE deployment session should start with 
 - Autopilot
 - Machine naming
 - Windows OOBE defaults
+- Provisioned AppX removal
 
 :::info[Screenshot placeholder]
 Capture the import and export actions, including the deploy configuration export action.
@@ -55,4 +56,4 @@ Capture the import and export actions, including the deploy configuration export
 - Open [Network Configuration](./network) for wired and Wi-Fi settings.
 - Open [Localization](./localization) for language and time zone behavior.
 - Open [Autopilot](./autopilot) for profile handling.
-- Open [Customization](./customization) for machine naming and Windows OOBE behavior.
+- Open [Customization](./customization) for machine naming, Windows OOBE behavior, and provisioned AppX removal.

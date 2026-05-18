@@ -35,12 +35,32 @@ The pre-OOBE runner model keeps `SetupComplete.cmd` small. `SetupComplete.cmd` l
 
 `Windows\Temp\Foundry\PreOobe`
 
+Generated data files used by the runner are staged under:
+
+`Windows\Temp\Foundry\PreOobe\Data`
+
 The runner executes enabled PowerShell scripts in deterministic order:
 
 1. Script priority
 2. Script id
 
 Driver provisioning is priority `100` and runs before customization scripts. Customization scripts are registered only when the corresponding Foundry OSD or Foundry Deploy configuration enables them.
+
+Provisioned AppX removal is a customization script. It runs before OOBE and uses online provisioned package removal so new user profiles are created without the selected packages. Foundry stages only supported provisioned package identifiers, such as `Microsoft.BingWeather`, in `Data\Remove-AppX.packages.json`; the script skips packages that are not provisioned in the applied image.
+
+Foundry writes a launcher log at:
+
+`Windows\Temp\Foundry\Logs\PreOobe\SetupComplete.log`
+
+If the launcher starts successfully, each PowerShell script also writes its own transcript under the same folder, for example:
+
+`Windows\Temp\Foundry\Logs\PreOobe\Remove-AppX.transcript.log`
+
+If no Foundry pre-OOBE logs exist after first boot, check Windows setup logging under:
+
+`Windows\Panther\UnattendGC\Setupact.log`
+
+[Microsoft documents](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-a-custom-script-to-windows-setup?view=windows-11) that `SetupComplete.cmd` is disabled when an OEM product key is used, except on Enterprise editions and Windows Server operating systems. In that case, Windows setup logs that it skipped `SetupComplete.cmd`.
 
 ## Deferred driver provisioning
 
@@ -49,6 +69,8 @@ Most driver packs are applied offline with DISM. Some packages, such as selected
 `Windows\Temp\Foundry\DriverPack\Packages`
 
 The pre-OOBE runner then invokes the driver PowerShell script during first boot.
+
+When deferred driver provisioning and AppX removal are both enabled, Foundry stages one shared pre-OOBE runner. Driver provisioning runs first, AppX removal runs in the customization bucket, and cleanup runs last.
 
 ## Operational artifacts
 
