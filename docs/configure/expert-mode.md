@@ -31,8 +31,8 @@ Capture the expert-mode shell with all section tabs visible.
 
 Expert mode supports:
 
-- Importing an expert configuration file.
-- Exporting an expert configuration file.
+- Importing a Foundry configuration file (`foundry.config.json`).
+- Exporting a Foundry configuration file (`foundry.config.json`).
 - Exporting a deploy configuration file.
 
 The deploy configuration is a reduced handoff for Foundry Deploy. It carries deployment-time preferences without exposing every workstation-side setting.
