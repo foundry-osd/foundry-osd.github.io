@@ -72,6 +72,9 @@ Media creation properties include:
 - `customization_oobe_online_speech_recognition_enabled`: whether online speech recognition is allowed.
 - `customization_oobe_inking_typing_diagnostics_enabled`: whether inking and typing diagnostics are allowed.
 - `customization_oobe_location_access`: `user_controlled` or `force_off`.
+- `customization_appx_removal_enabled`: whether provisioned AppX removal is enabled with at least one selected package.
+- `customization_appx_removal_package_count`: number of selected provisioned AppX packages.
+- `customization_appx_removal_profile`: `none`, `custom`, `multiple`, or the selected category profile token.
 - `localization_any_enabled`: whether any Localization page setting is configured.
 - `localization_visible_languages_count`: number of visible deployment languages selected.
 - `localization_default_language_configured`: whether a default deployment language is configured.
@@ -138,6 +141,7 @@ Telemetry does not collect:
 
 - User names, domain names, email addresses, computer names, IP addresses, or Wi-Fi SSIDs.
 - Machine naming prefixes or generated computer names.
+- Provisioned AppX package names.
 - Disk numbers, disk names, serial numbers, file paths, URLs, file names, hashes, passwords, secrets, tokens, or passphrases.
 - Localization values such as selected language codes, default language codes, or Windows time-zone identifiers.
 - Network values such as SSIDs, passphrases, certificate paths, profile paths, profile contents, probe URLs, gateway details, adapter names, or Wi-Fi signal strength.

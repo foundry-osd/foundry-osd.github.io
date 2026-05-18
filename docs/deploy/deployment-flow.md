@@ -115,7 +115,7 @@ During execution, Foundry Deploy shows:
 - Current step progress
 - Step counter
 
-The deployment pipeline runs ordered steps for validation, cache resolution, disk layout, operating system download and apply, computer naming, OOBE defaults, recovery configuration, drivers, firmware, Autopilot staging, and final logs. Download steps can be skipped when the required content is already available in cache.
+The deployment pipeline runs ordered steps for validation, cache resolution, disk layout, operating system download and apply, computer naming, OOBE defaults, recovery configuration, pre-OOBE customization staging, drivers, firmware, Autopilot staging, and final logs. Download steps can be skipped when the required content is already available in cache.
 
 ![Foundry Deploy target validation progress](/img/docs/foundry-deploy/progress-validate-target.png)
 
