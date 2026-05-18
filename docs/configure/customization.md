@@ -77,7 +77,7 @@ Capture the Customization page with the provisioned AppX removal controls expand
 
 Machine naming affects the Foundry Deploy wizard. OOBE customization is applied to the offline Windows installation during deployment by writing unattend and policy values.
 
-Provisioned AppX removal is staged as a pre-OOBE PowerShell script. Foundry Deploy writes the selected package list into the pre-OOBE runner, and Windows executes it through `SetupComplete.cmd` before user profiles are created.
+Provisioned AppX removal is staged as a pre-OOBE PowerShell script. Foundry Deploy writes the selected package list into `Windows\Temp\Foundry\PreOobe\Data\Remove-AppX.packages.json`, and Windows executes the script through `SetupComplete.cmd` before user profiles are created.
 
 Staging this behavior from Foundry OSD makes the live deployment path faster and more consistent.
 
