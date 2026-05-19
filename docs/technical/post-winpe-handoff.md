@@ -21,6 +21,8 @@ Computer name and time zone are written to:
 
 Windows setup applies those values during the specialize pass before the user reaches OOBE. When OOBE customization is enabled, Foundry also writes OOBE license-term and privacy setup handling into `unattend.xml`, then writes persistent privacy defaults into the offline registry policy hives.
 
+AI policy customization is also applied while Foundry Deploy is still running in WinPE. Foundry loads the target `SOFTWARE`, `SYSTEM`, and `Users\Default\NTUSER.DAT` hives under temporary mount names, writes selected Copilot, Recall, Click to Do, Windows AI service, Edge, Paint, and Notepad policy values, then unloads the hives before reboot. Future-user defaults are written to the offline default user profile hive, not to `HKEY_USERS\.DEFAULT`.
+
 ## SetupComplete
 
 Deferred first-boot execution is staged through:
@@ -48,7 +50,7 @@ Driver provisioning is priority `100` and runs before customization scripts. Cus
 
 Provisioned AppX removal is a customization script. It runs before OOBE and uses online provisioned package removal so new user profiles are created without the selected packages. Foundry stages only supported provisioned package identifiers, such as `Microsoft.BingWeather`, in `Data\Remove-AppX.packages.json`; the script skips packages that are not provisioned in the applied image.
 
-AI component removal is also a customization script. It runs before OOBE and reads selected options from `Data\Remove-AiComponents.settings.json`. The script removes the selected Copilot and Copilot+ AI Hub provisioned AppX packages, writes machine-wide AI policy values under `HKLM`, and loads `C:\Users\Default\NTUSER.DAT` as `HKU\FoundryDefaultUser` when settings must become defaults for future user profiles. It does not write to `HKEY_USERS\.DEFAULT`.
+AI component AppX removal is also a customization script when Microsoft Copilot or Copilot+ AI Hub removal is selected. It runs before OOBE and reads selected AppX package identifiers from `Data\Remove-AiComponents.settings.json`. The script removes only the selected Copilot and Copilot+ AI Hub provisioned AppX packages; policy registry values are already applied offline during the WinPE phase.
 
 Foundry writes a launcher log at:
 
@@ -74,7 +76,7 @@ Most driver packs are applied offline with DISM. Some packages, such as selected
 
 The pre-OOBE runner then invokes the driver PowerShell script during first boot.
 
-When deferred driver provisioning and customization scripts are both enabled, Foundry stages one shared pre-OOBE runner. Driver provisioning runs first, AppX and AI component removal run in the customization bucket, and cleanup runs last.
+When deferred driver provisioning and customization scripts are both enabled, Foundry stages one shared pre-OOBE runner. Driver provisioning runs first, AppX removal and AI AppX removal run in the customization bucket, and cleanup runs last.
 
 ## Operational artifacts
 

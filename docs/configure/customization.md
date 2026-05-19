@@ -101,9 +101,11 @@ Capture the Customization page with the provisioned AppX removal controls expand
 
 Machine naming affects the Foundry Deploy wizard. OOBE customization is applied to the offline Windows installation during deployment by writing unattend and policy values.
 
+AI component removal is split across the deployment phases. Foundry Deploy writes AI policy values into the offline target registry hives while it is still running in WinPE. Machine-wide policies are written through the offline `SOFTWARE` and `SYSTEM` hives, and future-user defaults are written by loading `Users\Default\NTUSER.DAT` under a temporary `HKU\FoundryDefault` mount. Foundry does not write these defaults through `HKEY_USERS\.DEFAULT`.
+
 Provisioned AppX removal is staged as a pre-OOBE PowerShell script. Foundry Deploy writes the selected package list into `Windows\Temp\Foundry\PreOobe\Data\Remove-AppX.packages.json`, and Windows executes the script through `SetupComplete.cmd` before user profiles are created.
 
-AI component removal is staged through the same pre-OOBE runner. Foundry Deploy writes selected AI options into `Windows\Temp\Foundry\PreOobe\Data\Remove-AiComponents.settings.json`. The script removes selected provisioned AppX packages, writes machine-wide policy values under `HKLM`, and loads `C:\Users\Default\NTUSER.DAT` as `HKU\FoundryDefaultUser` when a per-user default policy is required for future user profiles.
+When Copilot or Windows AI Hub removal is selected, Foundry also stages `Windows\Temp\Foundry\PreOobe\Data\Remove-AiComponents.settings.json`. That pre-OOBE script only removes the selected AI provisioned AppX packages; AI policy registry values are already applied offline in WinPE.
 
 Staging this behavior from Foundry OSD makes the live deployment path faster and more consistent.
 
