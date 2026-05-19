@@ -1,6 +1,6 @@
 ---
 title: Customization
-description: Configure machine naming, Windows OOBE behavior, and provisioned AppX removal in Foundry OSD for Foundry Deploy.
+description: Configure machine naming, Windows OOBE behavior, AI component removal, and provisioned AppX removal in Foundry OSD for Foundry Deploy.
 ---
 
 # Customization
@@ -51,6 +51,30 @@ Use OOBE customization when deployment media should produce the same first-run p
 Capture the Customization page with the Windows OOBE controls expanded.
 :::
 
+## AI component removal
+
+Foundry OSD can stage removal or policy-based disablement of selected Windows AI components before OOBE.
+
+Available controls include:
+
+- Enable or disable AI component removal with one switch.
+- Remove the Microsoft Copilot provisioned AppX package and turn off Windows Copilot policies.
+- Remove the Copilot+ AI Hub provisioned AppX package.
+- Disable Windows Recall.
+- Disable Click to Do.
+- Prevent the Windows AI service from starting automatically.
+- Disable AI features in Microsoft Edge.
+- Disable AI features in Paint.
+- Disable AI features in Notepad.
+
+Turning on the main switch selects every AI option. You can then turn individual options off when the deployment standard needs a smaller scope. Turning off the last child option disables the main switch.
+
+Copilot and Windows AI Hub are managed from this control instead of the generic AppX package catalog so AI-related changes remain auditable in one place.
+
+:::info[Screenshot placeholder]
+Capture the Customization page with the AI component removal controls expanded.
+:::
+
 ## Provisioned AppX removal
 
 Foundry OSD can stage removal of selected Windows 11 provisioned AppX packages before OOBE. This affects packages provisioned for new users; it does not run per-user AppX removal.
@@ -79,6 +103,8 @@ Machine naming affects the Foundry Deploy wizard. OOBE customization is applied 
 
 Provisioned AppX removal is staged as a pre-OOBE PowerShell script. Foundry Deploy writes the selected package list into `Windows\Temp\Foundry\PreOobe\Data\Remove-AppX.packages.json`, and Windows executes the script through `SetupComplete.cmd` before user profiles are created.
 
+AI component removal is staged through the same pre-OOBE runner. Foundry Deploy writes selected AI options into `Windows\Temp\Foundry\PreOobe\Data\Remove-AiComponents.settings.json`. The script removes selected provisioned AppX packages, writes machine-wide policy values under `HKLM`, and loads `C:\Users\Default\NTUSER.DAT` as `HKU\FoundryDefaultUser` when a per-user default policy is required for future user profiles.
+
 Staging this behavior from Foundry OSD makes the live deployment path faster and more consistent.
 
 ## Recommended approach
@@ -88,6 +114,7 @@ Staging this behavior from Foundry OSD makes the live deployment path faster and
 - Allow manual suffix editing only when local exceptions are expected.
 - Enable OOBE customization when you want a consistent privacy and license-term baseline.
 - Keep optional privacy features disabled unless the deployment policy requires them.
+- Use AI component removal when Windows AI features should be removed or disabled before the first user profile is created.
 - Start AppX removal with one or more category profiles, then use `Custom` only when the deployment standard needs a mixed or partial package set.
 - Avoid selecting every native utility unless the image is intentionally locked down.
 

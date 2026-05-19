@@ -75,6 +75,16 @@ Media creation properties include:
 - `customization_appx_removal_enabled`: whether provisioned AppX removal is enabled with at least one selected package.
 - `customization_appx_removal_package_count`: number of selected provisioned AppX packages.
 - `customization_appx_removal_profile`: `none`, `custom`, `multiple`, or the selected category profile token.
+- `customization_ai_component_removal_enabled`: whether AI component removal is enabled with at least one selected option.
+- `customization_ai_remove_copilot_enabled`: whether Microsoft Copilot removal is selected.
+- `customization_ai_remove_ai_hub_enabled`: whether Copilot+ AI Hub removal is selected.
+- `customization_ai_disable_recall_enabled`: whether Windows Recall disablement is selected.
+- `customization_ai_disable_click_to_do_enabled`: whether Click to Do disablement is selected.
+- `customization_ai_disable_service_autostart_enabled`: whether Windows AI service autostart disablement is selected.
+- `customization_ai_disable_edge_ai_enabled`: whether Microsoft Edge AI feature disablement is selected.
+- `customization_ai_disable_paint_ai_enabled`: whether Paint AI feature disablement is selected.
+- `customization_ai_disable_notepad_ai_enabled`: whether Notepad AI feature disablement is selected.
+- `customization_ai_component_removal_option_count`: number of selected AI component removal options.
 - `localization_any_enabled`: whether any Localization page setting is configured.
 - `localization_visible_languages_count`: number of visible deployment languages selected.
 - `localization_default_language_configured`: whether a default deployment language is configured.
@@ -142,6 +152,7 @@ Telemetry does not collect:
 - User names, domain names, email addresses, computer names, IP addresses, or Wi-Fi SSIDs.
 - Machine naming prefixes or generated computer names.
 - Provisioned AppX package names.
+- AI component removal does not send registry values, package names, or policy paths.
 - Disk numbers, disk names, serial numbers, file paths, URLs, file names, hashes, passwords, secrets, tokens, or passphrases.
 - Localization values such as selected language codes, default language codes, or Windows time-zone identifiers.
 - Network values such as SSIDs, passphrases, certificate paths, profile paths, profile contents, probe URLs, gateway details, adapter names, or Wi-Fi signal strength.

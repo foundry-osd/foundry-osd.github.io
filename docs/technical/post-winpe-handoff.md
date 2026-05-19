@@ -48,6 +48,8 @@ Driver provisioning is priority `100` and runs before customization scripts. Cus
 
 Provisioned AppX removal is a customization script. It runs before OOBE and uses online provisioned package removal so new user profiles are created without the selected packages. Foundry stages only supported provisioned package identifiers, such as `Microsoft.BingWeather`, in `Data\Remove-AppX.packages.json`; the script skips packages that are not provisioned in the applied image.
 
+AI component removal is also a customization script. It runs before OOBE and reads selected options from `Data\Remove-AiComponents.settings.json`. The script removes the selected Copilot and Copilot+ AI Hub provisioned AppX packages, writes machine-wide AI policy values under `HKLM`, and loads `C:\Users\Default\NTUSER.DAT` as `HKU\FoundryDefaultUser` when settings must become defaults for future user profiles. It does not write to `HKEY_USERS\.DEFAULT`.
+
 Foundry writes a launcher log at:
 
 `Windows\Temp\Foundry\Logs\PreOobe\SetupComplete.log`
@@ -55,6 +57,8 @@ Foundry writes a launcher log at:
 If the launcher starts successfully, each PowerShell script also writes its own transcript under the same folder, for example:
 
 `Windows\Temp\Foundry\Logs\PreOobe\Remove-AppX.transcript.log`
+
+`Windows\Temp\Foundry\Logs\PreOobe\Remove-AiComponents.transcript.log`
 
 If no Foundry pre-OOBE logs exist after first boot, check Windows setup logging under:
 
@@ -70,7 +74,7 @@ Most driver packs are applied offline with DISM. Some packages, such as selected
 
 The pre-OOBE runner then invokes the driver PowerShell script during first boot.
 
-When deferred driver provisioning and AppX removal are both enabled, Foundry stages one shared pre-OOBE runner. Driver provisioning runs first, AppX removal runs in the customization bucket, and cleanup runs last.
+When deferred driver provisioning and customization scripts are both enabled, Foundry stages one shared pre-OOBE runner. Driver provisioning runs first, AppX and AI component removal run in the customization bucket, and cleanup runs last.
 
 ## Operational artifacts
 
