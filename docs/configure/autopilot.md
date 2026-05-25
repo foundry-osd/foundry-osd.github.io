@@ -1,14 +1,14 @@
 ---
 title: Autopilot
-description: Stage Autopilot profiles from Foundry OSD for deployment-time use.
+description: Configure Autopilot JSON profile staging or hardware hash upload from Foundry OSD.
 ---
 
 # Autopilot
 
 Autopilot settings are managed in Foundry OSD and staged into deployment media for Foundry Deploy.
 
-:::tip[Keep profile sets small]
-Only stage profiles that operators should be able to use during deployment.
+:::tip[Choose one mode per media build]
+Use JSON profile mode when you already have offline Autopilot profiles. Use hardware hash upload when the device should be imported into Windows Autopilot during deployment.
 :::
 
 ## Provisioning modes
@@ -20,7 +20,7 @@ Foundry supports two Autopilot provisioning modes:
 | JSON profile | You already have offline Autopilot profile JSON and want Foundry Deploy to stage `AutopilotConfigurationFile.json` into the applied Windows image. |
 | Hardware hash upload | You want Foundry Deploy to capture the device hash in WinPE and import the device into Windows Autopilot with Microsoft Graph. |
 
-Open [Autopilot Hardware Hash Upload](../deploy/autopilot-hash-upload) for the operator workflow, security model, failure behavior, and validation checklist for the hardware hash mode.
+Open [Autopilot Hardware Hash Upload](../deploy/autopilot-hash-upload) for the operator workflow, media build requirements, deployment behavior, and troubleshooting notes for the hardware hash mode.
 
 ## JSON profile actions
 
@@ -32,11 +32,27 @@ For JSON profile mode, Foundry OSD can:
 - Remove imported profiles.
 - Select the default profile.
 
+Only stage profiles that operators should be able to use during deployment.
+
 :::info[Screenshot placeholder]
 Capture the Autopilot section with profile list, import action, tenant download action, and default-profile selector visible.
 :::
 
-## Storage and injection paths
+## Hardware hash upload actions
+
+For hardware hash upload mode, Foundry OSD can:
+
+- Connect to the tenant.
+- Create or reuse the managed app registration.
+- Create Foundry-managed certificates.
+- Validate the PFX selected for boot media generation.
+- Select an optional default group tag.
+
+The selected PFX and its password are used only to prepare the boot image. Foundry OSD does not persist the private key or PFX password in ProgramData.
+
+Foundry OSD stores only the default group tag preference in the deploy configuration. Foundry Deploy discovers the live tenant group tags again when the device boots. If the configured default group tag is no longer available, Deploy selects `None`.
+
+## JSON storage and injection paths
 
 For JSON profile mode, Foundry OSD exposes:
 

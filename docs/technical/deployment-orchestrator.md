@@ -29,12 +29,12 @@ The deployment pipeline runs in this order:
 14. Download firmware update
 15. Apply firmware update
 16. Seal recovery partition
-17. Stage Autopilot configuration
+17. Provision Autopilot
 18. Finalize deployment and write logs
 
 ## Runtime state
 
-Each step reads and updates the deployment runtime state. Runtime state carries target partition paths, selected operating system metadata, OOBE defaults, driver-pack strategy, firmware update paths, Autopilot staging details, pre-OOBE script paths, completed steps, and final artifact locations.
+Each step reads and updates the deployment runtime state. Runtime state carries target partition paths, selected operating system metadata, OOBE defaults, driver-pack strategy, firmware update paths, Autopilot provisioning details, pre-OOBE script paths, completed steps, and final artifact locations.
 
 ## Offline Windows staging
 
@@ -43,8 +43,10 @@ Foundry Deploy writes several artifacts into the applied Windows image before re
 - `Windows\Panther\unattend.xml` for specialize-pass settings such as computer name and time zone, plus OOBE settings such as license-term and privacy setup handling.
 - Offline registry hives for OOBE privacy policy defaults such as diagnostic data, advertising ID, speech, typing diagnostics, tailored experiences, and location access.
 - `Windows\Setup\Scripts\SetupComplete.cmd` for post-WinPE first-boot execution.
-- `Windows\Provisioning\Autopilot\AutopilotConfigurationFile.json` when offline Autopilot profile staging is enabled.
+- `Windows\Provisioning\Autopilot\AutopilotConfigurationFile.json` when JSON profile mode is enabled.
 - `Windows\Temp\Foundry` for deployment logs, summaries, staged packages, and pre-OOBE assets.
+
+Hardware hash upload mode does not write an offline Autopilot profile. In that mode, the Autopilot step runs after Windows has been applied, copies `PCPKsp.dll` from the applied Windows image into WinPE, captures the hash with OA3Tool, uploads it with Microsoft Graph, waits for Windows Autopilot device visibility, and applies the selected group tag when needed.
 
 ## Failure behavior
 
