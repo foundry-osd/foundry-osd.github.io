@@ -51,7 +51,7 @@ const sidebars: SidebarsConfig = {
         slug: '/deploy',
         description: 'Select deployment options and run the Windows deployment.',
       },
-      items: ['deploy/deployment-flow'],
+      items: ['deploy/deployment-flow', 'deploy/autopilot-hash-upload'],
     },
     {
       type: 'category',

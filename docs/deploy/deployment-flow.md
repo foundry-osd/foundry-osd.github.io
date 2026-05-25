@@ -35,8 +35,9 @@ Review or set:
 - `Computer Name`
 - `Target Disk`
 - `Firmware: Microsoft Update Catalog update enabled.`
-- `Autopilot: Enable offline profile staging.`, when Autopilot profiles are available
-- `Autopilot Profile`, when Autopilot is enabled
+- Autopilot provisioning mode, when Autopilot is enabled
+- `Autopilot Profile`, when JSON profile mode is enabled
+- Autopilot hardware hash upload status and group tag, when hardware hash upload mode is enabled
 
 The computer name must use 1 to 15 characters. Use letters, numbers, and hyphen only. If machine naming was staged by Foundry OSD, the field can be pre-filled, auto-generated, or read-only depending on the staged rule.
 
@@ -87,7 +88,8 @@ Verify:
 - Operating system
 - Selected driver pack
 - Firmware setting
-- Autopilot state and profile, when enabled
+- Autopilot mode and selected profile, when JSON profile mode is enabled
+- Autopilot hardware hash upload status and group tag, when hardware hash upload mode is enabled
 
 The `Deploy` command becomes actionable from this page when the required selections are valid.
 
@@ -115,7 +117,14 @@ During execution, Foundry Deploy shows:
 - Current step progress
 - Step counter
 
-The deployment pipeline runs ordered steps for validation, cache resolution, disk layout, operating system download and apply, computer naming, offline OOBE and AI policy defaults, recovery configuration, pre-OOBE customization staging, drivers, firmware, Autopilot staging, and final logs. Download steps can be skipped when the required content is already available in cache.
+The deployment pipeline runs ordered steps for validation, cache resolution, disk layout, operating system download and apply, computer naming, offline OOBE and AI policy defaults, recovery configuration, pre-OOBE customization staging, drivers, firmware, Autopilot provisioning, and final logs. Download steps can be skipped when the required content is already available in cache.
+
+Autopilot provisioning is mode-aware:
+
+- JSON profile mode stages `AutopilotConfigurationFile.json` into the applied Windows image.
+- Hardware hash upload mode captures the device hash after Windows apply, imports it with Microsoft Graph, and waits up to 10 minutes for the serial number to appear in Windows Autopilot devices.
+
+Read [Autopilot Hardware Hash Upload](./autopilot-hash-upload) before using hardware hash upload mode in production.
 
 ![Foundry Deploy target validation progress](/img/docs/foundry-deploy/progress-validate-target.png)
 

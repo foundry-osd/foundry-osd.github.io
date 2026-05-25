@@ -101,3 +101,5 @@ Use the screen state to determine whether the issue is:
 ## Next step
 
 After Foundry Connect reports **Network ready**, select **Continue** or let auto-continue return success to the bootstrap. The bootstrap then opens [Deployment Flow](../deploy/deployment-flow). Closing Foundry Connect before that controlled exit stops the bootstrap flow.
+
+If the media was built for Autopilot hardware hash upload, keep network access available through deployment. Foundry Deploy must reach Microsoft Entra and Microsoft Graph after Windows has been applied. Read [Autopilot Hardware Hash Upload](../deploy/autopilot-hash-upload) before using that mode.
