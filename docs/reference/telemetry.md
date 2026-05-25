@@ -156,7 +156,7 @@ Telemetry does not collect:
 - Disk numbers, disk names, serial numbers, file paths, URLs, file names, hashes, passwords, secrets, tokens, or passphrases.
 - Localization values such as selected language codes, default language codes, or Windows time-zone identifiers.
 - Network values such as SSIDs, passphrases, certificate paths, profile paths, profile contents, probe URLs, gateway details, adapter names, or Wi-Fi signal strength.
-- Autopilot profile names, profile folder names, target computer names, deployment logs, OS image URLs, driver pack URLs, or firmware package URLs.
+- Autopilot profile names, profile folder names, group tags, target computer names, deployment logs, OS image URLs, driver pack URLs, or firmware package URLs.
 - Raw exceptions or stack traces.
 
 ## Transport

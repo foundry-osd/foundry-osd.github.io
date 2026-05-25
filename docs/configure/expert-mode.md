@@ -20,7 +20,7 @@ Create media with the standard workflow first unless the deployment environment 
 | General | Media output, architecture, language, WinPE drivers, and advanced media options |
 | Network | Wired 802.1X and Wi-Fi settings for Foundry Connect |
 | Localization | Visible languages, default language, and time zone |
-| Autopilot | Imported or downloaded Autopilot profiles and the default profile |
+| Autopilot | JSON profile staging or hardware hash upload settings, including tenant connection, boot media certificate, and default group tag preference |
 | Customization | Machine naming rules, Windows OOBE defaults, AI component removal, and provisioned AppX removal used later in Foundry Deploy |
 
 :::info[Screenshot placeholder]
@@ -56,5 +56,5 @@ Capture the import and export actions, including the deploy configuration export
 
 - Open [Network Configuration](./network) for wired and Wi-Fi settings.
 - Open [Localization](./localization) for language and time zone behavior.
-- Open [Autopilot](./autopilot) for profile handling.
+- Open [Autopilot](./autopilot) for JSON profile staging and hardware hash upload configuration.
 - Open [Customization](./customization) for machine naming, Windows OOBE behavior, AI component removal, and provisioned AppX removal.

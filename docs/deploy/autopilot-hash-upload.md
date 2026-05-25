@@ -22,7 +22,7 @@ You need:
 - An Intune tenant where you can create or manage an app registration.
 - Admin consent for the Microsoft Graph application permission `DeviceManagementServiceConfig.ReadWrite.All`.
 - Network access from WinPE to Microsoft Graph and Microsoft Entra.
-- A generated PFX file and its password. Foundry shows the password once when the certificate is created.
+- A secure place to store the generated PFX file and password. Foundry shows the password once when the certificate is created.
 
 :::tip[PFX handling]
 Foundry does not save the PFX or its password in ProgramData. Keep the generated PFX and password somewhere secure. You must select them again when you build new media.
@@ -82,13 +82,13 @@ The Autopilot configuration is ready only when the selected PFX matches the acti
 
 ## 5. Choose a default group tag
 
-Select the default group tag to use during deployment, or leave **None** selected.
+Select the default group tag preference to use during deployment, or leave **None** selected.
 
 ![Foundry OSD default group tag](/img/docs/autopilot-hash-upload/osd-default-group-tag.svg)
 
 Use **None** when the device should be uploaded without a group tag.
 
-Foundry Deploy checks the live tenant group tags again when the device boots. If the configured default group tag no longer exists, Deploy automatically selects **None**.
+Foundry OSD stores only this default preference in the boot media. Foundry Deploy checks the live tenant group tags again when the device boots. If the configured default group tag no longer exists, Deploy automatically selects **None**.
 
 ## 6. Build the boot media
 
