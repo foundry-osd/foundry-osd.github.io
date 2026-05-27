@@ -54,7 +54,7 @@ After connection, Foundry displays the tenant ID, client ID, managed app registr
 
 ![Foundry OSD tenant connected before certificate creation](/img/docs/autopilot-hash-upload/osd-tenant-connected-not-ready.png)
 
-The tenant can be connected while the readiness state is still **Not ready**. Create the certificate and configure the boot media PFX before expecting the full hardware hash upload state to become **Ready**.
+The tenant can be connected while the readiness state is still **Not ready**. Create a valid certificate before expecting the tenant readiness state to become **Ready**.
 
 ## 3. Create a certificate
 
@@ -70,7 +70,7 @@ When the certificate is created:
 2. Save the generated password.
 3. Close the dialog only after both values are stored securely.
 
-![Foundry OSD boot media certificate ready for Autopilot hash upload](/img/docs/autopilot-hash-upload/osd-boot-media-certificate-ready.png)
+![Foundry OSD certificate ready dialog with PFX password](/img/docs/autopilot-hash-upload/osd-certificate-ready-dialog.png)
 
 You can keep multiple Foundry certificates in the tenant. Foundry does not remove unrelated app registration certificates.
 
@@ -80,7 +80,7 @@ In **Boot media certificate**, select the PFX file that matches one of the Found
 
 Enter the PFX password. Foundry validates the thumbprint and expiration.
 
-![Foundry Deploy target page ready for Autopilot hardware hash upload](/img/docs/autopilot-hash-upload/deploy-target-autopilot-ready.png)
+![Foundry OSD boot media certificate ready for Autopilot hash upload](/img/docs/autopilot-hash-upload/osd-boot-media-certificate-ready.png)
 
 The Autopilot configuration is ready only when the selected PFX matches the active certificate in the tenant and is not expired.
 
@@ -90,7 +90,7 @@ Select the default group tag preference to use during deployment, or leave **Non
 
 Use **None** when the device should be uploaded without a group tag.
 
-Foundry OSD stores only this default preference in the boot media. Foundry Deploy checks the live tenant group tags again when the device boots. If the configured default group tag no longer exists, Deploy automatically selects **None**.
+Foundry OSD stores only this default preference in the boot media. Foundry Deploy checks the live tenant group tags again when the device boots. If the configured default group tag is not available at boot, Deploy falls back to **None**.
 
 ## 6. Build the boot media
 
@@ -121,7 +121,7 @@ On the target page, confirm:
 - Autopilot state.
 - Group tag.
 
-![Foundry OSD certificate ready dialog with PFX password](/img/docs/autopilot-hash-upload/osd-certificate-ready-dialog.png)
+![Foundry Deploy target page ready for Autopilot hardware hash upload](/img/docs/autopilot-hash-upload/deploy-target-autopilot-ready.png)
 
 Select **Deploy** when the summary is correct.
 
