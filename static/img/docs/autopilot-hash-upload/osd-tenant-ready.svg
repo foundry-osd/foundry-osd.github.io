@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
-  <title id="title">Screenshot placeholder: Foundry OSD tenant ready</title>
-  <desc id="desc">Replace this placeholder with a screenshot of the tenant connection and readiness state.</desc>
-  <rect width="1280" height="720" fill="#202020"/>
-  <rect x="80" y="80" width="1120" height="560" rx="10" fill="#303030" stroke="#4a4a4a"/>
-  <text x="640" y="320" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="38" text-anchor="middle">Screenshot needed</text>
-  <text x="640" y="372" fill="#cfcfcf" font-family="Segoe UI, Arial, sans-serif" font-size="26" text-anchor="middle">Foundry OSD tenant ready</text>
-</svg>
