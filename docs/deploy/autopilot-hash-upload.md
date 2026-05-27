@@ -17,9 +17,9 @@ Hardware hash upload from WinPE is a Foundry-assisted workflow. Test it on your 
 
 You need:
 
-- Foundry OSD with the Expert Mode section available.
+- Foundry OSD.
 - Windows ADK and Windows PE add-on installed.
-- An Intune tenant where you can create or manage an app registration.
+- A Microsoft Entra tenant where you can create or manage an app registration.
 - Admin consent for the Microsoft Graph application permission `DeviceManagementServiceConfig.ReadWrite.All`.
 - Network access from WinPE to Microsoft Graph and Microsoft Entra.
 - A secure place to store the generated PFX file and password. Foundry shows the password once when the certificate is created.
@@ -36,7 +36,7 @@ Enable Autopilot and select **Hardware hash upload** as the provisioning mode.
 
 ![Foundry OSD Autopilot hardware hash upload enabled before tenant connection](/img/docs/autopilot-hash-upload/osd-hardware-hash-upload-not-connected.png)
 
-The Autopilot page now shows the tenant connection, managed app registration, certificates, boot media certificate, and default group tag configuration.
+At this point, the hardware hash upload section only shows the tenant connection action.
 
 ## 2. Connect the tenant
 
@@ -70,7 +70,7 @@ When the certificate is created:
 2. Save the generated password.
 3. Close the dialog only after both values are stored securely.
 
-![Foundry OSD certificate ready dialog with PFX password](/img/docs/autopilot-hash-upload/osd-certificate-ready-dialog.png)
+![Foundry OSD boot media certificate ready for Autopilot hash upload](/img/docs/autopilot-hash-upload/osd-boot-media-certificate-ready.png)
 
 You can keep multiple Foundry certificates in the tenant. Foundry does not remove unrelated app registration certificates.
 
@@ -80,7 +80,7 @@ In **Boot media certificate**, select the PFX file that matches one of the Found
 
 Enter the PFX password. Foundry validates the thumbprint and expiration.
 
-![Foundry OSD boot media certificate ready for Autopilot hash upload](/img/docs/autopilot-hash-upload/osd-boot-media-certificate-ready.png)
+![Foundry OSD certificate ready dialog with PFX password](/img/docs/autopilot-hash-upload/osd-certificate-ready-dialog.png)
 
 The Autopilot configuration is ready only when the selected PFX matches the active certificate in the tenant and is not expired.
 
