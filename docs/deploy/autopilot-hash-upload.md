@@ -80,7 +80,7 @@ In **Boot media certificate**, select the PFX file that matches one of the Found
 
 Enter the PFX password. Foundry validates the thumbprint and expiration.
 
-![Foundry OSD certificate ready dialog with PFX password](/img/docs/autopilot-hash-upload/osd-certificate-ready-dialog.png)
+![Foundry Deploy target page ready for Autopilot hardware hash upload](/img/docs/autopilot-hash-upload/deploy-target-autopilot-ready.png)
 
 The Autopilot configuration is ready only when the selected PFX matches the active certificate in the tenant and is not expired.
 
@@ -121,7 +121,7 @@ On the target page, confirm:
 - Autopilot state.
 - Group tag.
 
-![Foundry Deploy target page ready for Autopilot hardware hash upload](/img/docs/autopilot-hash-upload/deploy-target-autopilot-ready.png)
+![Foundry OSD certificate ready dialog with PFX password](/img/docs/autopilot-hash-upload/osd-certificate-ready-dialog.png)
 
 Select **Deploy** when the summary is correct.
 
