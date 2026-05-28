@@ -72,7 +72,7 @@ Media creation properties include:
 - `boot_media_connect_runtime_payload_source`: source of the generated Connect runtime payload.
 - `boot_media_deploy_runtime_payload_source`: source of the generated Deploy runtime payload.
 - `autopilot_enabled`: whether Autopilot provisioning was enabled.
-- `autopilot_provisioning_mode`: `disabled`, `json_profile`, or `hardware_hash_upload`.
+- `autopilot_provisioning_mode`: `disabled`, `json_profile`, `hardware_hash_upload`, or `interactive_hardware_hash_upload`.
 - `customization_any_enabled`: whether any Customization page setting was enabled.
 - `customization_machine_naming_enabled`: whether machine naming customization was enabled.
 - `customization_machine_naming_mode`: `disabled`, `manual`, `auto_generated_locked`, or `auto_generated_editable`.
@@ -158,7 +158,7 @@ Deploy properties include:
 - `deploy_driver_pack_model`: selected driver pack model, or `none`.
 - `deploy_firmware_updates_enabled`: whether firmware updates were enabled.
 - `deploy_autopilot_enabled`: whether Autopilot provisioning was enabled.
-- `deploy_autopilot_provisioning_mode`: `disabled`, `json_profile`, or `hardware_hash_upload`.
+- `deploy_autopilot_provisioning_mode`: `disabled`, `json_profile`, `hardware_hash_upload`, or `interactive_hardware_hash_upload`.
 - `deploy_autopilot_hash_upload_state`: normalized Autopilot hardware hash upload state.
 - `deploy_autopilot_hash_group_tag_selected`: whether hardware hash upload has a configured default group tag.
 
