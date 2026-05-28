@@ -79,6 +79,21 @@ USB creation erases and repartitions the selected disk. Do not continue until th
 
 ![Foundry OSD USB target selection](/img/docs/foundry-osd/usb-target-selection.png)
 
+## Update USB
+
+When the selected USB disk already has the expected Foundry layout, Foundry OSD shows **Update USB** instead of **Create USB**.
+
+Foundry OSD treats a USB disk as existing Foundry media when it has both expected volumes:
+
+- `BOOT` formatted as FAT32
+- `Foundry Cache` formatted as NTFS
+
+Update USB refreshes only the `BOOT` partition. It does not repartition the disk and does not format `Foundry Cache`, so cached runtime files and downloaded deployment content remain available.
+
+:::info[BOOT access on GPT USB media]
+On GPT USB media, the `BOOT` partition is an EFI System Partition. Windows Explorer may ask for elevated access when opening that partition. This does not indicate a failed update or cache loss. Use `Foundry Cache` for persistent user-accessible storage.
+:::
+
 ## Build progress
 
 During media creation, Foundry OSD reports progress for runtime downloads and media build steps. Foundry Connect is provisioned with the boot image. Foundry Deploy is resolved later by the WinPE bootstrap, with USB cache paths used when available.
