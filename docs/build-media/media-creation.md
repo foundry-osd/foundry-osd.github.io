@@ -35,7 +35,7 @@ Set the standard media options before starting the build:
 Choose ISO when you need a reusable artifact. Choose USB when you need a physical deployment device prepared directly by Foundry OSD.
 
 :::info[BOOT access on GPT USB media]
-On GPT USB media, the `BOOT` partition is an EFI System Partition for both Create USB and Update USB workflows. Windows Explorer may ask for elevated access when opening that partition. This does not indicate a failed media creation, failed update, or cache loss. Use `Foundry Cache` for persistent user-accessible storage.
+On GPT USB media, the `BOOT` partition is an EFI System Partition for both Create USB and Update USB workflows. Windows Explorer may ask for elevated access when opening that partition, and after unplugging and reconnecting the USB drive Windows may not assign `BOOT` a drive letter at all. This does not indicate a failed media creation, failed update, or cache loss. Use `Foundry Cache` for persistent user-accessible storage.
 :::
 
 ## Shared preparation
