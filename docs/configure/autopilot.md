@@ -50,7 +50,7 @@ For hardware hash upload mode, Foundry OSD can:
 
 The selected PFX and its password are used only to prepare the boot image. Foundry OSD does not persist the private key or PFX password in ProgramData.
 
-Foundry OSD stores only the default group tag preference in the deploy configuration. Foundry Deploy discovers the live tenant group tags again when the device boots. If the configured default group tag is no longer available, Deploy selects `None`.
+Foundry OSD stores only the default group tag preference in the generated Foundry Deploy configuration staged into the boot image. Foundry Deploy discovers the live tenant group tags again when the device boots. If the configured default group tag is no longer available, Deploy selects `None`.
 
 ## JSON storage and injection paths
 

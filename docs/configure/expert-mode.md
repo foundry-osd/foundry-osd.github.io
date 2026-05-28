@@ -27,19 +27,20 @@ Create media with the standard workflow first unless the deployment environment 
 Capture the expert-mode shell with all section tabs visible.
 :::
 
-## Import and export
+## Runtime configuration handoff
 
-Expert mode supports:
+Expert mode settings are saved into the Foundry OSD configuration and staged automatically during media creation.
 
-- Importing a Foundry configuration file (`foundry.config.json`).
-- Exporting a Foundry configuration file (`foundry.config.json`).
-- Exporting a deploy configuration file.
+When you build ISO or USB media, Foundry OSD generates the runtime configuration files needed by:
 
-The deploy configuration is a reduced handoff for Foundry Deploy. It carries deployment-time preferences without exposing every workstation-side setting.
+- Foundry Connect, for network readiness behavior.
+- Foundry Deploy, for deployment-time preferences.
 
-## When to export deploy configuration
+Those files are written into the boot image during media creation. No operator action is required to create the Foundry Connect or Foundry Deploy runtime configuration files.
 
-Export deploy configuration when the WinPE deployment session should start with predefined preferences for:
+## Staged deployment preferences
+
+Use expert mode when the WinPE deployment session should start with predefined preferences for:
 
 - Localization
 - Autopilot
@@ -49,7 +50,7 @@ Export deploy configuration when the WinPE deployment session should start with 
 - Provisioned AppX removal
 
 :::info[Screenshot placeholder]
-Capture the import and export actions, including the deploy configuration export action.
+Capture the expert-mode sections that control generated runtime configuration.
 :::
 
 ## Next steps
