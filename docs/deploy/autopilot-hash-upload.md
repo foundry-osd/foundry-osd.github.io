@@ -102,7 +102,7 @@ Foundry stages the required hash upload assets into the boot image:
 - Encrypted PFX bytes.
 - Encrypted PFX password.
 - Media secret key.
-- Deploy configuration.
+- Generated Foundry Deploy configuration.
 - WinPE optional components, including `WinPE-SecureStartup`.
 
 Generated media is tenant-sensitive. Anyone with full access to the boot image can access the encrypted certificate material and the media secret key used by Foundry Deploy.

@@ -7,6 +7,18 @@ Foundry collects anonymous product telemetry to understand which versions, media
 
 The telemetry setting is propagated into generated Foundry Connect and Foundry Deploy runtimes. If telemetry is disabled before creating media, Connect and Deploy do not send telemetry from that media.
 
+## Configuration
+
+Telemetry configuration is stored in the generated runtime configuration under the `telemetry` object:
+
+- `isEnabled`: enables or disables telemetry. The default is `true`.
+- `installId`: anonymous installation identifier. Foundry OSD generates one when the local setting is missing.
+- `hostUrl`: PostHog ingestion host. The default is `https://eu.i.posthog.com`.
+- `projectToken`: PostHog project token used by release builds. Debug builds leave it empty unless supplied during the build.
+- `runtimePayloadSource`: runtime payload source category: `none`, `debug`, `release`, or `unknown`.
+
+Foundry OSD automatically stages the generated Foundry Connect and Foundry Deploy configuration files into the boot image during media creation. No operator action is required to create those runtime files.
+
 ## Events
 
 Foundry sends a small set of low-cardinality events optimized for monthly event limits:
@@ -59,6 +71,7 @@ Media creation properties include:
 - `boot_media_connect_runtime_payload_source`: source of the generated Connect runtime payload.
 - `boot_media_deploy_runtime_payload_source`: source of the generated Deploy runtime payload.
 - `autopilot_enabled`: whether Autopilot provisioning was enabled.
+- `autopilot_provisioning_mode`: `disabled`, `json_profile`, or `hardware_hash_upload`.
 - `customization_any_enabled`: whether any Customization page setting was enabled.
 - `customization_machine_naming_enabled`: whether machine naming customization was enabled.
 - `customization_machine_naming_mode`: `disabled`, `manual`, `auto_generated_locked`, or `auto_generated_editable`.
@@ -144,6 +157,9 @@ Deploy properties include:
 - `deploy_driver_pack_model`: selected driver pack model, or `none`.
 - `deploy_firmware_updates_enabled`: whether firmware updates were enabled.
 - `deploy_autopilot_enabled`: whether Autopilot provisioning was enabled.
+- `deploy_autopilot_provisioning_mode`: `disabled`, `json_profile`, or `hardware_hash_upload`.
+- `deploy_autopilot_hash_upload_state`: normalized Autopilot hardware hash upload state.
+- `deploy_autopilot_hash_group_tag_selected`: whether hardware hash upload has a configured default group tag.
 
 ## Excluded Data
 
