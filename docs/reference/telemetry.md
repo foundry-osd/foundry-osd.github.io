@@ -56,6 +56,7 @@ This event has no event-specific properties. It uses only the common telemetry e
 Media creation properties include:
 
 - `boot_media_target`: `iso` or `usb`.
+- `boot_media_usb_operation`: `none`, `create`, or `update`. ISO media reports `none`; USB media reports whether Foundry OSD created the full USB layout or updated the boot partition on existing Foundry media.
 - `boot_media_creation_success`: whether media creation completed successfully.
 - `boot_media_creation_duration_seconds`: total media creation duration.
 - `boot_media_creation_failed_step_name`: failed media creation step name, `unknown`, or empty when media creation succeeded.
@@ -181,6 +182,6 @@ Foundry uses PostHog product analytics for telemetry ingestion. Release builds r
 
 The telemetry sender rejects unknown event names and removes properties that are not explicitly allowed for that event before sending the payload.
 
-This schema is `telemetry_schema_version` 2.
+This schema is `telemetry_schema_version` 3.
 
 During schema migrations, PostHog dashboards and insights may temporarily exist in old and new versions. The old assets are retained until the migration window ends, then renamed with `(old)`.
