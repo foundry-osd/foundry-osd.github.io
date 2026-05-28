@@ -182,6 +182,6 @@ Foundry uses PostHog product analytics for telemetry ingestion. Release builds r
 
 The telemetry sender rejects unknown event names and removes properties that are not explicitly allowed for that event before sending the payload.
 
-This schema is `telemetry_schema_version` 3.
+This schema is `telemetry_schema_version` 2.
 
 During schema migrations, PostHog dashboards and insights may temporarily exist in old and new versions. The old assets are retained until the migration window ends, then renamed with `(old)`.
