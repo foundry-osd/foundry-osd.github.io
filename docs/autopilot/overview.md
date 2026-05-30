@@ -42,7 +42,7 @@ Use **Interactive hardware hash upload** when the tenant does not allow the zero
 
 Zero-touch hardware hash upload uses application permissions through the Foundry-managed app registration and certificate.
 
-Interactive hardware hash upload uses delegated device-code authentication during OOBE with `DeviceManagementServiceConfig.ReadWrite.All`. The signed-in account must be allowed to import Windows Autopilot devices through Microsoft Graph.
+Interactive hardware hash upload uses delegated device-code authentication during OOBE with `DeviceManagementServiceConfig.ReadWrite.All`. A tenant administrator must be able to grant consent for this delegated Microsoft Graph permission, and the signed-in account must be allowed to import Windows Autopilot devices.
 
 ## Screenshot placeholders
 

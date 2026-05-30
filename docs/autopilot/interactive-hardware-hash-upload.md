@@ -32,7 +32,7 @@ You need:
 - Foundry media configured for **Interactive hardware hash upload**.
 - Internet access during Windows OOBE. Ethernet or already-available network connectivity is recommended because the assistant starts before normal OOBE completion.
 - A technician account allowed to import Windows Autopilot devices.
-- Delegated consent for `DeviceManagementServiceConfig.ReadWrite.All` on the Foundry public client.
+- A tenant administrator who can grant consent for the delegated Microsoft Graph permission `DeviceManagementServiceConfig.ReadWrite.All`.
 
 No tenant connection is required in Foundry OSD for this mode. No certificate, PFX, or group tag is selected in Foundry OSD.
 

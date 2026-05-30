@@ -113,7 +113,7 @@ Common causes:
 
 - No DNS or internet access during OOBE.
 - Device-code endpoint blocked.
-- Tenant policy blocks the public client or delegated consent.
+- Tenant policy blocks delegated Microsoft Graph consent.
 - The signed-in account does not have permission to import Windows Autopilot devices.
 
 If a device code expires, Foundry requests and displays a new code automatically.
