@@ -124,4 +124,4 @@ Capture the advanced media options section with CA2023, partition style, format 
 ## Next steps
 
 - Open [Network Readiness](../connect/network-readiness) to understand what happens after the target boots.
-- Open [Expert Mode](../configure/expert-mode) when media should include predefined deployment behavior.
+- Select [Expert Mode](../configure/expert-mode) in the navigation menu when media should include predefined deployment behavior.

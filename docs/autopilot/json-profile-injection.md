@@ -32,7 +32,7 @@ Tenant sign-in in Foundry OSD is optional. Use it only when you want Foundry OSD
 ## Configure Foundry OSD
 
 1. Open **Foundry OSD**.
-2. Open **Expert Mode**.
+2. Select **Expert Mode** in the navigation menu.
 3. Select **Autopilot**.
 4. Enable Autopilot.
 5. Select **JSON profile injection**.

@@ -56,5 +56,5 @@ Even without expert configuration, Foundry OSD still:
 ## Next steps
 
 - Open [Media Creation](./media-creation) for ISO and USB details.
-- Open [Expert Mode](../configure/expert-mode) for predefined deployment settings.
+- Select [Expert Mode](../configure/expert-mode) in the navigation menu for predefined deployment settings.
 - Open [Quick Start](../start/quick-start) for the shortest end-to-end guide.
