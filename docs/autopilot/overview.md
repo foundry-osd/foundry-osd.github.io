@@ -25,7 +25,7 @@ The generated media carries one Autopilot provisioning mode. Build separate medi
 
 | Surface | JSON profile injection | Zero-touch hardware hash upload | Interactive hardware hash upload |
 | --- | --- | --- | --- |
-| Foundry OSD | Imports or downloads profile JSON and selects the default profile. | Connects the tenant, prepares the app registration, creates certificates, selects the PFX, and sets the default group tag. | Selects the interactive mode only. No tenant connection, certificate, PFX, or group tag is configured in Foundry OSD. |
+| Foundry OSD | Imports or downloads profile JSON and selects the default profile. | Connects the tenant, prepares the media authentication app registration, creates certificates, selects the PFX, and sets the default group tag. | Selects the interactive mode only. No tenant connection, certificate, PFX, or group tag is configured in Foundry OSD. |
 | Foundry Connect | Only validates networking for the normal deployment flow. | Validates that WinPE networking is ready before Foundry Deploy starts. | Validates networking for deployment. Internet access must also be available later when the assistant starts during OOBE. |
 | Foundry Deploy | Stages `AutopilotConfigurationFile.json` into the applied Windows image. | Captures the hardware hash in WinPE, imports it with Microsoft Graph, waits for device visibility, and reconciles the group tag. | Stages the OOBE registration assistant into the applied Windows image. |
 | Windows OOBE | Windows consumes the staged profile. | Windows continues after Foundry Deploy completes. | The Foundry assistant opens during OOBE, requests Microsoft device-code authentication, uploads the hash, and restarts the device. |
@@ -34,13 +34,13 @@ The generated media carries one Autopilot provisioning mode. Build separate medi
 
 Use **JSON profile injection** for the simplest offline Autopilot path when profile JSON files are already available.
 
-Use **Zero-touch hardware hash upload** when the tenant allows Foundry OSD to create or manage the app registration and certificate used by generated media.
+Use **Zero-touch hardware hash upload** when the tenant allows the administrator to create or manage the app registration, grant Microsoft Graph consent, and create the certificate used by generated media.
 
 Use **Interactive hardware hash upload** when the tenant does not allow the zero-touch app-registration model, but a technician is allowed to sign in during OOBE with delegated Microsoft Graph permissions.
 
 ## Required permissions
 
-Zero-touch hardware hash upload uses application permissions through the Foundry-managed app registration and certificate.
+Zero-touch hardware hash upload uses application permissions through the tenant app registration and certificate staged into generated media.
 
 Interactive hardware hash upload uses delegated device-code authentication during OOBE with `DeviceManagementServiceConfig.ReadWrite.All`. A tenant administrator must be able to grant consent for this delegated Microsoft Graph permission, and the signed-in account must be allowed to import Windows Autopilot devices.
 

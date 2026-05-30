@@ -7,7 +7,7 @@ description: Configure certificate-based automatic Windows Autopilot hardware ha
 
 Zero-touch hardware hash upload captures the device hardware hash in WinPE and imports it into Microsoft Intune with Microsoft Graph.
 
-Use this mode when the tenant allows Foundry OSD to create or reuse a managed app registration and generated media can carry encrypted certificate material for app-only authentication.
+Use this mode when the tenant allows the administrator to create or reuse the app registration used by generated media, grant Microsoft Graph consent, and carry encrypted certificate material for app-only authentication.
 
 :::warning[Validate before production]
 This is tenant-bound media. Test the workflow on representative hardware and with the target tenant before using it at scale.
@@ -32,9 +32,9 @@ You need:
 
 - Foundry OSD.
 - Windows ADK and Windows PE add-on.
-- A Microsoft Entra tenant where the operator can manage app registrations and service principal permissions.
-- Admin consent for the delegated Foundry OSD tenant onboarding permissions: `Application.ReadWrite.All`, `AppRoleAssignment.ReadWrite.All`, `DeviceManagementServiceConfig.Read.All`, and `User.Read`.
-- A Foundry-managed app registration with the Microsoft Graph application permission `DeviceManagementServiceConfig.ReadWrite.All` granted by admin consent.
+- A Microsoft Entra tenant where the administrator can manage app registrations and service principal permissions.
+- A tenant administrator who can grant consent for the delegated Microsoft Graph permissions used during tenant connection: `Application.ReadWrite.All`, `AppRoleAssignment.ReadWrite.All`, `DeviceManagementServiceConfig.Read.All`, and `User.Read`.
+- An app registration used by generated media with the Microsoft Graph application permission `DeviceManagementServiceConfig.ReadWrite.All` granted by admin consent.
 - A Foundry-managed certificate that is not expired.
 - A PFX file and password selected during media creation.
 - Network access from WinPE to Microsoft Entra and Microsoft Graph during deployment.
@@ -56,12 +56,12 @@ Foundry OSD does not persist the PFX file or PFX password in ProgramData. Store 
 
 1. Select **Connect tenant**.
 2. Complete Microsoft Graph sign-in.
-3. Let Foundry OSD create or adopt the managed app registration.
+3. Let Foundry OSD create or adopt the tenant app registration used by generated media.
 4. Confirm that tenant ID, client ID, and readiness status are shown.
 
 ![Foundry OSD Microsoft Graph sign-in dialog](/img/docs/autopilot-hash-upload/osd-microsoft-graph-sign-in.png)
 
-Foundry OSD manages the app registration named:
+The app registration created or adopted during tenant connection is named:
 
 ```text
 Foundry OSD Autopilot Registration
