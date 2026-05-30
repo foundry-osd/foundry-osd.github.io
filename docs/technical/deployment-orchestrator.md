@@ -46,7 +46,9 @@ Foundry Deploy writes several artifacts into the applied Windows image before re
 - `Windows\Provisioning\Autopilot\AutopilotConfigurationFile.json` when JSON profile mode is enabled.
 - `Windows\Temp\Foundry` for deployment logs, summaries, staged packages, and pre-OOBE assets.
 
-Hardware hash upload mode does not write an offline Autopilot profile. In that mode, the Autopilot step runs after Windows has been applied, copies `PCPKsp.dll` from the applied Windows image into WinPE, captures the hash with OA3Tool, uploads it with Microsoft Graph, waits for Windows Autopilot device visibility, and applies the selected group tag when needed.
+Zero-touch hardware hash upload mode does not write an offline Autopilot profile. In that mode, the Autopilot step runs after Windows has been applied, copies `PCPKsp.dll` from the applied Windows image into WinPE, captures the hash with OA3Tool, uploads it with Microsoft Graph, waits for Windows Autopilot device visibility, and applies the selected group tag when needed.
+
+Interactive hardware hash upload mode stages the Foundry OOBE registration assistant into the applied Windows image. The assistant runs during OOBE, requests technician device-code authentication, uploads the hash, reconciles the group tag, and restarts the device after successful registration.
 
 ## Failure behavior
 

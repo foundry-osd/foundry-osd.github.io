@@ -37,7 +37,7 @@ Review or set:
 - `Firmware: Microsoft Update Catalog update enabled.`
 - Autopilot provisioning mode, when Autopilot is enabled
 - `Autopilot Profile`, when JSON profile mode is enabled
-- Autopilot hardware hash upload status and group tag, when hardware hash upload mode is enabled
+- Autopilot hardware hash upload status and group tag, when zero-touch hardware hash upload mode is enabled
 
 The computer name must use 1 to 15 characters. Use letters, numbers, and hyphen only. If machine naming was staged by Foundry OSD, the field can be pre-filled, auto-generated, or read-only depending on the staged rule.
 
@@ -89,7 +89,7 @@ Verify:
 - Selected driver pack
 - Firmware setting
 - Autopilot mode and selected profile, when JSON profile mode is enabled
-- Autopilot hardware hash upload status and group tag, when hardware hash upload mode is enabled
+- Autopilot hardware hash upload status and group tag, when zero-touch hardware hash upload mode is enabled
 
 The `Deploy` command becomes actionable from this page when the required selections are valid.
 
@@ -122,9 +122,10 @@ The deployment pipeline runs ordered steps for validation, cache resolution, dis
 Autopilot provisioning is mode-aware:
 
 - JSON profile mode stages `AutopilotConfigurationFile.json` into the applied Windows image.
-- Hardware hash upload mode captures the device hash after Windows apply, imports it with Microsoft Graph, and waits up to 10 minutes for the serial number to appear in Windows Autopilot devices.
+- Zero-touch hardware hash upload mode captures the device hash after Windows apply, imports it with Microsoft Graph, and waits up to 10 minutes for the serial number to appear in Windows Autopilot devices.
+- Interactive hardware hash upload mode stages the OOBE registration assistant into the applied Windows image.
 
-Read [Autopilot Hardware Hash Upload](./autopilot-hash-upload) before using hardware hash upload mode in production.
+Read [Autopilot Overview](../autopilot/overview) before using an Autopilot mode in production.
 
 ![Foundry Deploy target validation progress](/img/docs/foundry-deploy/progress-validate-target.png)
 

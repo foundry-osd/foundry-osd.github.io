@@ -43,6 +43,26 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Autopilot',
+      description:
+        'Choose and configure the Autopilot provisioning mode for deployment media.',
+      link: {
+        type: 'generated-index',
+        title: 'Autopilot',
+        slug: '/autopilot',
+        description:
+          'Choose and configure the Autopilot provisioning mode for deployment media.',
+      },
+      items: [
+        'autopilot/overview',
+        'autopilot/json-profile-injection',
+        'autopilot/zero-touch-hardware-hash-upload',
+        'autopilot/interactive-hardware-hash-upload',
+        'autopilot/troubleshooting',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Deploy',
       description: 'Select deployment options and run the Windows deployment.',
       link: {
@@ -51,7 +71,7 @@ const sidebars: SidebarsConfig = {
         slug: '/deploy',
         description: 'Select deployment options and run the Windows deployment.',
       },
-      items: ['deploy/deployment-flow', 'deploy/autopilot-hash-upload'],
+      items: ['deploy/deployment-flow'],
     },
     {
       type: 'category',
@@ -69,7 +89,6 @@ const sidebars: SidebarsConfig = {
         'configure/expert-mode',
         'configure/network',
         'configure/localization',
-        'configure/autopilot',
         'configure/customization',
       ],
     },

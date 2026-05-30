@@ -83,18 +83,17 @@ Deployment-time driver pack choices are loaded later in Foundry Deploy from the 
 | Local administrator rights | Required for ADK management and USB provisioning |
 | Internet access | Required for downloads, release assets, and catalog-backed workflows |
 
-## Autopilot hardware hash upload requirements
+## Autopilot requirements
 
-Autopilot hardware hash upload adds tenant and runtime requirements on top of normal media creation:
+Autopilot mode requirements depend on the selected workflow:
 
-- A Microsoft Entra app registration configured for certificate-based authentication.
-- Microsoft Graph application permission for Intune enrollment device import.
-- A PFX certificate selected during media creation that matches a certificate on the app registration.
-- A working WinPE network path to Microsoft Entra and Microsoft Graph during deployment.
+- JSON profile injection requires one or more offline Autopilot profile JSON files.
+- Zero-touch hardware hash upload requires a Microsoft Entra app registration, Microsoft Graph application permission for Intune enrollment device import, a matching PFX certificate, and WinPE network access to Microsoft Entra and Microsoft Graph.
+- Interactive hardware hash upload requires OOBE network access and a technician account allowed to import Windows Autopilot devices.
 
 Foundry OSD provisions WinPE-SecureStartup by default with the other WinPE optional components. This applies even when Autopilot hardware hash upload is not enabled.
 
-Read [Autopilot Hardware Hash Upload](../deploy/autopilot-hash-upload) before creating tenant-bound media.
+Read [Autopilot Overview](../autopilot/overview) before creating Autopilot-enabled media.
 
 ## Next step
 
