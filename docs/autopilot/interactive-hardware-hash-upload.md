@@ -39,10 +39,9 @@ No tenant connection is required in Foundry OSD for this mode. No certificate, P
 ## Configure Foundry OSD
 
 1. Open **Foundry OSD**.
-2. Select **Expert Mode** in the navigation menu.
-3. Select **Autopilot**.
-4. Enable Autopilot.
-5. Select **Interactive hardware hash upload**.
+2. In the navigation menu, under **Expert Mode**, select **Autopilot**.
+3. Enable Autopilot.
+4. Select **Interactive hardware hash upload**.
 
 Confirm that Foundry OSD does not ask for tenant sign-in, certificate creation, PFX selection, or group tag selection for this mode.
 

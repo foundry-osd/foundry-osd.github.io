@@ -45,10 +45,9 @@ Foundry OSD does not persist the PFX file or PFX password in ProgramData. Store 
 ## Configure Foundry OSD
 
 1. Open **Foundry OSD**.
-2. Select **Expert Mode** in the navigation menu.
-3. Select **Autopilot**.
-4. Enable Autopilot.
-5. Select **Zero-touch hardware hash upload**.
+2. In the navigation menu, under **Expert Mode**, select **Autopilot**.
+3. Enable Autopilot.
+4. Select **Zero-touch hardware hash upload**.
 
 ![Foundry OSD Autopilot hardware hash upload enabled before tenant connection](/img/docs/autopilot-hash-upload/osd-hardware-hash-upload-not-connected.png)
 

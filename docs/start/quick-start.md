@@ -88,5 +88,5 @@ The wizard enables forward movement only when the required selections for the cu
 ## Next steps
 
 - Open [Standard Workflow](../build-media/standard-workflow) for the normal operator path.
-- Select [Expert Mode](../configure/expert-mode) in the navigation menu when standard mode is not enough.
+- Review the [Expert Mode](../configure/expert-mode) section when standard mode is not enough.
 - Open [Deployment Flow](../deploy/deployment-flow) for the Foundry Deploy wizard sequence.
