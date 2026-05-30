@@ -19,6 +19,8 @@ Foundry OSD stages selected profile JSON files into the boot image. During deplo
 
 No hardware hash is captured. No Microsoft Graph upload is performed during deployment.
 
+Foundry does not configure or upload a group tag in this mode.
+
 ## Requirements
 
 You need:

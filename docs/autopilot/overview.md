@@ -13,7 +13,7 @@ Use this page to decide which mode matches the deployment workflow, then open th
 
 | Mode | Use when | Tenant sign-in in Foundry OSD | Certificate/PFX | Technician sign-in during deployment | Group tag selection |
 | --- | --- | --- | --- | --- | --- |
-| [JSON profile injection](./json-profile-injection) | You already have offline Autopilot profile JSON files. | Optional, only when downloading profiles from the tenant | No | No | Comes from the profile behavior |
+| [JSON profile injection](./json-profile-injection) | You already have offline Autopilot profile JSON files. | Optional, only when downloading profiles from the tenant | No | No | Not configured by Foundry |
 | [Zero-touch hardware hash upload](./zero-touch-hardware-hash-upload) | Devices should be uploaded automatically during deployment without technician sign-in on the target device. | Yes | Yes | No | Selected before media creation and reviewed in Foundry Deploy |
 | [Interactive hardware hash upload](./interactive-hardware-hash-upload) | Enterprise policy blocks the zero-touch app-registration certificate model, but a technician can authenticate during OOBE. | No | No | Yes | Selected in the OOBE assistant |
 
