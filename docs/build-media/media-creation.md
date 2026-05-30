@@ -47,12 +47,14 @@ Before either output is created, Foundry OSD prepares the same WinPE workspace:
 3. Inject selected drivers.
 4. Apply WinPE language components.
 5. Provision Foundry Connect.
-6. Stage configuration, network assets, Autopilot JSON profiles, or Autopilot hardware hash upload assets when configured.
+6. Stage configuration, network assets, Autopilot JSON profiles, zero-touch hardware hash upload assets, or interactive registration assets when configured.
 7. Prepare the bootstrap path that resolves Foundry Deploy later in WinPE.
 
-Autopilot hardware hash upload media includes encrypted tenant configuration, the selected certificate material needed for WinPE Microsoft Graph authentication, the default group tag preference, and OA3Tool assets for the selected architecture. Foundry OSD does not stage the full tenant group tag list into the boot image; Foundry Deploy discovers the live list during deployment. The private key is selected only for media generation and is not persisted in Foundry OSD configuration.
+Zero-touch hardware hash upload media includes encrypted tenant configuration, the selected certificate material needed for WinPE Microsoft Graph authentication, the default group tag preference, and OA3Tool assets for the selected architecture. Foundry OSD does not stage the full tenant group tag list into the boot image; Foundry Deploy discovers the live list during deployment. The private key is selected only for media generation and is not persisted in Foundry OSD configuration.
 
 Foundry OSD does not stage `PCPKsp.dll` into the boot image. Foundry Deploy copies that file from the applied Windows image into `X:\Windows\System32` near the end of deployment before hardware hash capture runs.
+
+Interactive hardware hash upload media does not include a PFX secret. Foundry Deploy stages an OOBE assistant into the applied Windows image, and the technician signs in during OOBE.
 
 ## Create ISO
 
@@ -122,4 +124,4 @@ Capture the advanced media options section with CA2023, partition style, format 
 ## Next steps
 
 - Open [Network Readiness](../connect/network-readiness) to understand what happens after the target boots.
-- Open [Expert Mode](../configure/expert-mode) when media should include predefined deployment behavior.
+- Review the [Expert Mode](../configure/expert-mode) section when media should include predefined deployment behavior.
