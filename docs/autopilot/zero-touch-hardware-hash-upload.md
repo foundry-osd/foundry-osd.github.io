@@ -15,7 +15,7 @@ This is tenant-bound media. Test the workflow on representative hardware and wit
 
 ## What this mode does
 
-Foundry Deploy runs the upload automatically during the deployment pipeline. No technician sign-in is required on the target device.
+Foundry Deploy runs the upload automatically during the deployment pipeline after Windows has been applied. No technician sign-in is required on the target device.
 
 The upload step:
 
@@ -33,7 +33,8 @@ You need:
 - Foundry OSD.
 - Windows ADK and Windows PE add-on.
 - A Microsoft Entra tenant where the operator can manage app registrations and service principal permissions.
-- Admin consent for the Microsoft Graph application permission `DeviceManagementServiceConfig.ReadWrite.All`.
+- Admin consent for the delegated Foundry OSD tenant onboarding permissions: `Application.ReadWrite.All`, `AppRoleAssignment.ReadWrite.All`, `DeviceManagementServiceConfig.Read.All`, and `User.Read`.
+- A Foundry-managed app registration with the Microsoft Graph application permission `DeviceManagementServiceConfig.ReadWrite.All` granted by admin consent.
 - A Foundry-managed certificate that is not expired.
 - A PFX file and password selected during media creation.
 - Network access from WinPE to Microsoft Entra and Microsoft Graph during deployment.
@@ -89,7 +90,7 @@ The tenant can be connected while readiness is still **Not ready**. A valid cert
 
 Select a default group tag or leave **None** selected.
 
-Foundry OSD stores only the selected default group tag in the generated deploy configuration. It does not stage the full tenant group tag list into the boot image. Foundry Deploy discovers live group tags again at runtime when the certificate configuration is valid.
+Foundry OSD stores only the selected default group tag in the generated deploy configuration. It does not stage the full tenant group tag list into the boot image. Foundry Deploy discovers live group tags again at startup when the certificate configuration is valid.
 
 If the configured default group tag is no longer available during deployment, Foundry Deploy selects **None**.
 
@@ -125,7 +126,7 @@ Foundry Deploy runs the Autopilot step after Windows has been applied.
 
 The wait for Windows Autopilot device visibility can last up to 10 minutes. If the device already exists, Foundry attempts to reconcile the requested group tag instead of creating a duplicate.
 
-Upload failures do not fail the Windows deployment unless Foundry cannot complete a local hash-capture prerequisite that blocks the upload step.
+Graph upload or polling failures skip only the Autopilot upload result and allow the Windows deployment to continue. Local support-library failures, such as missing or unloadable `PCPKsp.dll`, fail the Autopilot provisioning step because the hash cannot be captured reliably.
 
 ## Expected final result
 

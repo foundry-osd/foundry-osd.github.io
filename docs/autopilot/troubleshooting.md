@@ -69,7 +69,7 @@ Check:
 - `OA3.xml` was generated.
 - Serial number and hardware hash are not empty.
 
-Blocking local capture failures can stop only the Autopilot upload step. The Windows deployment can still continue when Graph upload or polling fails.
+Missing or unloadable support-library failures stop the Autopilot provisioning step because Foundry cannot capture a reliable hash. Graph upload or polling failures are recorded as skipped Autopilot upload results and the Windows deployment can continue.
 
 ### Device is imported but group tag is wrong
 

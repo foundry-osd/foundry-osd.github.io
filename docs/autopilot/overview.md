@@ -14,8 +14,8 @@ Use this page to decide which mode matches the deployment workflow, then open th
 | Mode | Use when | Tenant sign-in in Foundry OSD | Certificate/PFX | Technician sign-in during deployment | Group tag selection |
 | --- | --- | --- | --- | --- | --- |
 | [JSON profile injection](./json-profile-injection) | You already have offline Autopilot profile JSON files. | Optional, only when downloading profiles from the tenant | No | No | Comes from the profile behavior |
-| [Zero-touch hardware hash upload](./zero-touch-hardware-hash-upload) | Devices should be uploaded automatically during WinPE deployment. | Yes | Yes | No | Selected before media creation and reviewed in Foundry Deploy |
-| [Interactive hardware hash upload](./interactive-hardware-hash-upload) | Enterprise policy blocks app-registration certificate upload from Foundry OSD, but a technician can authenticate during OOBE. | No | No | Yes | Selected in the OOBE assistant |
+| [Zero-touch hardware hash upload](./zero-touch-hardware-hash-upload) | Devices should be uploaded automatically during deployment without technician sign-in on the target device. | Yes | Yes | No | Selected before media creation and reviewed in Foundry Deploy |
+| [Interactive hardware hash upload](./interactive-hardware-hash-upload) | Enterprise policy blocks the zero-touch app-registration certificate model, but a technician can authenticate during OOBE. | No | No | Yes | Selected in the OOBE assistant |
 
 :::tip[One mode per media build]
 The generated media carries one Autopilot provisioning mode. Build separate media when different device groups require different Autopilot behavior.
@@ -26,7 +26,7 @@ The generated media carries one Autopilot provisioning mode. Build separate medi
 | Surface | JSON profile injection | Zero-touch hardware hash upload | Interactive hardware hash upload |
 | --- | --- | --- | --- |
 | Foundry OSD | Imports or downloads profile JSON and selects the default profile. | Connects the tenant, prepares the app registration, creates certificates, selects the PFX, and sets the default group tag. | Selects the interactive mode only. No tenant connection, certificate, PFX, or group tag is configured in Foundry OSD. |
-| Foundry Connect | Only validates networking for the normal deployment flow. | Validates that WinPE networking is ready before Foundry Deploy starts. | Validates networking for deployment. Internet access must also be available later during OOBE. |
+| Foundry Connect | Only validates networking for the normal deployment flow. | Validates that WinPE networking is ready before Foundry Deploy starts. | Validates networking for deployment. Internet access must also be available later when the assistant starts during OOBE. |
 | Foundry Deploy | Stages `AutopilotConfigurationFile.json` into the applied Windows image. | Captures the hardware hash in WinPE, imports it with Microsoft Graph, waits for device visibility, and reconciles the group tag. | Stages the OOBE registration assistant into the applied Windows image. |
 | Windows OOBE | Windows consumes the staged profile. | Windows continues after Foundry Deploy completes. | The Foundry assistant opens during OOBE, requests Microsoft device-code authentication, uploads the hash, and restarts the device. |
 
@@ -42,7 +42,7 @@ Use **Interactive hardware hash upload** when the tenant does not allow the zero
 
 Zero-touch hardware hash upload uses application permissions through the Foundry-managed app registration and certificate.
 
-Interactive hardware hash upload uses delegated device-code authentication during OOBE. The signed-in account must be allowed to import Windows Autopilot devices through Microsoft Graph.
+Interactive hardware hash upload uses delegated device-code authentication during OOBE with `DeviceManagementServiceConfig.ReadWrite.All`. The signed-in account must be allowed to import Windows Autopilot devices through Microsoft Graph.
 
 ## Screenshot placeholders
 

@@ -30,9 +30,9 @@ When Windows reaches OOBE, the assistant opens automatically. It:
 You need:
 
 - Foundry media configured for **Interactive hardware hash upload**.
-- Internet access during Windows OOBE.
+- Internet access during Windows OOBE. Ethernet or already-available network connectivity is recommended because the assistant starts before normal OOBE completion.
 - A technician account allowed to import Windows Autopilot devices.
-- Delegated consent for the Microsoft Graph permission used by the Foundry public client.
+- Delegated consent for `DeviceManagementServiceConfig.ReadWrite.All` on the Foundry public client.
 
 No tenant connection is required in Foundry OSD for this mode. No certificate, PFX, or group tag is selected in Foundry OSD.
 
@@ -63,6 +63,8 @@ The generated deploy configuration uses:
 
 No PFX secret is required for this mode.
 
+Foundry Deploy stages the OOBE launcher, ServiceUI, foreground wrapper, PowerShell assistant, logo assets, and runtime configuration into the applied Windows image.
+
 ## Deploy the device
 
 1. Boot the target device from the generated media.
@@ -80,7 +82,7 @@ Add a Foundry Deploy summary screenshot showing the interactive Autopilot mode b
 
 ## Sign in during OOBE
 
-When Windows enters OOBE, the Foundry assistant opens automatically.
+When Windows enters OOBE, the Foundry assistant opens automatically. If network connectivity is not ready yet, the assistant waits and retries the Microsoft sign-in code request.
 
 The first screen shows:
 
@@ -165,10 +167,12 @@ Useful files include:
 | --- | --- |
 | `registration.log` | Main assistant flow |
 | `graph.log` | Microsoft Graph request failures |
+| `OOBE.log` | Windows OOBE launcher call |
 | `oobe-launcher.log` | OOBE launcher startup |
 | `oobe-waiter.log` | OOBE session wait and ServiceUI launch |
 | `oobe-sessiondiag.log` | Session and process diagnostics |
 | `foreground.log` | OOBE foreground preparation |
+| `launcher.log` | Manual recovery launcher flow, when used |
 | `registration-state.json` | Current assistant state |
 | `registration-result.json` | Final assistant result |
 
