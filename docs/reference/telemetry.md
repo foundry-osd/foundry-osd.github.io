@@ -99,9 +99,15 @@ Media creation properties include:
 - `customization_ai_disable_paint_ai_enabled`: whether Paint AI feature disablement is selected.
 - `customization_ai_disable_notepad_ai_enabled`: whether Notepad AI feature disablement is selected.
 - `customization_ai_component_removal_option_count`: number of selected AI component removal options.
-- `localization_any_enabled`: whether any Localization page setting is configured.
-- `localization_visible_languages_count`: number of visible deployment languages selected.
-- `localization_default_language_configured`: whether a default deployment language is configured.
+- `os_selection_any_configured`: whether any operating system selection policy is configured.
+- `os_selection_allowed_languages_count`: number of allowed OS languages configured without sending their values.
+- `os_selection_default_language_configured`: whether a default OS language is configured.
+- `os_selection_allowed_release_count`: number of allowed OS versions configured without sending their values.
+- `os_selection_default_release_configured`: whether a default OS version is configured.
+- `os_selection_allowed_license_channel_count`: number of allowed license channels configured without sending their values.
+- `os_selection_default_license_channel_configured`: whether a default license channel is configured.
+- `os_selection_allowed_edition_count`: number of allowed editions configured without sending their values.
+- `os_selection_default_edition_configured`: whether a default edition is configured.
 - `localization_time_zone_configured`: whether a default deployment time zone is configured.
 - `network_any_enabled`: whether any Network page setting is enabled.
 - `network_wired_dot1x_enabled`: whether wired 802.1X provisioning is enabled.

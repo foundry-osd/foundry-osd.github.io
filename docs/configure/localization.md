@@ -1,6 +1,6 @@
 ---
 title: Localization
-description: Configure language and time zone behavior staged from Foundry OSD into Foundry Deploy.
+description: Configure time zone behavior staged from Foundry OSD into Foundry Deploy.
 ---
 
 # Localization
@@ -52,21 +52,7 @@ Foundry OSD, Foundry Connect, and Foundry Deploy include UI translations for the
 | Chinese Simplified (China) | `zh-CN` |
 | Chinese Traditional (Taiwan) | `zh-TW` |
 
-The application UI culture is separate from the deployment language list below. The WinPE language used for boot media is still constrained by the installed Windows ADK language components.
-
-## Visible languages
-
-Set visible languages to control which languages the deployment runtime can show.
-
-Use a smaller visible set when operators should only choose from approved deployment languages.
-
-## Default language
-
-Set a default language only after selecting the visible language list.
-
-:::note[Default language rule]
-The default language must be part of the visible language list.
-:::
+The application UI culture is separate from the deployed Windows language. Configure deployed Windows language choices from [Customization](./customization#operating-system-selection).
 
 ## Time zone
 
@@ -78,7 +64,7 @@ Choose one of two modes:
 Foundry OSD stores the time zone identifier used by the deployment runtime.
 
 :::info[Screenshot placeholder]
-Capture the localization section with visible languages, default language, and time zone controls visible.
+Capture the localization section with the time zone control visible.
 :::
 
 ## Next step
