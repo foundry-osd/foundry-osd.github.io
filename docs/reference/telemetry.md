@@ -102,13 +102,13 @@ Media creation properties include:
 - `os_selection_enabled`: whether operating system selection policy is enabled.
 - `os_selection_any_configured`: whether any enabled operating system selection policy value is configured.
 - `os_selection_allowed_languages_count`: number of allowed OS languages configured without sending their values.
-- `os_selection_default_language_configured`: whether a default OS language is configured.
+- `os_selection_default_language_configured`: whether a default OS language is configured or forced by a single allowed language.
 - `os_selection_allowed_release_count`: number of allowed OS versions configured without sending their values.
-- `os_selection_default_release_configured`: whether a default OS version is configured.
+- `os_selection_default_release_configured`: whether a default OS version is configured or forced by a single allowed version.
 - `os_selection_allowed_license_channel_count`: number of allowed license channels configured without sending their values.
-- `os_selection_default_license_channel_configured`: whether a default license channel is configured.
+- `os_selection_default_license_channel_configured`: whether a default license channel is configured or forced by a single allowed license channel.
 - `os_selection_allowed_edition_count`: number of allowed editions configured without sending their values.
-- `os_selection_default_edition_configured`: whether a default edition is configured.
+- `os_selection_default_edition_configured`: whether a default edition is configured or forced by a single allowed edition.
 - `localization_time_zone_configured`: whether a default deployment time zone is configured.
 - `network_any_enabled`: whether any Network page setting is enabled.
 - `network_wired_dot1x_enabled`: whether wired 802.1X provisioning is enabled.

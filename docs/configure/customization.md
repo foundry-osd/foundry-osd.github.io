@@ -46,7 +46,9 @@ Allowed lists restrict what Foundry Deploy operators can see while the policy is
 
 Default values only preselect a value. They do not add that value back if it is outside the matching allowed list.
 
-When an allowed list contains exactly one valid value for the current catalog scope, Foundry Deploy preselects that value and disables the selector.
+When an allowed list contains exactly one value in Foundry OSD, the matching default selector is forced to that value and disabled. If the admin later allows multiple values or clears the allowed list, the default selector becomes editable again.
+
+When `Automatic` is used, Foundry Deploy keeps its normal catalog default order: `25H2` when available, the current deployment UI language with `en-US` as fallback, `Retail` when available, `Pro` when available, then the first valid catalog option if the preferred value is unavailable in the current scope.
 
 License channel and edition values use English catalog labels in Foundry Deploy. `RET` is shown as `Retail`, `VOL` is shown as `Volume`, and edition names such as `Pro` and `Enterprise` remain English.
 
@@ -129,7 +131,7 @@ Capture the Customization page with the provisioned AppX removal controls expand
 
 Machine naming affects the Foundry Deploy wizard. OOBE customization is applied to the offline Windows installation during deployment by writing unattend and policy values.
 
-Operating system selection affects the Foundry Deploy Operating System Catalog page only when its main switch is enabled. Allowed values restrict the version, language, license channel, and edition choices available to the deployment operator. Default values preselect choices only when those values are valid in the current catalog scope.
+Operating system selection affects the Foundry Deploy Operating System Catalog page only when its main switch is enabled. Allowed values restrict the version, language, license channel, and edition choices available to the deployment operator. Default values preselect choices only when those values are valid in the current catalog scope. A group with exactly one allowed value is treated as both the allowed value and the default value.
 
 AI component removal is split across the deployment phases. Foundry Deploy writes AI policy values into the offline target registry hives while it is still running in WinPE. Machine-wide policies are written through the offline `SOFTWARE` and `SYSTEM` hives, and future-user defaults are written by loading `Users\Default\NTUSER.DAT` under a temporary `HKU\FoundryDefault` mount. Foundry does not write these defaults through `HKEY_USERS\.DEFAULT`.
 
