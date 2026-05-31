@@ -57,7 +57,13 @@ Review or set:
 - `License Channel`
 - `Edition (Target)`
 
-The available filter values come from the loaded catalog. The language selector can be limited by staged deployment localization settings.
+The available filter values come from the loaded catalog. If Foundry OSD staged an enabled operating system selection policy, the page can start with predefined values and can hide unapproved options. If that policy is disabled, Foundry Deploy uses the unrestricted catalog.
+
+When exactly one valid value is allowed for a selector, Foundry Deploy preselects that value and disables the selector. Default values only preselect choices; they do not expand the allowed list.
+
+When no default is configured, Foundry Deploy keeps its normal catalog default order: `25H2` when available, the current deployment UI language with `en-US` as fallback, `Retail` when available, `Pro` when available, then the first valid catalog option if the preferred value is unavailable in the current scope.
+
+License channel and edition values use English catalog labels. `RET` is shown as `Retail`, `VOL` is shown as `Volume`, and edition names such as `Pro` and `Enterprise` remain English.
 
 ![Foundry Deploy operating system catalog](/img/docs/foundry-deploy/operating-system-catalog.png)
 
