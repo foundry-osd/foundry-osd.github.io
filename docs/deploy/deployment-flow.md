@@ -57,7 +57,7 @@ Review or set:
 - `License Channel`
 - `Edition (Target)`
 
-The available filter values come from the loaded catalog. If Foundry OSD staged operating system selection settings, the page can start with predefined values and can hide unapproved options.
+The available filter values come from the loaded catalog. If Foundry OSD staged an enabled operating system selection policy, the page can start with predefined values and can hide unapproved options. If that policy is disabled, Foundry Deploy uses the unrestricted catalog.
 
 When exactly one valid value is allowed for a selector, Foundry Deploy preselects that value and disables the selector. Default values only preselect choices; they do not expand the allowed list.
 

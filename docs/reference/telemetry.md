@@ -73,7 +73,7 @@ Media creation properties include:
 - `boot_media_deploy_runtime_payload_source`: source of the generated Deploy runtime payload.
 - `autopilot_enabled`: whether Autopilot provisioning was enabled.
 - `autopilot_provisioning_mode`: `disabled`, `json_profile`, `hardware_hash_upload`, or `interactive_hardware_hash_upload`.
-- `customization_any_enabled`: whether any Customization page setting was enabled.
+- `customization_any_enabled`: whether any Customization page setting, including operating system selection policy, was enabled.
 - `customization_machine_naming_enabled`: whether machine naming customization was enabled.
 - `customization_machine_naming_mode`: `disabled`, `manual`, `auto_generated_locked`, or `auto_generated_editable`.
 - `customization_machine_naming_prefix_configured`: whether a machine naming prefix was configured.
@@ -99,7 +99,8 @@ Media creation properties include:
 - `customization_ai_disable_paint_ai_enabled`: whether Paint AI feature disablement is selected.
 - `customization_ai_disable_notepad_ai_enabled`: whether Notepad AI feature disablement is selected.
 - `customization_ai_component_removal_option_count`: number of selected AI component removal options.
-- `os_selection_any_configured`: whether any operating system selection policy is configured.
+- `os_selection_enabled`: whether operating system selection policy is enabled.
+- `os_selection_any_configured`: whether any enabled operating system selection policy value is configured.
 - `os_selection_allowed_languages_count`: number of allowed OS languages configured without sending their values.
 - `os_selection_default_language_configured`: whether a default OS language is configured.
 - `os_selection_allowed_release_count`: number of allowed OS versions configured without sending their values.

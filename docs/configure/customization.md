@@ -32,6 +32,7 @@ Foundry OSD can stage the Operating System Catalog choices shown later in Foundr
 
 Available controls include:
 
+- Enable or disable operating system selection policy.
 - Allowed OS versions.
 - Default OS version.
 - Allowed OS languages.
@@ -41,7 +42,9 @@ Available controls include:
 - Allowed editions.
 - Default edition.
 
-Allowed lists restrict what Foundry Deploy operators can see. Leave an allowed list empty to keep every supported catalog option available.
+The policy is opt-in. When the main switch is disabled, Foundry Deploy shows the normal unrestricted catalog and ignores any saved values in this section. Saved values remain in Foundry OSD so they are restored if the switch is enabled again.
+
+Allowed lists restrict what Foundry Deploy operators can see while the policy is enabled. Leave an allowed list empty to keep every supported catalog option available.
 
 Default values only preselect a value. They do not add that value back if it is outside the matching allowed list.
 
@@ -128,7 +131,7 @@ Capture the Customization page with the provisioned AppX removal controls expand
 
 Machine naming affects the Foundry Deploy wizard. OOBE customization is applied to the offline Windows installation during deployment by writing unattend and policy values.
 
-Operating system selection affects the Foundry Deploy Operating System Catalog page. Allowed values restrict the version, language, license channel, and edition choices available to the deployment operator. Default values preselect choices only when those values are valid in the current catalog scope.
+Operating system selection affects the Foundry Deploy Operating System Catalog page only when its main switch is enabled. Allowed values restrict the version, language, license channel, and edition choices available to the deployment operator. Default values preselect choices only when those values are valid in the current catalog scope.
 
 AI component removal is split across the deployment phases. Foundry Deploy writes AI policy values into the offline target registry hives while it is still running in WinPE. Machine-wide policies are written through the offline `SOFTWARE` and `SYSTEM` hives, and future-user defaults are written by loading `Users\Default\NTUSER.DAT` under a temporary `HKU\FoundryDefault` mount. Foundry does not write these defaults through `HKEY_USERS\.DEFAULT`.
 
@@ -143,7 +146,7 @@ Staging this behavior from Foundry OSD makes the live deployment path faster and
 - Use a prefix when devices should share a naming convention.
 - Enable automatic generation when operators should move quickly.
 - Allow manual suffix editing only when local exceptions are expected.
-- Use operating system selection when media should guide operators toward approved Windows versions, languages, license channels, or editions.
+- Enable operating system selection only when media should guide operators toward approved Windows versions, languages, license channels, or editions.
 - Enable OOBE customization when you want a consistent privacy and license-term baseline.
 - Keep optional privacy features disabled unless the deployment policy requires them.
 - Use AI component removal when Windows AI features should be removed or disabled before the first user profile is created.

@@ -21,7 +21,7 @@ Create media with the standard workflow first unless the deployment environment 
 | Network | Wired 802.1X and Wi-Fi settings for Foundry Connect |
 | Localization | Default Windows time zone |
 | Autopilot | JSON profile injection, zero-touch hardware hash upload, or interactive hardware hash upload settings |
-| Customization | Machine naming rules, operating system selection defaults and allowed values, Windows OOBE defaults, AI component removal, and provisioned AppX removal used later in Foundry Deploy |
+| Customization | Machine naming rules, optional operating system selection defaults and allowed values, Windows OOBE defaults, AI component removal, and provisioned AppX removal used later in Foundry Deploy |
 
 :::info[Screenshot placeholder]
 Capture the expert-mode shell with all section tabs visible.
@@ -43,7 +43,7 @@ Those files are written into the boot image during media creation. No operator a
 Use expert mode when the WinPE deployment session should start with predefined preferences for:
 
 - Localization time zone
-- Operating system selection defaults and allowed values
+- Operating system selection defaults and allowed values, when enabled
 - Autopilot
 - Machine naming
 - Windows OOBE defaults
