@@ -33,16 +33,14 @@ Foundry OSD can stage the Operating System Catalog choices shown later in Foundr
 Available controls include:
 
 - Enable or disable operating system selection policy.
-- Allowed OS versions.
-- Default OS version.
-- Allowed OS languages.
-- Default OS language.
-- Allowed license channels.
-- Default license channel.
-- Allowed editions.
-- Default edition.
+- OS version group: allowed OS versions and default OS version.
+- OS language group: allowed OS languages and default OS language.
+- License channel group: allowed license channels and default license channel.
+- Edition group: allowed editions and default edition.
 
 The policy is opt-in. When the main switch is disabled, Foundry Deploy shows the normal unrestricted catalog and ignores any saved values in this section. Saved values remain in Foundry OSD so they are restored if the switch is enabled again.
+
+The four option groups are collapsed by default. The main operating system selection switch is the only enable switch; leave a group's allowed list empty and default set to `Automatic` when that group should not restrict deployment choices.
 
 Allowed lists restrict what Foundry Deploy operators can see while the policy is enabled. Leave an allowed list empty to keep every supported catalog option available.
 
@@ -53,7 +51,7 @@ When an allowed list contains exactly one valid value for the current catalog sc
 License channel and edition values use English catalog labels in Foundry Deploy. `RET` is shown as `Retail`, `VOL` is shown as `Volume`, and edition names such as `Pro` and `Enterprise` remain English.
 
 :::info[Screenshot placeholder]
-Capture the Customization page with the operating system selection controls expanded.
+Capture the Customization page with the operating system selection section enabled and the four option groups collapsed.
 :::
 
 ## Windows OOBE
