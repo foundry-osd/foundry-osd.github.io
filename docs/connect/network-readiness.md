@@ -80,8 +80,21 @@ Foundry OSD can stage:
 - Personal Wi-Fi settings
 - Enterprise Wi-Fi profile templates
 - Enterprise Wi-Fi trust certificates
+- Windows profile roaming policy
 
 Read [Network Configuration](../configure/network) for the workstation-side settings.
+
+## Windows profile roaming capture
+
+When Windows profile roaming is enabled in Foundry OSD, Foundry Connect writes a roaming bundle after successful profile provisioning or connection:
+
+- Provisioned Wi-Fi profile XML after Foundry Connect adds the profile to WinPE.
+- Manual Wi-Fi profile XML after the selected network connects successfully.
+- Wired 802.1X profile XML after Foundry Connect adds the LAN profile to WinPE.
+- Required public trust certificates.
+- PFX client certificates and encrypted PFX password metadata only when private-key roaming is explicitly enabled.
+
+The roaming bundle is consumed by Foundry Deploy. It is not a readiness replacement: Foundry Connect still waits for internet validation before deployment can continue.
 
 ## Not-ready state
 

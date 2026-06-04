@@ -123,6 +123,8 @@ Media creation properties include:
 - `network_wifi_enterprise_profile_configured`: whether an enterprise Wi-Fi profile template is configured.
 - `network_wifi_enterprise_certificate_required`: whether enterprise Wi-Fi requires a certificate.
 - `network_wifi_enterprise_certificate_configured`: whether an enterprise Wi-Fi certificate source is configured.
+- `network_profile_roaming_enabled`: whether Foundry Connect should capture eligible network profiles for Windows import.
+- `network_private_key_roaming_enabled`: whether opted-in PFX/private-key certificate material may be roamed into Windows.
 
 ### `connect:session_ready`
 

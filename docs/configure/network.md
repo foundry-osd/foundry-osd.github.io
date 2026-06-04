@@ -1,11 +1,11 @@
 ---
 title: Network Configuration
-description: Configure wired 802.1X and Wi-Fi settings in Foundry OSD for Foundry Connect.
+description: Configure wired 802.1X, Wi-Fi, and Windows profile roaming settings in Foundry OSD.
 ---
 
 # Network configuration
 
-Network settings are authored in Foundry OSD and used later by Foundry Connect in WinPE.
+Network settings are authored in Foundry OSD and used later by Foundry Connect in WinPE and Foundry Deploy after Windows has been applied.
 
 :::note[Configure before boot]
 Network settings are selected on the admin workstation, but they are validated on the target device after boot.
@@ -72,6 +72,23 @@ The selected enterprise security type must match the authentication declared in 
 
 :::info[Screenshot placeholder]
 Capture the enterprise Wi-Fi settings with profile template and trust certificate controls visible.
+:::
+
+## Windows profile roaming
+
+Enable **Roam network profiles to Windows** when the same deployment connectivity should be available after WinPE exits and Windows enters OOBE.
+
+When enabled, Foundry Connect captures eligible Foundry-managed profiles during WinPE and Foundry Deploy imports them during the pre-OOBE first-boot sequence:
+
+- Wired 802.1X profile templates
+- Provisioned Wi-Fi profiles staged by Foundry OSD
+- Manual Wi-Fi connections made in Foundry Connect
+- Trusted root CA certificates used by configured wired or enterprise Wi-Fi profiles
+
+Enable **Include private-key certificate material** only when EAP-TLS or another certificate-based profile requires a client certificate with a private key. Foundry stages the selected PFX and encrypted password on the generated media, decrypts the password only during deployment staging, imports the PFX into `LocalMachine\My`, and removes the temporary pre-OOBE staging files after import.
+
+:::note[Profile scope]
+Profile roaming imports the captured profile material into Windows. Personal Wi-Fi profiles that can connect before OOBE are marked for automatic connection and Foundry asks Windows to connect them during the pre-OOBE handoff. User-only enterprise authentication can still require user credentials during OOBE or first sign-in.
 :::
 
 ## Next step
