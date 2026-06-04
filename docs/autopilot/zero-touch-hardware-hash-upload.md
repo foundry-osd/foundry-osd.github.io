@@ -33,7 +33,7 @@ You need:
 - Foundry OSD.
 - Windows ADK and Windows PE add-on.
 - A Microsoft Entra tenant where the administrator can manage app registrations and service principal permissions.
-- A tenant administrator who can grant consent for the delegated Microsoft Graph permissions used during tenant connection: `Application.ReadWrite.All`, `AppRoleAssignment.ReadWrite.All`, `DeviceManagementServiceConfig.Read.All`, and `User.Read`.
+- An administrator who can grant admin consent for the delegated Microsoft Graph permissions used during tenant connection: `Application.ReadWrite.All`, `AppRoleAssignment.ReadWrite.All`, `DeviceManagementServiceConfig.Read.All`, and `User.Read`.
 - An app registration used by generated media with the Microsoft Graph application permission `DeviceManagementServiceConfig.ReadWrite.All` granted by admin consent.
 - A Foundry-managed certificate that is not expired.
 - A PFX file and password selected during media creation.

@@ -33,7 +33,7 @@ You need:
 - Internet access during Windows OOBE. Ethernet or already-available network connectivity is recommended because the assistant starts before normal OOBE completion.
 - An active Intune tenant and license.
 - A work or school technician account allowed to import and manage Windows Autopilot devices.
-- A tenant administrator who can grant consent for the delegated Microsoft Graph permission `DeviceManagementServiceConfig.ReadWrite.All`.
+- An administrator who can grant admin consent for the delegated Microsoft Graph permission `DeviceManagementServiceConfig.ReadWrite.All`.
 
 No tenant connection is required in Foundry OSD for this mode. No certificate, PFX, or group tag is selected in Foundry OSD.
 
