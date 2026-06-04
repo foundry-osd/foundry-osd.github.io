@@ -31,10 +31,21 @@ You need:
 
 - Foundry media configured for **Interactive hardware hash upload**.
 - Internet access during Windows OOBE. Ethernet or already-available network connectivity is recommended because the assistant starts before normal OOBE completion.
-- A technician account allowed to import Windows Autopilot devices.
-- A tenant administrator who can grant consent for the delegated Microsoft Graph permission `DeviceManagementServiceConfig.ReadWrite.All`.
+- An active Intune tenant and license.
+- A work or school technician account allowed to import and manage Windows Autopilot devices.
+- An administrator who can grant admin consent for the delegated Microsoft Graph permission `DeviceManagementServiceConfig.ReadWrite.All`.
 
 No tenant connection is required in Foundry OSD for this mode. No certificate, PFX, or group tag is selected in Foundry OSD.
+
+The technician account needs Intune RBAC permissions for Autopilot device management. In custom-role terms, use **Enrollment programs** permissions such as **Create device**, **Read device**, and the update or sync permissions needed when group tag reconciliation is used. The built-in **Policy and Profile Manager** role covers these permissions. **Intune Administrator** also works.
+
+:::info[Device Enrollment Manager]
+A Device Enrollment Manager account is not required for the hardware hash upload itself. This flow depends on Microsoft Graph consent and Intune Autopilot RBAC permissions.
+:::
+
+:::warning[Conditional Access]
+Conditional Access can block the sign-in step. Policies that block device code flow, require a compliant device, or restrict sign-in by location or device state can prevent confirmation at `https://microsoft.com/devicelogin`. Scope any required exception to a dedicated technician account or technician group.
+:::
 
 ## Configure Foundry OSD
 
@@ -99,6 +110,8 @@ Add a screenshot of the authentication step with the device code visible. Redact
 Sign in on another device with an account allowed to import Windows Autopilot devices.
 
 If the device code expires, Foundry requests a new code and updates the screen automatically.
+
+If the confirmation page accepts the code but sign-in is denied, check Microsoft Entra sign-in logs for Conditional Access blocks against device code flow.
 
 ## Choose the group tag and upload
 
