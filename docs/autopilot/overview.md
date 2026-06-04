@@ -42,7 +42,7 @@ Use **Interactive hardware hash upload** when the tenant does not allow the zero
 
 Zero-touch hardware hash upload uses application permissions through the tenant app registration and certificate staged into generated media.
 
-Interactive hardware hash upload uses delegated device-code authentication during OOBE with `DeviceManagementServiceConfig.ReadWrite.All`. A tenant administrator must be able to grant consent for this delegated Microsoft Graph permission, and the signed-in account must be allowed to import Windows Autopilot devices.
+Interactive hardware hash upload uses delegated device-code authentication during OOBE with `DeviceManagementServiceConfig.ReadWrite.All`. A tenant administrator must be able to grant consent for this delegated Microsoft Graph permission, the signed-in account must have Intune Autopilot RBAC permissions, and Conditional Access must allow the device-code sign-in flow.
 
 ## Screenshot placeholders
 

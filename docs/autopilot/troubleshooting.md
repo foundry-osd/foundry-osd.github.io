@@ -114,9 +114,12 @@ Common causes:
 - No DNS or internet access during OOBE.
 - Device-code endpoint blocked.
 - Tenant policy blocks delegated Microsoft Graph consent.
-- The signed-in account does not have permission to import Windows Autopilot devices.
+- Conditional Access blocks device code flow, requires a compliant device, or blocks the sign-in context.
+- The signed-in account does not have Intune Autopilot permissions to import Windows Autopilot devices.
 
 If a device code expires, Foundry requests and displays a new code automatically.
+
+Check Microsoft Entra sign-in logs for the technician account when authentication is blocked after the code is confirmed at `https://microsoft.com/devicelogin`.
 
 ### Group tags are missing
 
@@ -128,7 +131,8 @@ Use **Custom** when the required group tag is not returned by discovery but shou
 
 Check:
 
-- The signed-in account can import Windows Autopilot devices.
+- The signed-in account has Intune **Enrollment programs** permissions to create and read Autopilot devices.
+- The signed-in account has update or sync permissions if the selected group tag needs reconciliation.
 - The target has internet access during OOBE.
 - The device serial number is available.
 - The hardware hash can be read from Windows MDM device detail.

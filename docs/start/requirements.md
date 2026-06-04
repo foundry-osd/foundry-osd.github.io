@@ -89,7 +89,7 @@ Autopilot mode requirements depend on the selected workflow:
 
 - JSON profile injection requires one or more offline Autopilot profile JSON files.
 - Zero-touch hardware hash upload requires tenant permissions to create or manage the app registration used by generated media, grant Microsoft Graph consent, create a matching PFX certificate, and keep WinPE network access to Microsoft Entra and Microsoft Graph.
-- Interactive hardware hash upload requires OOBE network access, tenant consent for the delegated Microsoft Graph permission, and a technician account allowed to import Windows Autopilot devices.
+- Interactive hardware hash upload requires OOBE network access, an active Intune tenant and license, tenant consent for the delegated Microsoft Graph permission `DeviceManagementServiceConfig.ReadWrite.All`, a technician account with Intune Autopilot RBAC permissions, and Conditional Access policies that allow the device-code sign-in flow.
 
 Foundry OSD provisions WinPE-SecureStartup by default with the other WinPE optional components. This applies even when Autopilot hardware hash upload is not enabled.
 
