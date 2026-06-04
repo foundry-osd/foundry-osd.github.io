@@ -52,6 +52,8 @@ Provisioned AppX removal is a customization script. It runs before OOBE and uses
 
 AI component AppX removal is also a customization script when Microsoft Copilot or Copilot+ AI Hub removal is selected. It runs before OOBE and reads selected AppX package identifiers from `Data\Remove-AiComponents.settings.json`. The script removes only the selected Copilot and Copilot+ AI Hub provisioned AppX packages; policy registry values are already applied offline during the WinPE phase.
 
+Network profile roaming is also a pre-OOBE script when enabled. It imports staged public certificates, opted-in PFX client certificates, wired 802.1X profiles, and Wi-Fi profiles before OOBE. Wi-Fi profiles that are expected to work before OOBE are marked for automatic connection and then connected with `netsh wlan connect`; import-only or credential-dependent profiles are staged without forcing a connection.
+
 Foundry writes a launcher log at:
 
 `Windows\Temp\Foundry\Logs\PreOobe\SetupComplete.log`

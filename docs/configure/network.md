@@ -88,7 +88,7 @@ When enabled, Foundry Connect captures eligible Foundry-managed profiles during 
 Enable **Include private-key certificate material** only when EAP-TLS or another certificate-based profile requires a client certificate with a private key. Foundry stages the selected PFX and encrypted password on the generated media, decrypts the password only during deployment staging, imports the PFX into `LocalMachine\My`, and removes the temporary pre-OOBE staging files after import.
 
 :::note[Profile scope]
-Profile roaming imports the captured profile material into Windows. User-only enterprise authentication can still require user credentials during OOBE or first sign-in.
+Profile roaming imports the captured profile material into Windows. Personal Wi-Fi profiles that can connect before OOBE are marked for automatic connection and Foundry asks Windows to connect them during the pre-OOBE handoff. User-only enterprise authentication can still require user credentials during OOBE or first sign-in.
 :::
 
 ## Next step

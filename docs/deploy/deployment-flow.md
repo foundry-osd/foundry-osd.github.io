@@ -125,7 +125,7 @@ During execution, Foundry Deploy shows:
 
 The deployment pipeline runs ordered steps for validation, cache resolution, disk layout, operating system download and apply, computer naming, offline OOBE and AI policy defaults, recovery configuration, pre-OOBE customization staging, drivers, firmware, Autopilot provisioning, and final logs. Download steps can be skipped when the required content is already available in cache.
 
-When Windows profile roaming is enabled, pre-OOBE customization staging also imports captured Wi-Fi and wired 802.1X profile material into the applied Windows image. Foundry Deploy stages a `SetupComplete` importer that runs after deferred driver installation if one is required, imports public certificates into `LocalMachine\Root`, imports opted-in PFX client certificates into `LocalMachine\My`, adds wired and Wi-Fi profiles with `netsh`, and removes transient profile and password staging files.
+When Windows profile roaming is enabled, pre-OOBE customization staging also imports captured Wi-Fi and wired 802.1X profile material into the applied Windows image. Foundry Deploy stages a `SetupComplete` importer that runs after deferred driver installation if one is required, imports public certificates into `LocalMachine\Root`, imports opted-in PFX client certificates into `LocalMachine\My`, adds wired and Wi-Fi profiles with `netsh`, marks pre-OOBE-connectable Wi-Fi profiles for automatic connection, asks Windows to connect those Wi-Fi profiles, and removes transient profile and password staging files.
 
 Autopilot provisioning is mode-aware:
 
