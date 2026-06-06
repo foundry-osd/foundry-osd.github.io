@@ -23,9 +23,11 @@ Check the main window before selecting media options.
 
 If Foundry OSD shows an ADK banner:
 
-1. Select `Install ADK` or `Upgrade ADK`.
+1. Select the action shown by Foundry OSD: `Install ADK`, `Upgrade ADK`, or `Downgrade ADK`.
 2. Wait for the verification step to finish.
 3. Continue after the media creation actions become available.
+
+Foundry OSD supports the Windows ADK 24H2 build line (`10.1.26100.x`). If a newer unsupported ADK is installed, Foundry OSD downgrades it to the supported ADK 24H2 release.
 
 ![Foundry OSD home screen](/img/docs/foundry-osd/home-screen.png)
 

@@ -29,10 +29,10 @@ Prepare an admin workstation with:
 - Windows 10 or Windows 11
 - Local administrator rights
 - Internet access
-- Windows ADK `10.1.26100.2454` or later with the latest servicing patch
-- Windows PE add-on for the same ADK release
+- Windows ADK 24H2 (`10.1.26100.x`)
+- Windows PE add-on for the same ADK 24H2 release
 
-Foundry OSD can help install or upgrade the ADK components when they are missing or incompatible.
+Foundry OSD can help install, upgrade, or downgrade the ADK components when they are missing or incompatible.
 
 ## Runtime dependencies
 
@@ -49,12 +49,15 @@ Foundry OSD checks the ADK state before media creation. If the required ADK comp
 When the banner appears:
 
 1. Select `Install ADK` when no compatible ADK is installed.
-2. Select `Upgrade ADK` when the installed version is incompatible.
-3. Wait for verification to finish.
-4. Continue only after media creation actions are enabled.
+2. Select `Upgrade ADK` when the installed ADK build is older than `10.1.26100`.
+3. Select `Downgrade ADK` when the installed ADK build is newer than `10.1.26100`.
+4. Wait for verification to finish.
+5. Continue only after media creation actions are enabled.
+
+Foundry OSD currently supports the Windows ADK 24H2 build line only. Newer ADK releases, including ADK 26H1 (`10.1.28000.x`), are not supported for Foundry OSD media creation.
 
 :::warning[Match ADK and WinPE versions]
-Use the Windows ADK and Windows PE add-on from the same release. Foundry OSD expects Windows ADK `10.1.26100.2454` or later.
+Use the Windows ADK and Windows PE add-on from the same release. Foundry OSD expects Windows ADK 24H2 (`10.1.26100.x`) and the matching Windows PE add-on.
 :::
 
 ![Foundry OSD requirements ready state](/img/docs/foundry-osd/requirements-ready.png)
