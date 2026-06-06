@@ -87,8 +87,8 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'configure/expert-mode',
+        'configure/general',
         'configure/network',
-        'configure/localization',
         'configure/customization',
       ],
     },
