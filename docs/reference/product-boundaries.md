@@ -27,7 +27,7 @@ Use this page when you need to understand which part of Foundry Project owns a b
 Foundry OSD can stage runtime inputs for the other apps:
 
 - Foundry Connect provisioning and network settings.
-- Localization, Autopilot, and customization preferences for Foundry Deploy.
+- Default deployment time zone, Autopilot, and customization preferences for Foundry Deploy.
 
 Autopilot behavior is mode-specific. Foundry OSD selects and stages the mode, Foundry Connect validates the runtime network path, and Foundry Deploy either stages a JSON profile, runs zero-touch hash upload in WinPE, or stages the interactive OOBE assistant.
 

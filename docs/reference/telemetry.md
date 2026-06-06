@@ -109,7 +109,7 @@ Media creation properties include:
 - `os_selection_default_license_channel_configured`: whether a default license channel is configured or forced by a single allowed license channel.
 - `os_selection_allowed_edition_count`: number of allowed editions configured without sending their values.
 - `os_selection_default_edition_configured`: whether a default edition is configured or forced by a single allowed edition.
-- `localization_time_zone_configured`: whether a default deployment time zone is configured.
+- `deployment_time_zone_configured`: whether a default deployment time zone is configured.
 - `network_any_enabled`: whether any Network page setting is enabled.
 - `network_wired_dot1x_enabled`: whether wired 802.1X provisioning is enabled.
 - `network_wired_dot1x_profile_configured`: whether a wired 802.1X profile template is configured.
@@ -180,7 +180,7 @@ Telemetry does not collect:
 - Provisioned AppX package names.
 - AI component removal does not send registry values, package names, or policy paths.
 - Disk numbers, disk names, serial numbers, file paths, URLs, file names, hashes, passwords, secrets, tokens, or passphrases.
-- Localization values such as selected language codes, default language codes, or Windows time-zone identifiers.
+- Selected language codes, default language codes, or Windows time-zone identifiers.
 - Network values such as SSIDs, passphrases, certificate paths, profile paths, profile contents, probe URLs, gateway details, adapter names, or Wi-Fi signal strength.
 - Autopilot profile names, profile folder names, group tags, target computer names, deployment logs, OS image URLs, driver pack URLs, or firmware package URLs.
 - Raw exceptions or stack traces.

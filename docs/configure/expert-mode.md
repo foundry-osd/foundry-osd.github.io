@@ -1,6 +1,6 @@
 ---
 title: Expert Mode
-description: Use expert mode in Foundry OSD when deployment media needs predefined network, operating system selection, localization, Autopilot, or customization behavior.
+description: Use expert mode in Foundry OSD when deployment media needs predefined network, time zone, operating system selection, Autopilot, or customization behavior.
 ---
 
 # Expert mode
@@ -17,9 +17,8 @@ Create media with the standard workflow first unless the deployment environment 
 
 | Section | What it controls |
 | --- | --- |
-| General | Media output, architecture, language, WinPE drivers, and advanced media options |
+| General | Media output, architecture, language, WinPE drivers, deployment time zone, and advanced media options |
 | Network | Wired 802.1X and Wi-Fi settings for Foundry Connect |
-| Localization | Default Windows time zone |
 | Autopilot | JSON profile injection, zero-touch hardware hash upload, or interactive hardware hash upload settings |
 | Customization | Machine naming rules, optional operating system selection defaults and allowed values, Windows OOBE defaults, AI component removal, and provisioned AppX removal used later in Foundry Deploy |
 
@@ -42,7 +41,7 @@ Those files are written into the boot image during media creation. No operator a
 
 Use expert mode when the WinPE deployment session should start with predefined preferences for:
 
-- Localization time zone
+- Deployment time zone
 - Operating system selection defaults and allowed values, when enabled
 - Autopilot
 - Machine naming
@@ -56,7 +55,7 @@ Capture the expert-mode sections that control generated runtime configuration.
 
 ## Next steps
 
+- Open [General](./general) for media defaults and Windows time zone behavior.
 - Open [Network Configuration](./network) for wired and Wi-Fi settings.
-- Open [Localization](./localization) for Windows time zone behavior.
 - Open [Autopilot](../autopilot/overview) for JSON profile injection, zero-touch hardware hash upload, and interactive hardware hash upload configuration.
 - Open [Customization](./customization) for machine naming, operating system selection, Windows OOBE behavior, AI component removal, and provisioned AppX removal.
