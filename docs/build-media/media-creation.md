@@ -94,7 +94,7 @@ Foundry OSD treats a USB disk as existing Foundry media when it has both expecte
 - `BOOT` formatted as FAT32
 - `Foundry Cache` formatted as NTFS
 
-Update USB refreshes only the `BOOT` partition. It does not repartition the disk and does not format `Foundry Cache`, so cached runtime files and downloaded deployment content remain available.
+Update USB refreshes the `BOOT` partition and, when runtime payload provisioning is enabled, refreshes the Foundry Connect and Foundry Deploy payloads under `Runtime` on `Foundry Cache`. It does not repartition the disk and does not format `Foundry Cache`, so downloaded operating system images, driver packs, and firmware cache content remain available.
 
 ## Build progress
 
