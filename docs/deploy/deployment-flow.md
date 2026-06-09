@@ -18,7 +18,7 @@ Deployment choices affect the target disk and operating system installation. Rev
 Follow the wizard in order:
 
 1. Target
-2. Operating System Catalog
+2. Operating system
 3. Driver Pack
 4. Summary
 
@@ -45,9 +45,9 @@ Select only the disk that should be erased and receive Windows. Foundry Deploy b
 
 ![Foundry Deploy target selection](/img/docs/foundry-deploy/target-selection.png)
 
-## Operating System Catalog
+## Operating system
 
-Use the `Operating System Catalog` page to choose the Windows image from the catalog-backed filters.
+Use the `Operating system` page to choose the Windows image from the catalog-backed filters.
 
 Review or set:
 

@@ -25,21 +25,25 @@ These scripts publish self-contained single-file builds for:
 
 The repository also includes `Enable-LocalWinPeDeploy.ps1`, which is intended for development workflows where the desktop app should embed or reference debug WinPE application builds instead of normal release assets.
 
-## What the helper script actually sets
+## Runtime override contract
 
-When you run `Enable-LocalWinPeDeploy.ps1`, it enables debug runtime overrides and sets the project paths that `Foundry` uses later during media staging:
+Foundry's media staging code reads these debug runtime override variables:
 
 - `FOUNDRY_WINPE_DEBUG_CONNECT=1`
 - `FOUNDRY_WINPE_DEBUG_CONNECT_PROJECT=<repo>\\src\\Foundry.Connect\\Foundry.Connect.csproj`
 - `FOUNDRY_WINPE_DEBUG_DEPLOY=1`
 - `FOUNDRY_WINPE_DEBUG_DEPLOY_PROJECT=<repo>\\src\\Foundry.Deploy\\Foundry.Deploy.csproj`
 
-If you also provide archive paths, the script sets these optional overrides:
+If you use archive paths instead of project publishing, set these optional overrides:
 
 - `FOUNDRY_WINPE_DEBUG_CONNECT_ARCHIVE`
 - `FOUNDRY_WINPE_DEBUG_DEPLOY_ARCHIVE`
 
-That means debug testing can be driven from project builds, from prebuilt archives, or from a mix of both.
+Debug testing can be driven from project builds, from prebuilt archives, or from a mix of both. Archive overrides take precedence over project paths for the matching runtime.
+
+:::warning[Helper script variable mismatch]
+The current `Enable-LocalWinPeDeploy.ps1` helper exports `FOUNDRY_WINPE_LOCAL_*` variables, while the media staging code reads `FOUNDRY_WINPE_DEBUG_*` variables. Until the app source aligns that helper with the runtime override contract, set the `FOUNDRY_WINPE_DEBUG_*` variables directly in the shell that launches Foundry OSD.
+:::
 
 ## Script inputs
 
@@ -66,7 +70,3 @@ This debug flow is useful when you are changing:
 ## Scope of the debug flow
 
 The debug override path exists for development and validation. It is not the normal user workflow and should not be confused with the release-based media creation path.
-
-:::info[Screenshot placeholder]
-Add a capture of the terminal after `Enable-LocalWinPeDeploy.ps1` runs, with the debug override environment variables visible.
-:::
