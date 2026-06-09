@@ -79,7 +79,7 @@ Read [Network Readiness](../connect/network-readiness) for the runtime behavior.
 When Foundry Deploy opens, follow the wizard in order:
 
 1. Target
-2. Operating System Catalog
+2. Operating system
 3. Driver Pack
 4. Summary
 
