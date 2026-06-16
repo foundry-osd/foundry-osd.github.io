@@ -161,4 +161,3 @@ If deployment fails, Foundry Deploy shows the failed step and error message. Use
 
 - Review the [Expert Mode](../configure/expert-mode) section to understand which values can be staged from Foundry OSD.
 - Open [Catalog Overview](../reference/catalog-overview) to understand where operating system and driver choices come from.
-- Review [OS Recovery](./os-recovery) before enabling the WinRE last-resort redeployment path.

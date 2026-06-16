@@ -26,12 +26,11 @@ The deployment pipeline runs in this order:
 11. Download driver pack
 12. Extract driver pack
 13. Apply driver pack or stage deferred first-boot execution
-14. Provision OS Recovery, when enabled
-15. Download firmware update
-16. Apply firmware update
-17. Seal recovery partition
-18. Provision Autopilot
-19. Finalize deployment and write logs
+14. Download firmware update
+15. Apply firmware update
+16. Seal recovery partition
+17. Provision Autopilot
+18. Finalize deployment and write logs
 
 ## Runtime state
 
@@ -54,21 +53,3 @@ Interactive hardware hash upload mode stages the Foundry OOBE registration assis
 ## Failure behavior
 
 If a step fails, orchestration stops, the failure is logged, and Foundry Deploy reports the failed step to the operator. Logs are rebound to the final Windows target location when the Windows partition is available.
-## OS Recovery (WinRE)
-
-The deployment orchestrator also supports a WinRE-based recovery mode for devices that cannot complete normal deployment. This is surfaced as:
-
-`Troubleshoot > Advanced options > Foundry Recovery`
-
-The runtime in this mode differs from normal deployment:
-
-- `Foundry.Connect` is shipped inside the WinRE image and starts the recovery entrypoint.
-- `Foundry.Deploy` is not embedded; it is fetched during recovery to perform redeployment.
-- Recovery mode preserves EFI, MSR, and Recovery partitions, then formats and replaces the Windows partition.
-- Autopilot payloads, network roaming profiles, certificates, OA3 tools, media secrets, and enterprise personalization artifacts are intentionally excluded from the WinRE image.
-
-Operational limits:
-
-- Only one custom recovery tool entry is currently available.
-- Internet connectivity is required for bootstrap flow to download `Foundry.Deploy`.
-- The previous BitLocker-protected OS volume does not need to be readable during recovery.
