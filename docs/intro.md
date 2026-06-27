@@ -32,12 +32,11 @@ Open [Requirements](./start/requirements) first, then follow [Quick Start](./sta
 
 - [Start Here](./start/requirements): install Foundry OSD and complete the first deployment.
 - [Build Media](./build-media/standard-workflow): create ISO or USB deployment media.
-- [Connect](./connect/network-readiness): validate runtime networking before deployment.
-- [Deploy](./deploy/deployment-flow): select deployment options and run the Windows deployment.
+- [Configure Media](./configure/expert-mode): author advanced settings before media creation.
+- [Runtime](./runtime/network-readiness): validate networking, run deployment, and inspect post-WinPE behavior.
 - [Autopilot](./autopilot/overview): choose JSON profile injection, zero-touch hardware hash upload, or interactive hardware hash upload.
-- [Configure Deployment](./configure/expert-mode): use expert settings only when the standard path is not enough.
 - [Reference](./reference/product-boundaries): review product boundaries and runtime behavior.
-- [Technical Deep Dives](./technical): read implementation-level details for advanced troubleshooting and maintainers.
+- [Deployment Orchestrator](./reference/deployment-orchestrator): read implementation-level deployment ordering details for advanced troubleshooting and maintainers.
 
 ## What to read next
 

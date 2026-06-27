@@ -5,7 +5,7 @@ description: Configure wired 802.1X, Wi-Fi, and Windows profile roaming settings
 
 # Network configuration
 
-Network settings are authored in Foundry OSD and used later by Foundry Connect in WinPE and Foundry Deploy after Windows has been applied.
+Network settings are authored in Foundry OSD before media is built. They are used later by Foundry Connect in WinPE and by Foundry Deploy after Windows has been applied.
 
 :::note[Configure before boot]
 Network settings are selected on the admin workstation, but they are validated on the target device after boot.
@@ -93,4 +93,4 @@ Profile roaming imports the captured profile material into Windows. Personal Wi-
 
 ## Next step
 
-Open [Network Readiness](../connect/network-readiness) to understand how these settings are used after boot.
+Open [Network Readiness](../runtime/network-readiness) to understand how these settings are used after boot.

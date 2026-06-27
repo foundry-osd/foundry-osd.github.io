@@ -5,7 +5,7 @@ description: Configure machine naming, operating system selection, Windows OOBE 
 
 # Customization
 
-Customization settings define deployment-time behavior that should be prepared before the target device boots.
+Customization settings define deployment-time behavior that should be authored before media is built and prepared before the target device boots.
 
 ## Machine naming
 
@@ -28,7 +28,7 @@ Capture the Customization page with the machine naming controls expanded.
 
 ## Operating system selection
 
-Foundry OSD can stage the Operating System Catalog choices shown later in Foundry Deploy.
+Foundry OSD can stage the operating system choices shown later in Foundry Deploy.
 
 Available controls include:
 
@@ -131,7 +131,7 @@ Capture the Customization page with the provisioned AppX removal controls expand
 
 Machine naming affects the Foundry Deploy wizard. OOBE customization is applied to the offline Windows installation during deployment by writing unattend and policy values.
 
-Operating system selection affects the Foundry Deploy Operating System Catalog page only when its main switch is enabled. Allowed values restrict the version, language, license channel, and edition choices available to the deployment operator. Default values preselect choices only when those values are valid in the current catalog scope. A group with exactly one allowed value is treated as both the allowed value and the default value.
+Operating system selection affects the Foundry Deploy `Operating system` page only when its main switch is enabled. Allowed values restrict the version, language, license channel, and edition choices available to the deployment operator. Default values preselect choices only when those values are valid in the current catalog scope. A group with exactly one allowed value is treated as both the allowed value and the default value.
 
 AI component removal is split across the deployment phases. Foundry Deploy writes AI policy values into the offline target registry hives while it is still running in WinPE. Machine-wide policies are written through the offline `SOFTWARE` and `SYSTEM` hives, and future-user defaults are written by loading `Users\Default\NTUSER.DAT` under a temporary `HKU\FoundryDefault` mount. Foundry does not write these defaults through `HKEY_USERS\.DEFAULT`.
 
@@ -155,4 +155,4 @@ Staging this behavior from Foundry OSD makes the live deployment path faster and
 
 ## Next step
 
-Open [Deployment Flow](../deploy/deployment-flow) to see where customization can affect runtime choices.
+Open [Deployment Flow](../runtime/deployment-flow) to see where customization can affect runtime choices.

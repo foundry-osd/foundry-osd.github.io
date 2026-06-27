@@ -25,12 +25,13 @@ The deployment pipeline runs in this order:
 10. Configure recovery environment
 11. Download driver pack
 12. Extract driver pack
-13. Apply driver pack or stage deferred first-boot execution
-14. Download firmware update
-15. Apply firmware update
-16. Seal recovery partition
-17. Provision Autopilot
-18. Finalize deployment and write logs
+13. Stage pre-OOBE customization
+14. Apply driver pack or stage deferred first-boot execution
+15. Download firmware update
+16. Apply firmware update
+17. Seal recovery partition
+18. Provision Autopilot
+19. Finalize deployment and write logs
 
 ## Runtime state
 

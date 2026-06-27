@@ -5,7 +5,7 @@ description: Understand what Foundry stages before reboot and what Windows execu
 
 # Post-WinPE handoff
 
-This page is a technical deep dive. It explains what happens after Foundry Deploy finishes in WinPE and the target device boots into the applied Windows image.
+This page explains what happens after Foundry Deploy finishes in WinPE and the target device boots into the applied Windows image.
 
 ## Handoff boundary
 
@@ -46,7 +46,7 @@ The runner executes enabled PowerShell scripts in deterministic order:
 1. Script priority
 2. Script id
 
-Driver provisioning is priority `100` and runs before customization scripts. Customization scripts are registered only when the corresponding Foundry OSD or Foundry Deploy configuration enables them.
+Driver provisioning is priority `100` and runs before network profile import and customization scripts. Network profile import is priority `200`, customization scripts are priority `300`, and cleanup is priority `900`. Customization scripts are registered only when the corresponding Foundry OSD or Foundry Deploy configuration enables them.
 
 Provisioned AppX removal is a customization script. It runs before OOBE and uses online provisioned package removal so new user profiles are created without the selected packages. Foundry stages only supported provisioned package identifiers, such as `Microsoft.BingWeather`, in `Data\Remove-AppX.packages.json`; the script skips packages that are not provisioned in the applied image.
 
@@ -78,7 +78,7 @@ Most driver packs are applied offline with DISM. Some packages, such as selected
 
 The pre-OOBE runner then invokes the driver PowerShell script during first boot.
 
-When deferred driver provisioning and customization scripts are both enabled, Foundry stages one shared pre-OOBE runner. Driver provisioning runs first, AppX removal and AI AppX removal run in the customization bucket, and cleanup runs last.
+When deferred driver provisioning, network profile roaming, and customization scripts are enabled, Foundry stages one shared pre-OOBE runner. Driver provisioning runs first, network profile import runs next, AppX removal and AI AppX removal run in the customization bucket, and cleanup runs last.
 
 ## Operational artifacts
 
@@ -87,3 +87,5 @@ Foundry stores logs, deployment summaries, staged packages, and pre-OOBE manifes
 `Windows\Temp\Foundry`
 
 These files exist to make the deployment handoff auditable after WinPE exits.
+
+Open [Logs and Artifacts](./logs-and-artifacts) for the operator-facing collection checklist.

@@ -29,4 +29,4 @@ The runtime consumes normalized XML outputs instead of hardcoding vendor-specifi
 
 ## Next step
 
-Open [Deployment Flow](../deploy/deployment-flow) to see where catalog-backed choices appear.
+Open [Deployment Flow](../runtime/deployment-flow) to see where catalog-backed choices appear.

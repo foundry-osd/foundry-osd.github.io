@@ -1,16 +1,16 @@
 ---
-title: Expert Mode
-description: Use expert mode in Foundry OSD when deployment media needs predefined network, time zone, operating system selection, Autopilot, or customization behavior.
+title: Expert Mode Overview
+description: Use Foundry OSD expert mode to author configuration that is staged into generated deployment media.
 ---
 
-# Expert mode
+# Expert mode overview
 
-Expert mode turns Foundry OSD into a configuration authoring surface.
+Expert mode turns Foundry OSD into a pre-boot media configuration surface.
 
-Use it only when the standard workflow is not enough.
+Use it only when the generated media needs predefined runtime behavior.
 
 :::note[Do not start here by default]
-Create media with the standard workflow first unless the deployment environment requires predefined runtime behavior.
+Create media with the standard workflow first unless the deployment environment requires predefined network, deployment, customization, or Autopilot behavior.
 :::
 
 ## Expert sections
@@ -36,6 +36,8 @@ When you build ISO or USB media, Foundry OSD generates the runtime configuration
 - Foundry Deploy, for deployment-time preferences.
 
 Those files are written into the boot image during media creation. No operator action is required to create the Foundry Connect or Foundry Deploy runtime configuration files.
+
+After the target boots, these values are consumed by Foundry Connect, Foundry Deploy, Windows setup, or the Autopilot assistant. They are not edited from the workstation while deployment is running.
 
 ## Staged deployment preferences
 

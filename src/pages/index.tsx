@@ -63,19 +63,29 @@ const documentationSections = [
   {
     icon: icons.media,
     title: 'Build Media',
-    text: 'Create bootable media and choose between ISO and USB outputs.',
+    text: 'Create bootable media and understand how authored settings become runtime configuration.',
     links: [
+      ['Media Authoring Flow', '/docs/build-media/media-authoring-flow'],
       ['Media Creation', '/docs/build-media/media-creation'],
-      ['Standard Workflow', '/docs/build-media/standard-workflow'],
+    ],
+  },
+  {
+    icon: icons.media,
+    title: 'Configure Media',
+    text: 'Author advanced network, deployment, customization, and Autopilot behavior before media creation.',
+    links: [
+      ['Expert Mode Overview', '/docs/configure/expert-mode'],
+      ['Network Configuration', '/docs/configure/network'],
     ],
   },
   {
     icon: icons.runtime,
-    title: 'WinPE Runtime',
-    text: 'The bootstrap opens Foundry Connect and Foundry Deploy after booting the target device.',
+    title: 'Runtime',
+    text: 'The bootstrap opens Foundry Connect and Foundry Deploy after the target boots.',
     links: [
-      ['Foundry Connect', '/docs/connect/network-readiness'],
-      ['Foundry Deploy', '/docs/deploy/deployment-flow'],
+      ['Network Readiness', '/docs/runtime/network-readiness'],
+      ['Deployment Flow', '/docs/runtime/deployment-flow'],
+      ['Logs and Artifacts', '/docs/runtime/logs-and-artifacts'],
     ],
   },
   {
