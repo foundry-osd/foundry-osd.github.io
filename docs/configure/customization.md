@@ -5,7 +5,7 @@ description: Configure machine naming, operating system selection, Windows OOBE 
 
 # Customization
 
-Customization settings define deployment-time behavior that should be prepared before the target device boots.
+Customization settings define deployment-time behavior that should be authored before media is built and prepared before the target device boots.
 
 ## Machine naming
 
@@ -155,4 +155,4 @@ Staging this behavior from Foundry OSD makes the live deployment path faster and
 
 ## Next step
 
-Open [Deployment Flow](../deploy/deployment-flow) to see where customization can affect runtime choices.
+Open [Deployment Flow](../runtime/deployment-flow) to see where customization can affect runtime choices.

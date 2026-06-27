@@ -5,7 +5,7 @@ description: Understand what Foundry stages before reboot and what Windows execu
 
 # Post-WinPE handoff
 
-This page is a technical deep dive. It explains what happens after Foundry Deploy finishes in WinPE and the target device boots into the applied Windows image.
+This page explains what happens after Foundry Deploy finishes in WinPE and the target device boots into the applied Windows image.
 
 ## Handoff boundary
 
@@ -87,3 +87,5 @@ Foundry stores logs, deployment summaries, staged packages, and pre-OOBE manifes
 `Windows\Temp\Foundry`
 
 These files exist to make the deployment handoff auditable after WinPE exits.
+
+Open [Logs and Artifacts](./logs-and-artifacts) for the operator-facing collection checklist.

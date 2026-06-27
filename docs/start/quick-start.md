@@ -72,7 +72,7 @@ Foundry Connect checks whether the WinPE runtime network state is ready.
 
 If networking is ready, allow Foundry Connect to continue. The bootstrap then opens Foundry Deploy. If networking is not ready, resolve the network state before deployment starts.
 
-Read [Network Readiness](../connect/network-readiness) for the runtime behavior.
+Read [Network Readiness](../runtime/network-readiness) for the runtime behavior.
 
 ## 7. Run deployment
 
@@ -90,5 +90,5 @@ The wizard enables forward movement only when the required selections for the cu
 ## Next steps
 
 - Open [Standard Workflow](../build-media/standard-workflow) for the normal operator path.
-- Review the [Expert Mode](../configure/expert-mode) section when standard mode is not enough.
-- Open [Deployment Flow](../deploy/deployment-flow) for the Foundry Deploy wizard sequence.
+- Review the [Configure Media](../configure/expert-mode) section when standard mode is not enough.
+- Open [Deployment Flow](../runtime/deployment-flow) for the Foundry Deploy wizard sequence.

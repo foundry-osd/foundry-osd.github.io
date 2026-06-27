@@ -65,7 +65,7 @@ When no default is configured, Foundry Deploy keeps its normal catalog default o
 
 License channel and edition values use English catalog labels. `RET` is shown as `Retail`, `VOL` is shown as `Volume`, and edition names such as `Pro` and `Enterprise` remain English.
 
-![Foundry Deploy operating system catalog](/img/docs/foundry-deploy/operating-system-catalog.png)
+![Foundry Deploy operating system selection](/img/docs/foundry-deploy/operating-system.png)
 
 ## Driver Pack
 
@@ -135,6 +135,20 @@ Autopilot provisioning is mode-aware:
 
 Read [Autopilot Overview](../autopilot/overview) before using an Autopilot mode in production.
 
+## Authored values and runtime choices
+
+Foundry Deploy consumes configuration that Foundry OSD staged during media creation, then lets the operator confirm or complete runtime choices.
+
+| Value area | Source | Runtime behavior |
+| --- | --- | --- |
+| Time zone | Foundry OSD General settings | Applied through `unattend.xml` during Windows specialize |
+| Network profile roaming | Foundry OSD Network settings and Foundry Connect runtime capture | Imported during the pre-OOBE first-boot handoff |
+| Machine naming | Foundry OSD Customization settings | Pre-fills, generates, or locks the target computer name |
+| Operating system policy | Foundry OSD Customization settings | Restricts or preselects catalog filters when enabled |
+| OOBE and privacy defaults | Foundry OSD Customization settings | Written offline before reboot |
+| AI and AppX removal | Foundry OSD Customization settings | Applied offline or staged for pre-OOBE execution |
+| Autopilot mode | Foundry OSD Autopilot settings | Reviewed and executed according to the selected provisioning mode |
+
 ![Foundry Deploy target validation progress](/img/docs/foundry-deploy/progress-validate-target.png)
 
 ![Foundry Deploy operating system download progress](/img/docs/foundry-deploy/progress-download-operating-system.png)
@@ -159,5 +173,6 @@ If deployment fails, Foundry Deploy shows the failed step and error message. Use
 
 ## Next steps
 
-- Review the [Expert Mode](../configure/expert-mode) section to understand which values can be staged from Foundry OSD.
+- Review [Configure Media](../configure/expert-mode) to understand which values can be staged from Foundry OSD.
 - Open [Catalog Overview](../reference/catalog-overview) to understand where operating system and driver choices come from.
+- Open [Logs and Artifacts](./logs-and-artifacts) to locate runtime evidence after deployment.

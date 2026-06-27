@@ -7,6 +7,8 @@ description: Configure media creation defaults and deployment time zone behavior
 
 General settings control media creation defaults and deployment behavior that is not specific to networking, Autopilot, or customization.
 
+Foundry OSD stages these values into generated media. Foundry Deploy consumes the deployment time zone later during the WinPE runtime.
+
 ## Media defaults
 
 Use General to choose the boot media architecture, WinPE language, boot signature, and WinPE driver options before creating ISO or USB media.
@@ -26,4 +28,4 @@ Foundry OSD stores the time zone identifier used by Foundry Deploy. During deplo
 
 - Open [Network Configuration](./network) for wired and Wi-Fi settings.
 - Open [Customization](./customization) for machine naming, operating system selection, Windows OOBE behavior, AI component removal, and provisioned AppX removal.
-- Open [Deployment Flow](../deploy/deployment-flow) to see where these settings affect runtime behavior.
+- Open [Deployment Flow](../runtime/deployment-flow) to see where these settings affect runtime behavior.

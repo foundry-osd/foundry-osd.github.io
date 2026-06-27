@@ -83,6 +83,7 @@ const config: Config = {
             {label: 'Quick Start', to: '/docs/start/quick-start'},
             {label: 'Requirements', to: '/docs/start/requirements'},
             {label: 'Build Media', to: '/docs/build-media/media-creation'},
+            {label: 'Runtime', to: '/docs/runtime/network-readiness'},
           ],
         },
         {
